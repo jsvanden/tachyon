@@ -122,6 +122,17 @@ function SceneManager()
         {
           g_sceneList[i].onLoad();
         }
+        
+        for(var k=0; k<g_sceneList[i].gameObjects.length; k++)
+        {
+          for(var j=0; j<g_sceneList[i].gameObjects[k].componentList.length; j++)
+          {
+            if(g_sceneList[i].gameObjects[k].componentList[j].object.constructor.name == "RigidBody")
+            {
+              g_sceneList[i].gameObjects[k].componentList[j].object.init();
+            }
+          }
+        }
       }
     }
   }
@@ -190,6 +201,27 @@ function GameObject(options)
   this.rotation = this.options.rotation || 0;
   this.zPrev = 0;
 
+  this.setTransform = function(options) 
+  {
+    var options = options || {};
+    this.x = options.x || this.x;
+    this.y = options.y || this.y;
+    this.z = options.z || this.z;
+    this.rotation = options.rotation || this.rotation;
+    
+    for (var i=0; i<this.componentList.length; i++)
+    {
+      var temp = this.componentList[i].object;
+      
+    	if (temp.constructor.name == "RigidBody")
+      {
+        temp.body.GetBody().SetPositionAndAngle(new b2Vec2(((this.x+temp.xOffset)/SCALE),
+        (this.y+temp.yOffset)/SCALE),
+        (this.rotation+temp.rotationOffset)*(Math.PI / 180));
+      }
+    }
+  }
+  
 	this.componentList = new Array();
   
   this.addComponent = function(object, name)
@@ -280,34 +312,59 @@ function Sprite(source, options)
 
 //-------------------------------------------------------------
 
-function RigidBody()
+function RigidBody(options)
 {
+  this.options = options || {};
+  
   var fixDef = new b2FixtureDef;
-  fixDef.density = 1.0;
-  fixDef.friction = 0.5;
-  fixDef.restitution = 0.2;
+  fixDef.density = this.options.density || 1.0;
+  fixDef.friction = this.options.friction || 0.5;
+  fixDef.restitution = this.options.restitution || 0.2;
   
   var bodyDef = new b2BodyDef;
-  //bodyDef.type = b2Body.b2_staticBody;
-  bodyDef.type = b2Body.b2_dynamicBody;
-  bodyDef.position.x = 250/SCALE;
-  bodyDef.position.y = 250 / SCALE;
+  this.isDynamic = this.options.isDynamic || false;
+  bodyDef.type = (this.isDynamic) ? b2Body.b2_dynamicBody : b2Body.b2_staticBody;
+  this.xOffset = (this.options.xOffset) || 0;
+  this.yOffset = (this.options.yOffset) || 0;
+  this.rotationOffset = this.options.rotationOffset || 0;
   
   fixDef.shape = new b2PolygonShape;
   fixDef.shape.SetAsBox((200/SCALE)/2, (200/SCALE)/2);
 
-  var body = world.CreateBody(bodyDef).CreateFixture(fixDef);
+  
+  this.body;
+
+  this.init = function()
+  {
+    bodyDef.position.x = (this.parent.x+this.xOffset)/SCALE;
+    bodyDef.position.y = (this.parent.y+this.yOffset)/SCALE;
+    bodyDef.angle = (this.parent.rotation+this.rotationOffset)*(Math.PI / 180);
+    this.body = world.CreateBody(bodyDef).CreateFixture(fixDef);
+  }
 
   this.applyImpulse = function(degrees, power)
   {
-    body.m_body.ApplyImpulse(new b2Vec2(Math.cos(degrees * (Math.PI / 180)) * power,
-                                 Math.sin(degrees * (Math.PI / 180)) * power),
-                                 body.m_body.GetWorldCenter());
+    this.body.m_body.ApplyImpulse(new b2Vec2(Math.cos(degrees * (Math.PI / 180)) * power,
+                                 -Math.sin(degrees * (Math.PI / 180)) * power),
+                                 this.body.m_body.GetWorldCenter());
+    this.parent.x = this.body.GetBody().GetPosition().x*SCALE;
+    this.parent.y = this.body.GetBody().GetPosition().y*SCALE;
+    this.parent.rotation = this.body.GetBody().GetAngle()*(180 / Math.PI);
+  }
+  
+  this.applyForce = function(degrees, power)
+  {
+    this.body.m_body.ApplyForce(new b2Vec2(Math.cos(degrees * (Math.PI / 180)) * power,
+                                 -Math.sin(degrees * (Math.PI / 180)) * power),
+                                 this.body.m_body.GetWorldCenter());
+    this.parent.x = this.body.GetBody().GetPosition().x*SCALE;
+    this.parent.y = this.body.GetBody().GetPosition().y*SCALE;
+    this.parent.rotation = this.body.GetBody().GetAngle()*(180 / Math.PI);
   }
   
   this.update = function()
   {
-    this.applyImpulse(0,1);
+    this.applyImpulse(90,1);
   }
 }
 

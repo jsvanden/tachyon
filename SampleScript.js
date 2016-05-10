@@ -5,9 +5,10 @@ function sampleScript()
   {
   }
   */
-  
+  /*
   this.update = function()
   {
     console.log("BEWARE! I AM THE SAMPLE SCRIPT");
   }
+  */
 }
