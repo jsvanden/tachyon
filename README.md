@@ -4,20 +4,50 @@
 
 ### Scene Manager
 
-Test.
+**Parameters**
+
+name: *string for scene name. Default is "Untitled"*
+
+**Functions**
+
+x
 
 ### Scene
 
-Test.
+**Parameters**
+
+x
+
+**Functions**
+
+x
 
 ### GameObect
 
-Test.
+**Parameters**
+
+x
+
+**Functions**
+
+x
 
 ### Sprite
 
-Test.
+**Parameters**
+
+x
+
+**Functions**
+
+x
 
 ### RigidBody
 
-Test.
+**Parameters**
+
+x
+
+**Functions**
+
+x
