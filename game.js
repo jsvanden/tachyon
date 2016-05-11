@@ -5,4 +5,4 @@ sceneManager.init();
 sceneManager.play("Main Menu");
 requestAnimFrame(sceneManager.run);
 
-MainMenu.setCamera(200,220);
+//MainMenu.setCamera(200,220);
