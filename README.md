@@ -2,52 +2,31 @@
 
 ## API
 
-### Scene Manager
+### Scene Manager (name)
 
-**Parameters**
+####Parameters
 
-name: *string for scene name. Default is "Untitled"*
+**name:** *string for scene name. Default is "Untitled"*
 
-**Functions**
+####Functions
 
-x
+#####setCamera(x,y)
+  **x:**
+  **y:**
+
+**add(gameObject, options)**
 
 ### Scene
 
-**Parameters**
 
-x
-
-**Functions**
-
-x
 
 ### GameObect
 
-**Parameters**
 
-x
-
-**Functions**
-
-x
 
 ### Sprite
 
-**Parameters**
 
-x
-
-**Functions**
-
-x
 
 ### RigidBody
 
-**Parameters**
-
-x
-
-**Functions**
-
-x
