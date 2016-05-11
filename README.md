@@ -1,10 +1,10 @@
 # API
 
-## Scene Manager (name)
+## Scene Manager ()
 
 
 
-## Scene
+## Scene (name)
 
 ###Parameters
 
@@ -12,16 +12,9 @@
 
 ###Functions
 
-####setCamera(x,y)
-**x :** *horizontal position of the camera*
-**y :** *vertical position of the camera*
+**setCamera(x,y)**
 
-####add(gameObject, options)
-**gameObject :** *type of component to add (Sprite, RigidBody)*
-**x:** *horizontal position of the GameObject*
-**y:** *vertical position of the GameObject*
-**z:** *sorting order of the GameObect (visual)*
-**rotation:** *rotation of the GameObect*
+**add(gameObject, options)** *x, y, z, rotation*
 
 ## GameObect
 
