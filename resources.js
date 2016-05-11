@@ -4,7 +4,7 @@ var spr_john = new Sprite('resources/john.jpg', {width: 200, height: 200});
 
 // Rigid Body
 
-var rb_test = new RigidBody({isDynamic:true});
+var rb_test = new RigidBody({isDynamic:true, width: 200, height:200, radius:100, shape:"square"});
 
 // Scripts
 

@@ -328,9 +328,22 @@ function RigidBody(options)
   this.yOffset = (this.options.yOffset) || 0;
   this.rotationOffset = this.options.rotationOffset || 0;
   
+  this.shape = this.options.shape || "square";
   fixDef.shape = new b2PolygonShape;
-  fixDef.shape.SetAsBox((200/SCALE)/2, (200/SCALE)/2);
-
+  
+  if(this.shape == "square")
+  {
+    this.width = this.options.width || 50;
+    this.height = this.options.height || 50;
+    fixDef.shape.SetAsBox((this.width/SCALE)/2, (this.height/SCALE)/2);
+  }
+  if(this.shape == "circle")
+  {
+    var circleShape = new b2CircleShape;
+    circleShape.m_p.Set(0, 0); //position, relative to body position
+    circleShape.m_radius = this.options.radius/SCALE || 50/SCALE; //radius
+    fixDef.shape = circleShape;
+  }
   
   this.body;
 
@@ -347,8 +360,8 @@ function RigidBody(options)
     this.body.m_body.ApplyImpulse(new b2Vec2(Math.cos(degrees * (Math.PI / 180)) * power,
                                  -Math.sin(degrees * (Math.PI / 180)) * power),
                                  this.body.m_body.GetWorldCenter());
-    this.parent.x = this.body.GetBody().GetPosition().x*SCALE;
-    this.parent.y = this.body.GetBody().GetPosition().y*SCALE;
+    this.parent.x = this.body.GetBody().GetPosition().x*SCALE - this.xOffset;
+    this.parent.y = this.body.GetBody().GetPosition().y*SCALE - this.yOffset;
     this.parent.rotation = this.body.GetBody().GetAngle()*(180 / Math.PI);
   }
   
@@ -357,14 +370,38 @@ function RigidBody(options)
     this.body.m_body.ApplyForce(new b2Vec2(Math.cos(degrees * (Math.PI / 180)) * power,
                                  -Math.sin(degrees * (Math.PI / 180)) * power),
                                  this.body.m_body.GetWorldCenter());
-    this.parent.x = this.body.GetBody().GetPosition().x*SCALE;
-    this.parent.y = this.body.GetBody().GetPosition().y*SCALE;
+    this.parent.x = (this.body.GetBody().GetPosition().x)*SCALE - this.xOffset;
+    this.parent.y = (this.body.GetBody().GetPosition().y)*SCALE - this.yOffset;
     this.parent.rotation = this.body.GetBody().GetAngle()*(180 / Math.PI);
+  }
+  
+  this.getVelocityMagnitude = function()
+  {
+    return Math.abs(this.body.GetBody().GetLinearVelocity().x) + Math.abs(this.body.GetBody().GetLinearVelocity().y);
+  }
+  
+  this.setVelocityMagnitude = function(newMagnitude)
+  {
+    var oldMagnitude = this.getVelocityMagnitude();
+    if(oldMagnitude == 0 || newMagnitude < 0)
+    {
+      console.log("Cannot complete setVelocityMagnitude()")
+      return;
+    }
+    
+    var ratio = newMagnitude / oldMagnitude;
+    var newX = this.body.GetBody().GetLinearVelocity().x * ratio;
+    var newY = this.body.GetBody().GetLinearVelocity().y * ratio;
+    
+    this.body.GetBody().SetLinearVelocity(new b2Vec2(newX, newY));
+    // x:10, y:4, magnitude: 14
+    // x:?, y:?, magnitude: 7
+    // x:?, y:?, magnitude: 28
   }
   
   this.update = function()
   {
-    this.applyImpulse(90,1);
+    
   }
 }
 
