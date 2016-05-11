@@ -1,32 +1,30 @@
-# Tachyon
+# API
 
-## API
+## Scene Manager (name)
 
-### Scene Manager (name)
-
-####Parameters
+###Parameters
 
 **name:** *string for scene name. Default is "Untitled"*
 
-####Functions
+###Functions
 
-#####setCamera(x,y)
+####setCamera(x,y)
   **x:**
   **y:**
 
 **add(gameObject, options)**
 
-### Scene
+## Scene
 
 
 
-### GameObect
+## GameObect
 
 
 
-### Sprite
+## Sprite
 
 
 
-### RigidBody
+## RigidBody
 
