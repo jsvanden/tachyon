@@ -54,14 +54,30 @@ function Scene(name)
   this.isPaused = false;
   g_sceneList.push(this);
   
+  this.camera = new Camera();
+  
+  this.setCamera = function(x,y)
+  {
+    var deltaX = x - this.camera.x;
+    var deltaY = y - this.camera.y;
+    
+    this.camera.x = x;
+    this.camera.y = y;
+    
+    for (var i=0; i<this.gameObjects.length; i++)
+    {
+      this.gameObjects[i].setTransform({x: this.gameObjects[i].x + deltaX, y: this.gameObjects[i].y + deltaY});
+    }
+  }
+  
   this.gameObjects = new Array();
   
   this.add = function(gameObject, options)
   {
     this.options = options || {};
     var temp = Object.create(gameObject);
-    temp.x = (this.options.x + temp.x) || temp.x;
-    temp.y = (this.options.y + temp.y) || temp.y;
+    temp.x = (this.options.x + temp.x + this.camera.x) || temp.x + this.camera.x;
+    temp.y = (this.options.y + temp.y + this.camera.y) || temp.y + this.camera.y;
     temp.z = (this.options.z + temp.z) || temp.z;
     temp.rotation = (this.options.rotation + temp.rotation) || temp.rotation;
     temp.copyComponents(gameObject);
@@ -85,6 +101,12 @@ function Scene(name)
       this.gameObjects[i].draw();
     }
   }
+}
+
+function Camera()
+{
+  this.x = 0;
+  this.y = 0;
 }
 
 //---------------------------------------------
@@ -394,9 +416,6 @@ function RigidBody(options)
     var newY = this.body.GetBody().GetLinearVelocity().y * ratio;
     
     this.body.GetBody().SetLinearVelocity(new b2Vec2(newX, newY));
-    // x:10, y:4, magnitude: 14
-    // x:?, y:?, magnitude: 7
-    // x:?, y:?, magnitude: 28
   }
   
   this.update = function()
