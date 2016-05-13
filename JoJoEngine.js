@@ -521,6 +521,8 @@ function RigidBody(options)
   this.xOffset = (this.options.xOffset) || 0;
   this.yOffset = (this.options.yOffset) || 0;
   this.rotationOffset = this.options.rotationOffset || 0;
+  bodyDef.linearDamping = this.options.linearDamping || 0;
+  bodyDef.fixedRotation = this.options.fixedRotation || true;
   
   this.shape = this.options.shape || "square";
   fixDef.shape = new b2PolygonShape;

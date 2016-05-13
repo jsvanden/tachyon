@@ -9,7 +9,7 @@ var spr_greenDown = new Sprite('resources/greenDown.png', {width: 58, height: 35
 
 // Rigid Body
 
-var rb_character = new RigidBody({isDynamic: true, height:55});
+var rb_character = new RigidBody({isDynamic: true, height:55, linearDamping:0.5});
 var rb_wallLeft = new RigidBody({width:10, height:480, xOffset: -320});
 var rb_wallTop = new RigidBody({width: 640, height: 10, yOffset: -240});
 var rb_wallRight = new RigidBody({width:10, height:480, xOffset: 320});
