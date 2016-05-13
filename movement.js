@@ -1,29 +1,24 @@
 // JavaScript source code
 function movement() {
-    //keycodes
-    var rightCode = 39;
-    var leftCode = 37;
-    var upCode = 38;
-    var downCode = 40;
-    var dCode = 68;
-    var aCode = 65;
-    var wCode = 87;
-    var sCode = 83;
-    var shiftCode = 16;
+    var body;
     
-/* Happens At Start
+// Happens At Start
   this.start = function()
   {
-    // code
+    body = this.parent.getComponent("body");
   }
-*/
 
-/* Happens Every Frame
+
+// Happens Every Frame
   this.update = function()
   {
-    // code
+      if (InputManager.isPressed("shift")) {
+          if (InputManager.isPressed("right")) body.applyForce(0, 5);
+          if (InputManager.isPressed("up")) body.applyForce(90, 5);
+          if (InputManager.isPressed("left")) body.applyForce(180, 5);
+          if (InputManager.isPressed("down")) body.applyForce(270, 5);
+      }
   }
-*/
 }
 
 //InputManager.isPressed("right");
@@ -37,8 +32,3 @@ function movement() {
 //body.applyImpulse(angle, power);
 //body.getVelocityMagnitude();
 //body.setVelocityMagnitude(newMagnitude);
-/*
-  this.update = function()
-  {
-  }
-*/
