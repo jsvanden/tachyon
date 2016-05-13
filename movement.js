@@ -13,5 +13,12 @@ function movement() {
 }
 
 //InputManager.isPressed("right");
+//InputManager.isPressed("up");
+//InputManager.isPressed("left");
+//InputManager.isPressed("down");
+//InputManager.isPressed("shift");
 
 //var body = this.parent.getComponent("body");
+//body.applyForce(angle, power);
+//body.getVelocityMagnitude();
+//body.setVelocityMagnitude(newMagnitude);
