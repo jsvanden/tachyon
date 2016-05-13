@@ -30,6 +30,7 @@ window.requestAnimFrame = (
   var b2PolygonShape = Box2D.Collision.Shapes.b2PolygonShape;
   var b2CircleShape = Box2D.Collision.Shapes.b2CircleShape;
   var b2DebugDraw = Box2D.Dynamics.b2DebugDraw;
+  var b2Listener = Box2D.Dynamics.b2ContactListener;
 
   var SCALE = 30;
   
@@ -37,7 +38,66 @@ window.requestAnimFrame = (
   var world = new b2World(new b2Vec2(0,0), true);
   var debugDraw = new b2DebugDraw();
 
+  var listener = new b2Listener;
+  world.SetContactListener(listener);
   
+  listener.BeginContact = function(contact)
+  {
+    if(contact.m_fixtureA.m_parent.isTrigger)
+    {
+      var trigger = contact.m_fixtureA.m_parent.parent;
+      
+      for (var i=0; i<trigger.componentList.length; i++)
+      {
+        if (typeof trigger.componentList[i].object.onTriggerEnter === "function")
+        {
+          trigger.componentList[i].object.onTriggerEnter();
+        }
+      }
+    }
+    
+    if(contact.m_fixtureB.m_parent.isTrigger)
+    {
+      var trigger = contact.m_fixtureB.m_parent.parent;
+      
+      for (var i=0; i<trigger.componentList.length; i++)
+      {
+        if (typeof trigger.componentList[i].object.onTriggerEnter === "function")
+        {
+          trigger.componentList[i].object.onTriggerEnter();
+        }
+      }
+    }
+  }
+  
+  listener.EndContact = function(contact)
+  {
+    if(contact.m_fixtureA.m_parent.isTrigger)
+    {
+      var trigger = contact.m_fixtureA.m_parent.parent;
+      
+      for (var i=0; i<trigger.componentList.length; i++)
+      {
+        if (typeof trigger.componentList[i].object.onTriggerExit === "function")
+        {
+          trigger.componentList[i].object.onTriggerExit();
+        }
+      }
+    }
+    
+    if(contact.m_fixtureB.m_parent.isTrigger)
+    {
+      var trigger = contact.m_fixtureB.m_parent.parent;
+      
+      for (var i=0; i<trigger.componentList.length; i++)
+      {
+        if (typeof trigger.componentList[i].object.onTriggerExit === "function")
+        {
+          trigger.componentList[i].object.onTriggerExit();
+        }
+      }
+    }
+  }
   
 //---------------------------------------------
 //---------------------------------------------
@@ -149,9 +209,9 @@ function SceneManager()
         {
           for(var j=0; j<g_sceneList[i].gameObjects[k].componentList.length; j++)
           {
-            if(g_sceneList[i].gameObjects[k].componentList[j].object.constructor.name == "RigidBody")
+            if(typeof g_sceneList[i].gameObjects[k].componentList[j].object.start == "function")
             {
-              g_sceneList[i].gameObjects[k].componentList[j].object.init();
+              g_sceneList[i].gameObjects[k].componentList[j].object.start();
             }
           }
         }
@@ -342,6 +402,8 @@ function RigidBody(options)
   fixDef.density = this.options.density || 1.0;
   fixDef.friction = this.options.friction || 0.5;
   fixDef.restitution = this.options.restitution || 0.2;
+  this.isTrigger = this.options.isTrigger || false;
+  fixDef.isSensor = (this.isTrigger) ? true : false;
   
   var bodyDef = new b2BodyDef;
   this.isDynamic = this.options.isDynamic || false;
@@ -369,12 +431,13 @@ function RigidBody(options)
   
   this.body;
 
-  this.init = function()
+  this.start = function()
   {
     bodyDef.position.x = (this.parent.x+this.xOffset)/SCALE;
     bodyDef.position.y = (this.parent.y+this.yOffset)/SCALE;
     bodyDef.angle = (this.parent.rotation+this.rotationOffset)*(Math.PI / 180);
     this.body = world.CreateBody(bodyDef).CreateFixture(fixDef);
+    this.body.m_parent = this;
   }
 
   this.applyImpulse = function(degrees, power)
@@ -420,9 +483,20 @@ function RigidBody(options)
   
   this.update = function()
   {
+    if(this.parent.x != this.body.GetBody().GetPosition().x*SCALE - this.xOffset);
+      this.parent.x = this.body.GetBody().GetPosition().x*SCALE - this.xOffset;
+      
+    if(this.parent.y != this.body.GetBody().GetPosition().y*SCALE - this.yOffset)
+      this.parent.y = this.body.GetBody().GetPosition().y*SCALE - this.yOffset;
     
+    if(this.parent.rotation != this.body.GetBody().GetAngle()*(180 / Math.PI))
+      this.parent.rotation = this.body.GetBody().GetAngle()*(180 / Math.PI);
   }
 }
+
+
+
+
 
 
 
