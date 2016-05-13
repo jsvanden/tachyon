@@ -341,11 +341,12 @@ function SceneManager()
   this.run = function()
   {
     world.Step(1/60, 10, 10);
-    world.DrawDebugData();
     world.ClearForces();
     
     sceneManager.update();
     sceneManager.draw(); 
+    
+    world.DrawDebugData();
     
     requestAnimFrame(sceneManager.run);
   }

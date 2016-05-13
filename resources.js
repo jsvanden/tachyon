@@ -7,6 +7,11 @@ var spr_tempChar = new Sprite('resources/MoveDown.png', {width:62, height:88, yO
 // Rigid Body
 
 var rb_character = new RigidBody({isDynamic: true, height:55});
+var rb_wallLeft = new RigidBody({width:10, height:480, xOffset: -320});
+var rb_wallTop = new RigidBody({width: 640, height: 10, yOffset: -240});
+var rb_wallRight = new RigidBody({width:10, height:480, xOffset: 320});
+var rb_wallBottom = new RigidBody({width: 640, height: 10, yOffset: 240});
+
 
 // Scripts
 
@@ -23,6 +28,11 @@ go_character.addComponent(script_sample, "Sample Script");
 
 var go_room01 = new GameObject();
 go_room01.addComponent(spr_room01, "sprite");
+go_room01.addComponent(rb_wallLeft, "left wall");
+go_room01.addComponent(rb_wallTop, "top wall");
+go_room01.addComponent(rb_wallRight, "right wall");
+go_room01.addComponent(rb_wallBottom, "bottom wall");
+
 
 /*
 var go_SampleGameObject = new GameObject();
