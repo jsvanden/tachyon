@@ -11,3 +11,7 @@ function movement() {
     var sCode = 83;
     var shiftCode = 16;
 }
+
+//InputManager.isPressed("right");
+
+//var body = this.parent.getComponent("body");
