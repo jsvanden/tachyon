@@ -10,7 +10,7 @@ InputManager.add("shift", [16]);
 
 sceneManager.drawDebug = true;
 sceneManager.init();
-sceneManager.play("Main Menu");
+sceneManager.play("Level 1");
 requestAnimFrame(sceneManager.run);
 
 //MainMenu.setCamera(200,220);

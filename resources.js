@@ -1,8 +1,9 @@
 // Sprites
 
-var spr_john = new Sprite('resources/john.jpg');
 var spr_room01 = new Sprite('resources/level01.png', {width:640, height:480});
+
 var spr_tempChar = new Sprite('resources/MoveDown.png', {width:62, height:88, yOffset:5});
+
 var spr_greenUp = new Sprite('resources/greenUp.png', {width: 58, height: 40});
 var spr_greenDown = new Sprite('resources/greenDown.png', {width: 58, height: 35, yOffset:2.5});
 
