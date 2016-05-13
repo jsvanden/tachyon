@@ -3,7 +3,7 @@ function sampleScript()
   
   this.start = function()
   {
-    //this.parent.getComponent("body").applyImpulse(0,10);
+    this.parent.getComponent("body").applyImpulse(0,10);
   }
   /*
   this.onTriggerEnter = function()

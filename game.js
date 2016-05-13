@@ -8,6 +8,7 @@ InputManager.add("up", [87, 38]);
 InputManager.add("down", [83, 40]);
 InputManager.add("shift", [16]);
 
+sceneManager.drawDebug = true;
 sceneManager.init();
 sceneManager.play("Main Menu");
 requestAnimFrame(sceneManager.run);

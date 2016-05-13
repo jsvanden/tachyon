@@ -266,11 +266,13 @@ function Camera()
 
 function SceneManager()
 {
+  this.drawDebug = false;
+  
   this.init = function()
   {
     debugDraw.SetSprite(context);
     debugDraw.SetDrawScale(SCALE);
-    debugDraw.SetFillAlpha(1);
+    debugDraw.SetFillAlpha(0.5);
     debugDraw.SetLineThickness(1.0);
     debugDraw.SetFlags(b2DebugDraw.e_shapeBit | b2DebugDraw.e_jointBit);
     world.SetDebugDraw(debugDraw);
@@ -346,7 +348,11 @@ function SceneManager()
     sceneManager.update();
     sceneManager.draw(); 
     
-    world.DrawDebugData();
+    
+    if(sceneManager.drawDebug == true)
+    {
+      world.DrawDebugData();
+    }
     
     requestAnimFrame(sceneManager.run);
   }
