@@ -3,6 +3,8 @@
 var spr_john = new Sprite('resources/john.jpg');
 var spr_room01 = new Sprite('resources/level01.png', {width:640, height:480});
 var spr_tempChar = new Sprite('resources/MoveDown.png', {width:62, height:88, yOffset:5});
+var spr_greenUp = new Sprite('resources/greenUp.png', {width: 58, height: 40});
+var spr_greenDown = new Sprite('resources/greenDown.png', {width: 58, height: 35, yOffset:2.5});
 
 // Rigid Body
 
@@ -33,15 +35,9 @@ go_room01.addComponent(rb_wallTop, "top wall");
 go_room01.addComponent(rb_wallRight, "right wall");
 go_room01.addComponent(rb_wallBottom, "bottom wall");
 
+var go_buttonSystem = new GameObject();
 
-/*
-var go_SampleGameObject = new GameObject();
-go_SampleGameObject.addComponent(spr_john, "john");
-//go_SampleGameObject.addComponent(script_sample, "consoleLog");
-go_SampleGameObject.addComponent(rb_test, "physics");
 
-var go_SampleGameObject2 = new GameObject();
-go_SampleGameObject2.addComponent(spr_john, "john");
-go_SampleGameObject2.addComponent(rb_test2, "physics");
-go_SampleGameObject2.addComponent(script_sample, "consoleLog");
-*/
+
+
+
