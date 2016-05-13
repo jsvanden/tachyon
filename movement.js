@@ -10,6 +10,20 @@ function movement() {
     var wCode = 87;
     var sCode = 83;
     var shiftCode = 16;
+    
+/* Happens At Start
+  this.start = function()
+  {
+    // code
+  }
+*/
+
+/* Happens Every Frame
+  this.update = function()
+  {
+    // code
+  }
+*/
 }
 
 //InputManager.isPressed("right");
@@ -20,5 +34,11 @@ function movement() {
 
 //var body = this.parent.getComponent("body");
 //body.applyForce(angle, power);
+//body.applyImpulse(angle, power);
 //body.getVelocityMagnitude();
 //body.setVelocityMagnitude(newMagnitude);
+/*
+  this.update = function()
+  {
+  }
+*/
