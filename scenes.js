@@ -1,5 +1,6 @@
 // Main Menu
 var MainMenu = new Scene("Main Menu");
-//var johnCena = MainMenu.add(go_SampleGameObject, {x:400, y:240});
-//var johnCena2 = MainMenu.add(go_SampleGameObject2, {x:20, y:400});
-var character = MainMenu.add(go_character, {x:320, y:240});
+MainMenu.onLoad = function()
+{
+  MainMenu.add(go_character, {x:320, y:240});
+}

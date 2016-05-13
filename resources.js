@@ -17,6 +17,7 @@ var go_character = new GameObject();
 go_character.addComponent(spr_john, "sprite");
 go_character.addComponent(rb_character, "body");
 go_character.addComponent(script_movement, "movement");
+go_character.addComponent(script_sample, "Sample Script");
 
 /*
 var go_SampleGameObject = new GameObject();

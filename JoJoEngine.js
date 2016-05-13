@@ -46,12 +46,13 @@ window.requestAnimFrame = (
     if(contact.m_fixtureA.m_parent.isTrigger)
     {
       var trigger = contact.m_fixtureA.m_parent.parent;
+      var collider = contact.m_fixtureB.m_parent.parent;
       
       for (var i=0; i<trigger.componentList.length; i++)
       {
         if (typeof trigger.componentList[i].object.onTriggerEnter === "function")
         {
-          trigger.componentList[i].object.onTriggerEnter();
+          trigger.componentList[i].object.onTriggerEnter(collider);
         }
       }
     }
@@ -59,12 +60,13 @@ window.requestAnimFrame = (
     if(contact.m_fixtureB.m_parent.isTrigger)
     {
       var trigger = contact.m_fixtureB.m_parent.parent;
+      var collider = contact.m_fixtureA.m_parent.parent;
       
       for (var i=0; i<trigger.componentList.length; i++)
       {
         if (typeof trigger.componentList[i].object.onTriggerEnter === "function")
         {
-          trigger.componentList[i].object.onTriggerEnter();
+          trigger.componentList[i].object.onTriggerEnter(collider);
         }
       }
     }
@@ -75,12 +77,13 @@ window.requestAnimFrame = (
     if(contact.m_fixtureA.m_parent.isTrigger)
     {
       var trigger = contact.m_fixtureA.m_parent.parent;
+      var collider = contact.m_fixtureB.m_parent.parent;
       
       for (var i=0; i<trigger.componentList.length; i++)
       {
         if (typeof trigger.componentList[i].object.onTriggerExit === "function")
         {
-          trigger.componentList[i].object.onTriggerExit();
+          trigger.componentList[i].object.onTriggerExit(collider);
         }
       }
     }
@@ -88,18 +91,103 @@ window.requestAnimFrame = (
     if(contact.m_fixtureB.m_parent.isTrigger)
     {
       var trigger = contact.m_fixtureB.m_parent.parent;
+      var collider = contact.m_fixtureA.m_parent.parent;
       
       for (var i=0; i<trigger.componentList.length; i++)
       {
         if (typeof trigger.componentList[i].object.onTriggerExit === "function")
         {
-          trigger.componentList[i].object.onTriggerExit();
+          trigger.componentList[i].object.onTriggerExit(collider);
         }
       }
     }
   }
   
 //---------------------------------------------
+var g_inputManager;
+
+function InputManager()
+{
+  g_inputManager = this;
+  
+  this.inputs = new Array();
+  this.mouse = {isDown: false, x:0, y:0};
+  
+  this.add = function(name, codes)
+  {
+    this.inputs.push({name: name, codes: codes, pressed: false});
+  }
+  
+  this.isPressed = function(button)
+  {
+    for(var i=0; i<this.inputs.length; i++)
+    {
+      if (this.inputs[i].name == button)
+      {
+        return (this.inputs[i].pressed);
+      }
+    }
+    return false;
+  }
+  
+  this.mouseDown = function(event)
+  {
+    this.mouse.isDown = true;
+    this.mouse.x = event.pageX - canvas.offsetLeft;
+    this.mouse.y = event.pageY - canvas.offsetTop;
+  }
+  
+  this.mouseUp = function(event)
+  {
+    this.mouse.isDown = false;
+  }
+  
+  this.keyDown = function(event)
+  {
+    for(var i=0; i<this.inputs.length; i++)
+    {
+      for(k=0; k<this.inputs[i].codes.length; k++)
+      {
+        if(event.keyCode == this.inputs[i].codes[k])
+        {
+          this.inputs[i].pressed = true;
+        }
+      }
+    }
+  }
+  
+  this.keyUp = function(event)
+  {
+    for(var i=0; i<this.inputs.length; i++)
+    {
+      for(k=0; k<this.inputs[i].codes.length; k++)
+      {
+        if(event.keyCode == this.inputs[i].codes[k])
+        {
+          this.inputs[i].pressed = false;
+        }
+      }
+    }
+  }
+  
+  canvas.onmousedown = function(event)
+  {
+    g_inputManager.mouseDown(event);
+  }
+  canvas.onmouseup = function(event)
+  {
+    g_inputManager.mouseUp(event);
+  }
+  document.onkeydown = function(event)
+  {
+    g_inputManager.keyDown(event);
+  }
+  document.onkeyup = function(event)
+  {
+    g_inputManager.keyUp(event);
+  }
+}
+
 //---------------------------------------------
 //---------------------------------------------
 
@@ -161,6 +249,11 @@ function Scene(name)
       this.gameObjects[i].draw();
     }
   }
+  
+  this.clear = function()
+  {
+    this.gameObjects = [];
+  }
 }
 
 function Camera()
@@ -177,7 +270,7 @@ function SceneManager()
   {
     debugDraw.SetSprite(context);
     debugDraw.SetDrawScale(SCALE);
-    debugDraw.SetFillAlpha(0.3);
+    debugDraw.SetFillAlpha(1);
     debugDraw.SetLineThickness(1.0);
     debugDraw.SetFlags(b2DebugDraw.e_shapeBit | b2DebugDraw.e_jointBit);
     world.SetDebugDraw(debugDraw);
@@ -192,6 +285,16 @@ function SceneManager()
   
   this.play = function(name)
   {
+    //world.DestroyWorld();
+    world = new b2World(new b2Vec2(0,0), true);
+    world.SetContactListener(listener);
+    world.SetDebugDraw(debugDraw);
+    
+    for (var i=0; i<this.activeScenes.length; i++)
+    {
+      this.activeScenes[i].clear();
+    }
+    
     this.activeScenes = [];
     
     for (var i=0; i<g_sceneList.length; i++)
