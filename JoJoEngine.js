@@ -475,6 +475,17 @@ function GameObject(options)
       }
     }
   }
+
+  this.start = function()
+  {
+      for (var i = 0; i < this.componentList.length; i++)
+      {
+          if (typeof this.componentList[i].object.start === "function")
+          {
+              this.componentList[i].object.start();
+          }
+      }
+  }
 }
 
 //-------------------------------------------------------------

@@ -4,5 +4,5 @@ Level_1.onLoad = function()
 {
   Level_1.add(go_character, {x:320, y:240});
   Level_1.add(go_room01, {x:320, y:240, z:-2});
-  Level_1.add(go_buttonSystem);
+  Level_1.add(go_buttonSystem, {z:-1});
 }
