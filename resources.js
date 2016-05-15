@@ -10,6 +10,8 @@ var spr_greenDown = new Sprite('resources/greenDown.png', { width: 58, height: 3
 //var spr_redUp = new Sprite('resources/redUp.png', {width: 58, height: 40});
 //var spr_redDown = new Sprite('resources/redDown.png', { width: 58, height: 35, yOffset: 2.5 });
 
+//var spr_bDoor = new Sprite('resources/bDoor.png', {width: 60, height: 60});
+
 // Rigid Body
 
 var rb_character = new RigidBody({isDynamic: true, height:55, linearDamping:0.5});
@@ -19,6 +21,7 @@ var rb_wallRight = new RigidBody({width:10, height:480, xOffset: 320});
 var rb_wallBottom = new RigidBody({ width: 640, height: 10, yOffset: 240 });
 var rb_green = new RigidBody({ width: 58, height: 40, isTrigger: true });
 var rb_red = new RigidBody({ width: 58, height: 40, isTrigger: true });
+var rb_bDoor = new RigidBody({ width: 60, height: 60 });
 
 
 // Scripts
@@ -45,13 +48,18 @@ var go_green = new GameObject({x:100,y:250});
 go_green.addComponent(spr_greenUp, "sprite");
 go_green.addComponent(rb_green, "body");
 
-var go_red = new GameObject({ x: 300, y: 250 });
+var go_red = new GameObject({ x: 500, y: 250 });
 //go_red.addComponent(spr_redUp, "sprite");
 go_red.addComponent(rb_red, "body");
+
+var go_bDoor = new GameObject({ x: 300, y: 100 });
+//go_bDoor.addComponent(spr_bDoor, "sprite");
+go_bDoor.addComponent(rb_bDoor, "body");
 
 var go_buttonSystem = new GameObject();
 go_buttonSystem.addComponent(go_green, "green");
 go_buttonSystem.addComponent(go_red, "red");
+go_buttonSystem.addComponent(go_bDoor, "door");
 
 
 
