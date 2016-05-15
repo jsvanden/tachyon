@@ -156,12 +156,16 @@ function checkKey(key){
 			break;
 		case 87: 
 			console.log("w")
+			setRate(rate+=.1)
+			console.log(rate);
 			break;
 		case 68: 
 			console.log("d")
 			break;
 		case 83:
 			console.log("s")
+			setRate(rate-=.1);
+			console.log(rate);
 			break;
 		 
 		default:
