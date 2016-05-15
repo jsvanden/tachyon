@@ -7,8 +7,8 @@ var spr_tempChar = new Sprite('resources/MoveDown.png', {width:62, height:88, yO
 var spr_greenUp = new Sprite('resources/greenUp.png', {width: 58, height: 40});
 var spr_greenDown = new Sprite('resources/greenDown.png', { width: 58, height: 35, yOffset: 2.5 });
 
-//var spr_redUp = new Sprite('resources/redUp.png', {width: 58, height: 40});
-//var spr_redDown = new Sprite('resources/redDown.png', { width: 58, height: 35, yOffset: 2.5 });
+var spr_redUp = new Sprite('resources/redUp.png', {width: 58, height: 40});
+var spr_redDown = new Sprite('resources/redDown.png', { width: 58, height: 35, yOffset: 2.5 });
 
 //var spr_bDoor = new Sprite('resources/bDoor.png', {width: 60, height: 60});
 
@@ -49,7 +49,7 @@ go_green.addComponent(spr_greenUp, "sprite");
 go_green.addComponent(rb_green, "body");
 
 var go_red = new GameObject({ x: 500, y: 250 });
-//go_red.addComponent(spr_redUp, "sprite");
+go_red.addComponent(spr_redUp, "sprite");
 go_red.addComponent(rb_red, "body");
 
 var go_bDoor = new GameObject({ x: 300, y: 100 });
