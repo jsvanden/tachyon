@@ -2,8 +2,11 @@
 function movement() {
     var body;
     var speed = 30;
-    var speedCap = 10;
-    var walking = 5;
+    var speedCap = 20;
+    var tier = 1;
+    var tierCap = 3;
+    //var walking = 1;
+    var ramp = 0;
     
 // Happens At Start
   this.start = function()
@@ -15,14 +18,60 @@ function movement() {
 // Happens Every Frame
   this.update = function()
   {
-      if (InputManager.isPressed("right")) body.applyForce(0, speed);
-      if (InputManager.isPressed("up")) body.applyForce(90, speed);
-      if (InputManager.isPressed("left")) body.applyForce(180, speed);
-      if (InputManager.isPressed("down")) body.applyForce(270, speed);
-      if (!InputManager.isPressed("shift") && body.getVelocityMagnitude() >= walking) body.setVelocityMagnitude(walking);
+      if (InputManager.isPressed("right")) {
+          body.applyForce(0, speed * tier);
+          if (InputManager.isPressed("shift")) {
+              ramp++;
+              if (ramp > 180) {
+                  ramp = 0;
+                  tier++;
+              }
+          }
+      }
+      if (InputManager.isPressed("up")) {
+          body.applyForce(90, speed * tier);
+          if (InputManager.isPressed("shift")) {
+              ramp++;
+              if (ramp > 180) {
+                  ramp = 0;
+                  tier++;
+              }
+          }
+      }
+      if (InputManager.isPressed("left")) {
+          body.applyForce(180, speed * tier);
+          if (InputManager.isPressed("shift")) {
+              ramp++;
+              if (ramp > 180) {
+                  ramp = 0;
+                  tier++;
+              }
+          }
+      }
+      if (InputManager.isPressed("down")) {
+          body.applyForce(270, speed * tier);
+          if (InputManager.isPressed("shift")) {
+              ramp++;
+              if (ramp > 180) {
+                  ramp = 0;
+                  tier++;
+              }
+          }
+      }
+      if (!InputManager.isPressed("shift")) {
+          ramp--;
+          if (ramp < 0) {
+              ramp = 170;
+              tier--;
+          }
+      }
+      if (tier < 1) tier = 1;
+      if (tier > tierCap) tier = tierCap;
+      if (body.getVelocityMagnitude() > speedCap * tier) body.setVelocityMagnitude(speedCap * tier);
+      /*if (!InputManager.isPressed("shift") && body.getVelocityMagnitude() >= walking) body.setVelocityMagnitude(walking);
       else {
           if (body.getVelocityMagnitude() >= speedCap) body.setVelocityMagnitude(speedCap);
-      }
+      }*/
   }
 }
 
