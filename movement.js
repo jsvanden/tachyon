@@ -1,8 +1,8 @@
 // JavaScript source code
 function movement() {
     var body;
-    var speed = 30;
-    var speedCap = 20;
+    //var speed = 30;
+    var speedCap = 5;
     var tier = 1;
     var tierCap = 3;
     //var walking = 1;
@@ -19,7 +19,7 @@ function movement() {
   this.update = function()
   {
       if (InputManager.isPressed("right")) {
-          body.applyForce(0, speed * tier);
+          body.applyForce(0, 1000);
           if (InputManager.isPressed("shift")) {
               ramp++;
               if (ramp > 180) {
@@ -29,7 +29,7 @@ function movement() {
           }
       }
       if (InputManager.isPressed("up")) {
-          body.applyForce(90, speed * tier);
+          body.applyForce(90, 1000);
           if (InputManager.isPressed("shift")) {
               ramp++;
               if (ramp > 180) {
@@ -39,7 +39,7 @@ function movement() {
           }
       }
       if (InputManager.isPressed("left")) {
-          body.applyForce(180, speed * tier);
+          body.applyForce(180, 1000);
           if (InputManager.isPressed("shift")) {
               ramp++;
               if (ramp > 180) {
@@ -49,7 +49,7 @@ function movement() {
           }
       }
       if (InputManager.isPressed("down")) {
-          body.applyForce(270, speed * tier);
+          body.applyForce(270, 1000);
           if (InputManager.isPressed("shift")) {
               ramp++;
               if (ramp > 180) {
