@@ -77,6 +77,11 @@ function movement() {
   // Happens when colliding with a non-trigger RigidBody
   this.onCollision = function()
   {
+      if (body.getVelocityMagnitude() != 0) {
+          body.setVelocityMagnitude(0);
+          ramp = 0;
+          tier = 1;
+      }
     //console.log("hit")
   }
 }
