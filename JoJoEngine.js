@@ -419,6 +419,8 @@ function SceneManager()
   
   this.run = function()
   {
+    canvas.width = canvas.width;
+    
     world.Step(1/60, 10, 10);
     world.ClearForces();
     
@@ -442,7 +444,7 @@ function SceneManager()
   }
   
   this.draw = function()
-  {    
+  {
     for (var i=0; i<this.activeScenes.length; i++)
     {
       this.activeScenes[i].draw();

@@ -10,10 +10,12 @@ InputManager.add("right", [68, 39]);
 InputManager.add("up", [87, 38]);
 InputManager.add("down", [83, 40]);
 InputManager.add("shift", [16]);
+InputManager.add("enter", [13,32]);
 
 sceneManager.drawDebug = true;
 sceneManager.init();
 sceneManager.play("Level 1");
+sceneManager.play("Main Menu");
 requestAnimFrame(sceneManager.run);
 
 //MainMenu.setCamera(200,220);

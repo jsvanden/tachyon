@@ -1,4 +1,11 @@
 // Main Menu
+var MainMenu = new Scene("Main Menu");
+MainMenu.onLoad = function()
+{
+  MainMenu.add(go_mainMenu, {x:320, y:240});
+}
+
+// Level 1
 var Level_1 = new Scene("Level 1");
 Level_1.onLoad = function()
 {

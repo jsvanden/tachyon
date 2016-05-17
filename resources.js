@@ -10,11 +10,13 @@ var spr_greenDown = new Sprite('resources/greenDown.png', { width: 58, height: 3
 var spr_redUp = new Sprite('resources/redUp.png', {width: 58, height: 40});
 var spr_redDown = new Sprite('resources/redDown.png', { width: 58, height: 35, yOffset: 2.5 });
 
+var spr_mainMenu = new Sprite('resources/john.jpg', {width: 640, height:480});
+
 //var spr_bDoor = new Sprite('resources/bDoor.png', {width: 60, height: 60});
 
 // Rigid Body
 
-var rb_character = new RigidBody({isDynamic: true, listenForCollision: true, height:55, linearDamping:0.5});
+var rb_character = new RigidBody({isDynamic: true, listenForCollision: true, height:55, linearDamping:0.75});
 var rb_wallLeft = new RigidBody({width:10, height:480, xOffset: -320});
 var rb_wallTop = new RigidBody({width: 640, height: 10, yOffset: -240});
 var rb_wallRight = new RigidBody({width:10, height:480, xOffset: 320});
@@ -23,11 +25,11 @@ var rb_green = new RigidBody({ width: 58, height: 40, isTrigger: true });
 var rb_red = new RigidBody({ width: 58, height: 40, isTrigger: true });
 var rb_bDoor = new RigidBody({ width: 60, height: 60 });
 
-
 // Scripts
 
 var script_sample = new sampleScript();
 var script_movement = new movement();
+var script_mainMenu = new MainMenu();
 
 // GameObjects
 
@@ -35,7 +37,7 @@ var go_character = new GameObject();
 go_character.addComponent(spr_tempChar, "sprite");
 go_character.addComponent(rb_character, "body");
 go_character.addComponent(script_movement, "movement");
-go_character.addComponent(script_sample, "Sample Script");
+//go_character.addComponent(script_sample, "Sample Script");
 
 var go_room01 = new GameObject();
 go_room01.addComponent(spr_room01, "sprite");
@@ -60,6 +62,15 @@ var go_buttonSystem = new GameObject();
 go_buttonSystem.addComponent(go_green, "green");
 go_buttonSystem.addComponent(go_red, "red");
 go_buttonSystem.addComponent(go_bDoor, "door");
+
+var go_mainMenu = new GameObject();
+go_mainMenu.addComponent(script_mainMenu, "input");
+go_mainMenu.addComponent(spr_mainMenu, "sprite");
+
+
+
+
+
 
 
 
