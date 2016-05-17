@@ -25,6 +25,7 @@ function movement() {
               if (ramp > 180) {
                   ramp = 0;
                   tier++;
+				  this.updateAudioManager();
               }
           }
       }
@@ -35,6 +36,7 @@ function movement() {
               if (ramp > 180) {
                   ramp = 0;
                   tier++;
+				  this.updateAudioManager();
               }
           }
       }
@@ -45,6 +47,7 @@ function movement() {
               if (ramp > 180) {
                   ramp = 0;
                   tier++;
+				  this.updateAudioManager();
               }
           }
       }
@@ -55,6 +58,7 @@ function movement() {
               if (ramp > 180) {
                   ramp = 0;
                   tier++;
+				  this.updateAudioManager();
               }
           }
       }
@@ -63,9 +67,13 @@ function movement() {
           if (ramp < 0) {
               ramp = 170;
               tier--;
+			  this.updateAudioManager();
           }
       }
-      if (tier < 1) tier = 1;
+      if (tier < 1) {
+		  tier = 1;
+		  this.updateAudioManager();
+	  }
       if (tier > tierCap) tier = tierCap;
       if (body.getVelocityMagnitude() > speedCap * tier) body.setVelocityMagnitude(speedCap * tier);
       /*if (!InputManager.isPressed("shift") && body.getVelocityMagnitude() >= walking) body.setVelocityMagnitude(walking);
@@ -81,8 +89,14 @@ function movement() {
           body.setVelocityMagnitude(0);
           ramp = 0;
           tier = 1;
+		  this.updateAudioManager();
       }
     //console.log("hit")
+  }
+  
+  this.updateAudioManager = function()
+  {
+	AudioManager.setPlaybackRate("Level 1 Song", 1-(tier*0.1));
   }
 }
 

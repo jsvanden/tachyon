@@ -222,38 +222,46 @@ function AudioManager()
 {
   this.audioEntities = new Array();
   
-  this.play = function(url)
+  this.play = function(url, name, options)
   {
     var audioFound = false;
+	var options = options || {};
     
     for(var i=0; i<this.audioEntities.length; i++)
     {
       if(this.audioEntities[i].audio.ended)
       {
         audioFound = true;
-        this.audioEntities[i].play(url);
+		this.audioEntities[i].name = name;
+		this.audioEntities[i].audio.src = url;
+		this.audioEntities[i].audio.loop = options.loop || false;
+        this.audioEntities[i].audio.play();
         return;
       }
     }
     
     if(!audioFound)
     {
-      var temp = new AudioSource();
-      temp.play(url);
-      this.audioEntities.push(temp);
+      var temp = new Audio();
+	  temp.src = url;
+	  temp.loop = options.loop || false;
+	  temp.play();
+      this.audioEntities.push({name: name, audio:temp});
     }
   }
-}
-
-function AudioSource(options)
-{
-  this.options = options || {};
-  this.audio = new Audio();
   
-  this.play = function(url)
+  this.setPlaybackRate = function(name, rate)
   {
-    this.audio.src = url;
-    this.audio.play();
+	var tempRate = rate;
+	if(rate < 0.5) tempRate = 0.5;
+	if(rate > 1.5) tempRate = 1.5;
+	for(var i=0; i<this.audioEntities.length; i++)
+    {
+	  if(this.audioEntities[i].name == name)
+	  {
+		this.audioEntities[i].audio.playbackRate = tempRate;
+	  }
+	}
   }
 }
 
