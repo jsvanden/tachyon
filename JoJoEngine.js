@@ -222,8 +222,6 @@ function AudioManager()
 {
   this.audioEntities = new Array();
   
-  var testAudio;////////////////
-  
   this.play = function(url)
   {
     var audioFound = false;
@@ -243,14 +241,6 @@ function AudioManager()
       var temp = new AudioSource();
       temp.play(url);
       this.audioEntities.push(temp);
-    }
-  }
-  
-  this.update = function()
-  {    
-    if(InputManager.isPressed("right"))
-    {
-      AudioManager.play('resources/thud.wav');
     }
   }
 }
@@ -365,7 +355,6 @@ function SceneManager()
   
   this.play = function(name)
   {
-    //world.DestroyWorld();
     world = new b2World(new b2Vec2(0,0), true);
     world.SetContactListener(listener);
     world.SetDebugDraw(debugDraw);
@@ -425,8 +414,6 @@ function SceneManager()
     
     sceneManager.update();
     sceneManager.draw(); 
-    
-    AudioManager.update();
     
     if(sceneManager.drawDebug == true)
     {

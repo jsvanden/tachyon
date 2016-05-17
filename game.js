@@ -2,8 +2,7 @@ var canvas = document.getElementById ('myGame');
 var context = canvas.getContext ('2d');
 
 var AudioManager = new AudioManager();
-AudioManager.play('resources/thud.wav');
-AudioManager.play('resources/thud.wav');
+AudioManager.play('resources/synthpop.mp3');
 
 var InputManager = new InputManager();
 InputManager.add("left", [65, 37]);
