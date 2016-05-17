@@ -4,6 +4,7 @@ function movement() {
     //var speed = 30;
     var speedCap = 5;
     var tier = 1;
+    var prevTier = 1;
     var tierCap = 3;
     //var walking = 1;
     var ramp = 0;
@@ -18,6 +19,18 @@ function movement() {
 // Happens Every Frame
   this.update = function()
   {
+      if(prevTier != tier)
+      {
+        AudioManager.setPlaybackRate("Level 1 Song", 1.175-(tier*0.175));
+        
+        if(prevTier < tier)
+        {
+          AudioManager.play("resources/thud.wav", "Speed Up")
+        }
+        
+        prevTier = tier;
+      }
+    
       if (InputManager.isPressed("right")) {
           body.applyForce(0, 1000);
           if (InputManager.isPressed("shift")) {
@@ -25,7 +38,6 @@ function movement() {
               if (ramp > 180) {
                   ramp = 0;
                   tier++;
-				  this.updateAudioManager();
               }
           }
       }
@@ -36,7 +48,6 @@ function movement() {
               if (ramp > 180) {
                   ramp = 0;
                   tier++;
-				  this.updateAudioManager();
               }
           }
       }
@@ -47,7 +58,6 @@ function movement() {
               if (ramp > 180) {
                   ramp = 0;
                   tier++;
-				  this.updateAudioManager();
               }
           }
       }
@@ -58,7 +68,6 @@ function movement() {
               if (ramp > 180) {
                   ramp = 0;
                   tier++;
-				  this.updateAudioManager();
               }
           }
       }
@@ -67,12 +76,10 @@ function movement() {
           if (ramp < 0) {
               ramp = 170;
               tier--;
-			  this.updateAudioManager();
           }
       }
       if (tier < 1) {
 		  tier = 1;
-		  this.updateAudioManager();
 	  }
       if (tier > tierCap) tier = tierCap;
       if (body.getVelocityMagnitude() > speedCap * tier) body.setVelocityMagnitude(speedCap * tier);
@@ -89,14 +96,8 @@ function movement() {
           body.setVelocityMagnitude(0);
           ramp = 0;
           tier = 1;
-		  this.updateAudioManager();
       }
     //console.log("hit")
-  }
-  
-  this.updateAudioManager = function()
-  {
-	AudioManager.setPlaybackRate("Level 1 Song", 1-(tier*0.1));
   }
 }
 

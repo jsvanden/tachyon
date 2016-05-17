@@ -54,7 +54,7 @@ go_red.addComponent(rb_red, "body");
 
 var go_bDoor = new GameObject({ x: 300, y: 100 });
 //go_bDoor.addComponent(spr_bDoor, "sprite");
-go_bDoor.addComponent(rb_bDoor, "body");
+//go_bDoor.addComponent(rb_bDoor, "body");
 
 var go_buttonSystem = new GameObject();
 go_buttonSystem.addComponent(go_green, "green");

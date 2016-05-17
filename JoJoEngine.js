@@ -172,6 +172,8 @@ function InputManager()
   
   this.keyDown = function(event)
   {
+    event.preventDefault();
+    
     for(var i=0; i<this.inputs.length; i++)
     {
       for(k=0; k<this.inputs[i].codes.length; k++)
@@ -365,7 +367,7 @@ function SceneManager()
   {
     world = new b2World(new b2Vec2(0,0), true);
     world.SetContactListener(listener);
-    world.SetDebugDraw(debugDraw);
+    //world.SetDebugDraw(debugDraw);
     
     for (var i=0; i<this.activeScenes.length; i++)
     {
