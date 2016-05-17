@@ -73,6 +73,12 @@ function movement() {
           if (body.getVelocityMagnitude() >= speedCap) body.setVelocityMagnitude(speedCap);
       }*/
   }
+  
+  // Happens when colliding with a non-trigger RigidBody
+  this.onCollision = function()
+  {
+    //console.log("hit")
+  }
 }
 
 //InputManager.isPressed("right");

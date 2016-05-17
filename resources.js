@@ -14,7 +14,7 @@ var spr_redDown = new Sprite('resources/redDown.png', { width: 58, height: 35, y
 
 // Rigid Body
 
-var rb_character = new RigidBody({isDynamic: true, height:55, linearDamping:0.5});
+var rb_character = new RigidBody({isDynamic: true, listenForCollision: true, height:55, linearDamping:0.5});
 var rb_wallLeft = new RigidBody({width:10, height:480, xOffset: -320});
 var rb_wallTop = new RigidBody({width: 640, height: 10, yOffset: -240});
 var rb_wallRight = new RigidBody({width:10, height:480, xOffset: 320});

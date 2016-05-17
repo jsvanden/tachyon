@@ -70,6 +70,34 @@ window.requestAnimFrame = (
         }
       }
     }
+    
+    if(!contact.m_fixtureA.m_parent.isTrigger && !contact.m_fixtureB.m_parent.isTrigger)
+    {
+      var triggerBody = contact.m_fixtureA.m_parent;
+      var colliderBody = contact.m_fixtureB.m_parent;
+      
+      if(triggerBody.listenForCollision)
+      {
+        for (var i=0; i<triggerBody.parent.componentList.length; i++)
+        {
+          if (typeof triggerBody.parent.componentList[i].object.onCollision === "function")
+          {
+            triggerBody.parent.componentList[i].object.onCollision(colliderBody.parent);
+          }
+        }
+      }
+      
+      if(colliderBody.listenForCollision)
+      {        
+        for (var i=0; i<colliderBody.parent.componentList.length; i++)
+        {
+          if (typeof colliderBody.parent.componentList[i].object.onCollision === "function")
+          {
+            colliderBody.parent.componentList[i].object.onCollision(triggerBody.parent);
+          }
+        }
+      }      
+    }
   }
   
   listener.EndContact = function(contact)
@@ -525,6 +553,7 @@ function RigidBody(options)
   fixDef.restitution = this.options.restitution || 0.2;
   this.isTrigger = this.options.isTrigger || false;
   fixDef.isSensor = (this.isTrigger) ? true : false;
+  this.listenForCollision = this.options.listenForCollision || false;
   
   var bodyDef = new b2BodyDef;
   this.isDynamic = this.options.isDynamic || false;
