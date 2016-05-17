@@ -217,9 +217,19 @@ function InputManager()
 }
 
 //---------------------------------------------
+
+function AudioManager()
+{
+  this.update = function()
+  {
+    console.log(testAudio.audio.ended)
+  }
+}
+
 //---------------------------------------------
 
 var g_sceneList = new Array();
+
 var sceneManager = new SceneManager();
 
 //---------------------------------------------
@@ -376,6 +386,7 @@ function SceneManager()
     sceneManager.update();
     sceneManager.draw(); 
     
+    AudioManager.update();
     
     if(sceneManager.drawDebug == true)
     {

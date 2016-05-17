@@ -50,23 +50,23 @@ var paused = true;
 var songs = [];
 var eggSeen = false;  //easter egg of sorts, set to true to disable 
 addSong("http://people.ucsc.edu/~tsericks/CMPM120/Tension.mp3")
-addSong("http://people.ucsc.edu/~tsericks/CMPM120/synthpop.mp3")//example songs
-addSong("http://people.ucsc.edu/~tsericks/CMPM120/BadTime.mp3")
+addSong("resources/synthpop.mp3")//example songs
+//addSong("http://people.ucsc.edu/~tsericks/CMPM120/BadTime.mp3")
 
-document.addEventListener("keypress",keyPress);
+//document.addEventListener("keypress",keyPress);
  
 var audacity = new Audio(songs[songNum]);
-
+/*
 function keyPress(e){
-/*debugging info
-console.log("rate: "+rate);
-console.log("keyCode: "+e.keyCode);
-console.log("global var: "+gIter);
-*/
+//debugging info
+//console.log("rate: "+rate);
+//console.log("keyCode: "+e.keyCode);
+//console.log("global var: "+gIter);
+
 keyPressed = e.keyCode
 checkKey(keyPressed);
 }    
-
+*/
 function pause(){
    console.log("pause")
    if(paused == false){audacity.pause()
@@ -114,13 +114,13 @@ function loop(){
    //setRate(rate);   //changes play speed
    //console.log(audacity.playbackRate); //debug
 }
-setInterval(loop,30);
+//setInterval(loop,30);
 
 
 
 
 
-
+/*
 // optional manual keyboard testing
 function checkKey(key){
  switch (key){
@@ -172,7 +172,7 @@ function checkKey(key){
      console.log(e.keyCode);
    }
 }//end checkKey 
-
+*/
 //space = 32 esc = 27   enter = 13
 //  ^    38      w     87
 // < > 37  39   a s  65  68

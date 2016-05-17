@@ -1,6 +1,9 @@
 var canvas = document.getElementById ('myGame');
 var context = canvas.getContext ('2d');
 
+var AudioManager = new AudioManager();
+AudioManager.play()
+
 var InputManager = new InputManager();
 InputManager.add("left", [65, 37]);
 InputManager.add("right", [68, 39]);
