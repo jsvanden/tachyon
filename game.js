@@ -2,7 +2,8 @@ var canvas = document.getElementById ('myGame');
 var context = canvas.getContext ('2d');
 
 var AudioManager = new AudioManager();
-AudioManager.play()
+AudioManager.play('resources/thud.wav');
+AudioManager.play('resources/thud.wav');
 
 var InputManager = new InputManager();
 InputManager.add("left", [65, 37]);
@@ -17,3 +18,4 @@ sceneManager.play("Level 1");
 requestAnimFrame(sceneManager.run);
 
 //MainMenu.setCamera(200,220);
+

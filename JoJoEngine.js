@@ -220,16 +220,56 @@ function InputManager()
 
 function AudioManager()
 {
-  this.update = function()
+  this.audioEntities = new Array();
+  
+  var testAudio;////////////////
+  
+  this.play = function(url)
   {
-    console.log(testAudio.audio.ended)
+    var audioFound = false;
+    
+    for(var i=0; i<this.audioEntities.length; i++)
+    {
+      if(this.audioEntities[i].audio.ended)
+      {
+        audioFound = true;
+        this.audioEntities[i].play(url);
+        return;
+      }
+    }
+    
+    if(!audioFound)
+    {
+      var temp = new AudioSource();
+      temp.play(url);
+      this.audioEntities.push(temp);
+    }
+  }
+  
+  this.update = function()
+  {    
+    if(InputManager.isPressed("right"))
+    {
+      AudioManager.play('resources/thud.wav');
+    }
+  }
+}
+
+function AudioSource(options)
+{
+  this.options = options || {};
+  this.audio = new Audio();
+  
+  this.play = function(url)
+  {
+    this.audio.src = url;
+    this.audio.play();
   }
 }
 
 //---------------------------------------------
 
 var g_sceneList = new Array();
-
 var sceneManager = new SceneManager();
 
 //---------------------------------------------
