@@ -10,7 +10,7 @@ var spr_greenDown = new Sprite('resources/greenDown.png', { width: 58, height: 3
 var spr_redUp = new Sprite('resources/redUp.png', {width: 58, height: 40});
 var spr_redDown = new Sprite('resources/redDown.png', { width: 58, height: 35, yOffset: 2.5 });
 
-var spr_mainMenu = new Sprite('resources/john.jpg', {width: 640, height:480});
+var spr_mainMenu = new Sprite('resources/MainMenu.png', {width: 640, height:480});
 
 //var spr_bDoor = new Sprite('resources/bDoor.png', {width: 60, height: 60});
 
