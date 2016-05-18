@@ -7,7 +7,7 @@ function movement() {
     var prevTier = 1;
     this.tierCap = 3;
     //var walking = 1;
-    var ramp = 0;
+    this.ramp = 0;
     
 // Happens At Start
   this.start = function()
@@ -34,9 +34,9 @@ function movement() {
       if (InputManager.isPressed("right")) {
           body.applyForce(0, 1000);
           if (InputManager.isPressed("shift")) {
-              ramp++;
-              if (ramp > 180) {
-                  ramp = 0;
+              this.ramp++;
+              if (this.ramp > 180) {
+                  this.ramp = 0;
                   this.tier++;
               }
           }
@@ -44,9 +44,9 @@ function movement() {
       if (InputManager.isPressed("up")) {
           body.applyForce(90, 1000);
           if (InputManager.isPressed("shift")) {
-              ramp++;
-              if (ramp > 180) {
-                  ramp = 0;
+              this.ramp++;
+              if (this.ramp > 180) {
+                  this.ramp = 0;
                   this.tier++;
               }
           }
@@ -54,9 +54,9 @@ function movement() {
       if (InputManager.isPressed("left")) {
           body.applyForce(180, 1000);
           if (InputManager.isPressed("shift")) {
-              ramp++;
-              if (ramp > 180) {
-                  ramp = 0;
+              this.ramp++;
+              if (this.ramp > 180) {
+                  this.ramp = 0;
                   this.tier++;
               }
           }
@@ -64,17 +64,17 @@ function movement() {
       if (InputManager.isPressed("down")) {
           body.applyForce(270, 1000);
           if (InputManager.isPressed("shift")) {
-              ramp++;
-              if (ramp > 180) {
-                  ramp = 0;
+              this.ramp++;
+              if (this.ramp > 180) {
+                  this.ramp = 0;
                   this.tier++;
               }
           }
       }
       if (!InputManager.isPressed("shift")) {
-          ramp--;
-          if (ramp < 0) {
-              ramp = 170;
+          this.ramp--;
+          if (this.ramp < 0) {
+              this.ramp = 170;
               this.tier--;
           }
       }
@@ -94,7 +94,7 @@ function movement() {
   {
       if (body.getVelocityMagnitude() != 0) {
           body.setVelocityMagnitude(0);
-          ramp = 0;
+          this.ramp = 0;
           this.tier = 1;
       }
     //console.log("hit")
