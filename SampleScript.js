@@ -3,8 +3,6 @@ function sampleScript()
   
   this.start = function()
   {
-    console.log(this.parent);
-    console.log(Level_1.find("Main Character"));
   }
   /*
   this.onTriggerEnter = function()
@@ -18,9 +16,13 @@ function sampleScript()
   this.draw = function()
   {
   }
-  
+*/
   this.update = function()
   {
+    if(InputManager.isPressed("enter"))
+    {
+      //Level_1.remove("Main Character");
+    }
   }
-  */
+    
 }

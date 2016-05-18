@@ -38,7 +38,7 @@ var go_character = new GameObject();
 go_character.addComponent(spr_tempChar, "sprite");
 go_character.addComponent(rb_character, "body");
 go_character.addComponent(script_movement, "movement");
-go_character.addComponent(script_sample, "Sample Script");
+//go_character.addComponent(script_sample, "Sample Script");
 
 var go_room01 = new GameObject();
 go_room01.addComponent(spr_room01, "sprite");
@@ -65,6 +65,8 @@ go_buttonSystem.addComponent(go_red, "red");
 go_buttonSystem.addComponent(go_bDoor, "door");
 go_buttonSystem.addComponent(script_twoButtons, "script");
 
+var go_SampleObject = new GameObject();
+go_SampleObject.addComponent(script_sample, "Sample Script");
 
 var go_mainMenu = new GameObject();
 go_mainMenu.addComponent(script_mainMenu, "input");

@@ -325,6 +325,28 @@ function Scene(name)
     return false;
   }
   
+  this.remove = function(name)
+  {
+    for (var i=0; i<this.gameObjects.length; i++)
+    {
+      if(this.gameObjects[i].name == name)
+      {
+        for(var k=0; k<this.gameObjects[i].componentList.length; k++)
+        {
+          if (this.gameObjects[i].componentList[k].object.constructor.name == "RigidBody")
+          {
+            this.gameObjects[i].componentList[k].object.destroy();
+          }
+          
+          this.gameObjects[i].componentList[k].object.parent = "null";
+          this.gameObjects[i].componentList[k].object = "null";
+        }
+        
+        this.gameObjects.splice(i, 1);
+      }
+    }
+  }
+  
   this.update = function()
   {
   	for (var i=0; i<this.gameObjects.length; i++)
@@ -380,7 +402,7 @@ function SceneManager()
   {
     world = new b2World(new b2Vec2(0,0), true);
     world.SetContactListener(listener);
-    //world.SetDebugDraw(debugDraw);
+    world.SetDebugDraw(debugDraw);
     
     for (var i=0; i<this.activeScenes.length; i++)
     {
@@ -694,6 +716,11 @@ function RigidBody(options)
     var newY = this.body.GetBody().GetLinearVelocity().y * ratio;
     
     this.body.GetBody().SetLinearVelocity(new b2Vec2(newX, newY));
+  }
+  
+  this.destroy = function()
+  {
+    world.DestroyBody(this.body.GetBody());
   }
   
   this.update = function()

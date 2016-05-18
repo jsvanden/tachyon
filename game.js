@@ -14,7 +14,7 @@ InputManager.add("enter", [13,32]);
 
 sceneManager.drawDebug = true;
 sceneManager.init();
-sceneManager.play("Level 1");
+//sceneManager.play("Level 1");
 sceneManager.play("Main Menu");
 requestAnimFrame(sceneManager.run);
 
