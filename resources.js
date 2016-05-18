@@ -2,7 +2,8 @@
 
 var spr_room01 = new Sprite('resources/images/level01.png', {width:640, height:480});
 
-var spr_tempChar = new Sprite('resources/images/MoveDown.png', {width:62, height:88, yOffset:5});
+var spr_tempChar = new Sprite('resources/images/Wchar.png', {width:51, height:68, yOffset:-5});
+//var spr_tempChar2 = new Sprite('resources/images/MoveDown.png', {width:62, height:88, yOffset:5});
 
 var spr_greenUp = new Sprite('resources/images/greenUp.png', {width: 58, height: 40});
 var spr_greenDown = new Sprite('resources/images/greenDown.png', { width: 58, height: 35, yOffset: 2.5 });
@@ -36,6 +37,7 @@ var script_sample = new sampleScript();
 var script_movement = new movement();
 var script_mainMenu = new MainMenu();
 var script_twoButtons = new twoButtons();
+var script_characterRendering = new CharacterRendering();
 
 // GameObjects
 
@@ -43,7 +45,7 @@ var go_character = new GameObject();
 go_character.addComponent(spr_tempChar, "sprite");
 go_character.addComponent(rb_character, "body");
 go_character.addComponent(script_movement, "movement");
-//go_character.addComponent(script_sample, "Sample Script");
+go_character.addComponent(script_characterRendering, "Character Rendering");
 
 var go_room01 = new GameObject();
 go_room01.addComponent(spr_room01, "sprite");
