@@ -19,13 +19,13 @@ function twoButtons()
         red = this.parent.getComponent("red").getComponent("body");
         
         green.onTriggerEnter = function(){
-            green.parent.getComponent("sprite").image.src = 'resources/greenDown.png';
+            green.parent.getComponent("sprite").image.src = 'resources/images/greenDown.png';
             gTime = 60*cap;
             console.log("on green")
         }
         
         red.onTriggerEnter= function(){
-            red.parent.getComponent("sprite").image.src = 'resources/redDown.png';
+            red.parent.getComponent("sprite").image.src = 'resources/images/redDown.png';
             rTime = 60*cap;
             console.log("on red")
         }
@@ -41,13 +41,13 @@ function twoButtons()
             gTime -= (1*cap/clock);
         }
         else {
-            green.parent.getComponent("sprite").image.src = 'resources/greenUp.png';
+            green.parent.getComponent("sprite").image.src = 'resources/images/greenUp.png';
         }
         if(rTime>0){
             rTime -= (1*cap/clock);
         }
         else {
-            red.parent.getComponent("sprite").image.src = 'resources/redUp.png';
+            red.parent.getComponent("sprite").image.src = 'resources/images/redUp.png';
         }
     }
 	
