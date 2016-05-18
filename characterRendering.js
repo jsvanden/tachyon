@@ -27,7 +27,7 @@ function CharacterRendering()
 		
 		this.update = function()
 		{
-			console.log(this.movement);
+			console.log((this.movement.ramp)*1);
 		}
 	}
 }
