@@ -16,7 +16,7 @@ function sampleScript()
   this.draw = function()
   {
   }
-*/
+
   this.update = function()
   {
     if(InputManager.isPressed("enter"))
@@ -24,5 +24,5 @@ function sampleScript()
       //Level_1.remove("Main Character");
     }
   }
-    
+    */
 }
