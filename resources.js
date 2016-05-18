@@ -1,22 +1,22 @@
 // Sprites
 
-var spr_room01 = new Sprite('resources/level01.png', {width:640, height:480});
+var spr_room01 = new Sprite('resources/images/level01.png', {width:640, height:480});
 
-var spr_tempChar = new Sprite('resources/MoveDown.png', {width:62, height:88, yOffset:5});
+var spr_tempChar = new Sprite('resources/images/MoveDown.png', {width:62, height:88, yOffset:5});
 
-var spr_greenUp = new Sprite('resources/greenUp.png', {width: 58, height: 40});
-var spr_greenDown = new Sprite('resources/greenDown.png', { width: 58, height: 35, yOffset: 2.5 });
+var spr_greenUp = new Sprite('resources/images/greenUp.png', {width: 58, height: 40});
+var spr_greenDown = new Sprite('resources/images/greenDown.png', { width: 58, height: 35, yOffset: 2.5 });
 
-var spr_redUp = new Sprite('resources/redUp.png', {width: 58, height: 40});
-var spr_redDown = new Sprite('resources/redDown.png', { width: 58, height: 35, yOffset: 2.5 });
+var spr_redUp = new Sprite('resources/images/redUp.png', {width: 58, height: 40});
+var spr_redDown = new Sprite('resources/images/redDown.png', { width: 58, height: 35, yOffset: 2.5 });
 
-var spr_mainMenu = new Sprite('resources/MainMenu.png', {width: 640, height:480});
+var spr_mainMenu = new Sprite('resources/images/MainMenu.png', {width: 640, height:480});
 
 //var spr_john = new Sprite('resources/john.jpg', {width: 200, height: 200});
 
-var spr_dialDoors = new Sprite('resources/DialDoors.png', {width: 106, height: 47});
-var spr_lockedDoor_l = new Sprite('resources/LockedDoor.png', {width: 110, height: 41, xOffset: -181});
-var spr_lockedDoor_r = new Sprite('resources/LockedDoor.png', {width: 110, height: 41, xOffset: 181});
+var spr_dialDoors = new Sprite('resources/images/DialDoors.png', {width: 106, height: 47});
+var spr_lockedDoor_l = new Sprite('resources/images/LockedDoor.png', {width: 110, height: 41, xOffset: -181});
+var spr_lockedDoor_r = new Sprite('resources/images/LockedDoor.png', {width: 110, height: 41, xOffset: 181});
 
 
 // Rigid Body
