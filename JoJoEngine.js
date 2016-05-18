@@ -308,8 +308,21 @@ function Scene(name)
     temp.rotation = (this.options.rotation + temp.rotation) || temp.rotation;
     temp.copyComponents(gameObject);
     temp.scene = this;
+    temp.name = this.options.name || "Untitled";
     this.gameObjects.push(temp);
     return temp;
+  }
+  
+  this.find = function(name)
+  {
+    for (var i=0; i<this.gameObjects.length; i++)
+    {
+      if(this.gameObjects[i].name == name)
+      {
+        return this.gameObjects[i];
+      }
+    }
+    return false;
   }
   
   this.update = function()
@@ -459,11 +472,11 @@ function SceneManager()
 
 
 
-
-
 function GameObject(options)
 {
   this.options = options || {};
+  
+  this.name = "Untitled";
   
 	this.x = this.options.x || 0;
   this.y = this.options.y || 0;

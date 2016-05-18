@@ -3,7 +3,8 @@ function sampleScript()
   
   this.start = function()
   {
-    //this.parent.getComponent("body").applyImpulse(0,10);
+    console.log(this.parent);
+    console.log(Level_1.find("Main Character"));
   }
   /*
   this.onTriggerEnter = function()
