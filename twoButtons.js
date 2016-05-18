@@ -4,7 +4,7 @@ function twoButtons()
     var gTime = 0;
     var rTime = 0;
     var clock;
-    var cap;
+    this.cap;
     var script = this;
     var green;
     var red;
@@ -19,8 +19,8 @@ function twoButtons()
         red = this.parent.getComponent("red").getComponent("body");
         
         green.onTriggerEnter = function(){
-            green.parent.getComponent("sprite").image.src = 'resources/images/greenDown.png';
-            gTime = 60*cap;
+			green.parent.getComponent("sprite").image.src = 'resources/images/greenDown.png';
+			gTime = 60*cap;
             console.log("on green")
         }
         

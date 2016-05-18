@@ -5,7 +5,7 @@ function movement() {
     var speedCap = 5;
     var tier = 1;
     var prevTier = 1;
-    var tierCap = 3;
+    this.tierCap = 3;
     //var walking = 1;
     var ramp = 0;
     
@@ -81,7 +81,7 @@ function movement() {
       if (tier < 1) {
 		  tier = 1;
 	  }
-      if (tier > tierCap) tier = tierCap;
+      if (tier > this.tierCap) tier = this.tierCap;
       if (body.getVelocityMagnitude() > speedCap * tier) body.setVelocityMagnitude(speedCap * tier);
       /*if (!InputManager.isPressed("shift") && body.getVelocityMagnitude() >= walking) body.setVelocityMagnitude(walking);
       else {
