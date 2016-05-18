@@ -40,7 +40,7 @@ function twoButtons()
 	this.openDoor = function()
 	{
 		var door = Level_1.find("Button System").getComponent("door");
-		door.getComponent("sprite").image.src = 'resources/OpenDoor.png';
+		door.getComponent("sprite").image.src = 'resources/images/OpenDoor.png';
 		door.getComponent("sprite").width = 125;
 	}
 }
