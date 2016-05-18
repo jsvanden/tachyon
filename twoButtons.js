@@ -10,16 +10,18 @@ function twoButtons()
         door = this.parent.getComponent("door").getComponent("body");
         green = this.parent.getComponent("green").getComponent("body");
         red = this.parent.getComponent("red").getComponent("body");
-    }
-
-    green.onTriggerEnter(){
+        
+        green.onTriggerEnter = function(){
         //change sprite to down
         gTime = 60;
-    }
-    
-    red.onTriggerEnter(){
-        //change sprite to down
-        rTime = 60;
+        console.log("on green")
+        }
+        
+        red.onTriggerEnter= function(){
+            //change sprite to down
+            rTime = 60;
+            console.log("on red")
+        }
     }
 
     this.update = function(){
@@ -32,4 +34,5 @@ function twoButtons()
         if(rTime>0){
             rTime -= (1*clock/3);
         }
+    }
 }

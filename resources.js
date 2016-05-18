@@ -30,6 +30,7 @@ var rb_bDoor = new RigidBody({ width: 60, height: 60 });
 var script_sample = new sampleScript();
 var script_movement = new movement();
 var script_mainMenu = new MainMenu();
+var script_twoButtons = new twoButtons();
 
 // GameObjects
 
@@ -62,6 +63,8 @@ var go_buttonSystem = new GameObject();
 go_buttonSystem.addComponent(go_green, "green");
 go_buttonSystem.addComponent(go_red, "red");
 go_buttonSystem.addComponent(go_bDoor, "door");
+go_buttonSystem.addComponent(script_twoButtons, "script");
+
 
 var go_mainMenu = new GameObject();
 go_mainMenu.addComponent(script_mainMenu, "input");
