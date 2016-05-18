@@ -5,7 +5,7 @@ function movement() {
     var speedCap = 5;
     this.tier = 1;
     var prevTier = 1;
-    this.tierCap = 3;
+    this.tierCap = 5;
     //var walking = 1;
     this.ramp = 0;
     
