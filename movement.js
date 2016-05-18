@@ -25,7 +25,7 @@ function movement() {
         
         if(prevTier < tier)
         {
-          AudioManager.play("resources/thud.wav", "Speed Up")
+          AudioManager.play("resources/music/thud.wav", "Speed Up")
         }
         
         prevTier = tier;
