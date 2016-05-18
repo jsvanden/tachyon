@@ -32,6 +32,7 @@ function twoButtons()
     }
 
     this.update = function () {
+		console.log(gTime)
         clock = player.getComponent("movement").tier;
         cap = player.getComponent("movement").tierCap;
         if(gTime>0 && rTime>0){

@@ -3,7 +3,7 @@ function movement() {
     var body;
     //var speed = 30;
     var speedCap = 5;
-    var tier = 1;
+    this.tier = 1;
     var prevTier = 1;
     this.tierCap = 3;
     //var walking = 1;
@@ -19,16 +19,16 @@ function movement() {
 // Happens Every Frame
   this.update = function()
   {
-      if(prevTier != tier)
+      if(prevTier != this.tier)
       {
-        AudioManager.setPlaybackRate("Level 1 Song", 1.175-(tier*0.175));
+        AudioManager.setPlaybackRate("Level 1 Song", 1.175-(this.tier*0.175));
         
-        if(prevTier < tier)
+        if(prevTier < this.tier)
         {
           AudioManager.play("resources/music/thud.wav", "Speed Up")
         }
         
-        prevTier = tier;
+        prevTier = this.tier;
       }
     
       if (InputManager.isPressed("right")) {
@@ -37,7 +37,7 @@ function movement() {
               ramp++;
               if (ramp > 180) {
                   ramp = 0;
-                  tier++;
+                  this.tier++;
               }
           }
       }
@@ -47,7 +47,7 @@ function movement() {
               ramp++;
               if (ramp > 180) {
                   ramp = 0;
-                  tier++;
+                  this.tier++;
               }
           }
       }
@@ -57,7 +57,7 @@ function movement() {
               ramp++;
               if (ramp > 180) {
                   ramp = 0;
-                  tier++;
+                  this.tier++;
               }
           }
       }
@@ -67,7 +67,7 @@ function movement() {
               ramp++;
               if (ramp > 180) {
                   ramp = 0;
-                  tier++;
+                  this.tier++;
               }
           }
       }
@@ -75,14 +75,14 @@ function movement() {
           ramp--;
           if (ramp < 0) {
               ramp = 170;
-              tier--;
+              this.tier--;
           }
       }
-      if (tier < 1) {
-		  tier = 1;
+      if (this.tier < 1) {
+		  this.tier = 1;
 	  }
-      if (tier > this.tierCap) tier = this.tierCap;
-      if (body.getVelocityMagnitude() > speedCap * tier) body.setVelocityMagnitude(speedCap * tier);
+      if (this.tier > this.tierCap) tier = this.tierCap;
+      if (body.getVelocityMagnitude() > speedCap * this.tier) body.setVelocityMagnitude(speedCap * this.tier);
       /*if (!InputManager.isPressed("shift") && body.getVelocityMagnitude() >= walking) body.setVelocityMagnitude(walking);
       else {
           if (body.getVelocityMagnitude() >= speedCap) body.setVelocityMagnitude(speedCap);
@@ -95,7 +95,7 @@ function movement() {
       if (body.getVelocityMagnitude() != 0) {
           body.setVelocityMagnitude(0);
           ramp = 0;
-          tier = 1;
+          this.tier = 1;
       }
     //console.log("hit")
   }
