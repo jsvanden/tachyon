@@ -36,7 +36,7 @@ function twoButtons()
         clock = player.getComponent("movement").tier;
         cap = player.getComponent("movement").tierCap;
         if(gTime>0 && rTime>0){
-            openDoor();
+            this.openDoor();
         }
         if(gTime>0){
             gTime -= (1*cap/clock);
