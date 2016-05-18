@@ -51,11 +51,18 @@ function twoButtons()
         else {
             red.parent.getComponent("sprite").image.src = 'resources/images/redUp.png';
         }
+    }
+    
+    this.draw = function()
+    {
         context.strokeStyle = '#00FF00';
+        context.fillStyle = '#00FF00';
         context.beginPath();
         context.arc(100, 100, 10,0, Math.PI * 2 * gTime / (60 * cap));
+        context.closePath();
         context.stroke();
         context.fill();
+        //context.fillRect(20,20,150,100);
     }
 	
 	this.openDoor = function()

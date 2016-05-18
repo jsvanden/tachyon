@@ -484,8 +484,10 @@ function SceneManager()
     {
       this.activeScenes[i].draw();
     }
-    
+
+    context.beginPath();
     context.rect(0,0,canvas.width, canvas.height);
+    context.closePath();
     context.strokeStyle = '#000000';
     context.stroke();
   }
