@@ -17,3 +17,9 @@ Level_1.onLoad = function()
   //Level_1.add(go_SampleObject, {name: "test", x:320, y:240, z:5})
   //Level_1.add(go_speedGauge, {name: "guage", x: 320,y: 240,z:5})
 }
+
+var Level_2 = new Scene("Level 2");
+Level_2.onLoad = function()
+{
+  Level_2.add(go_character, {x:320, y:240, name: "Main Character"});
+}

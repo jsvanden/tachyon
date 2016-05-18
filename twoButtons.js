@@ -9,6 +9,7 @@ function twoButtons()
     var green;
     var red;
     var player;
+	var isOpen = false;
 	
     this.start = function ()
     {
@@ -32,11 +33,11 @@ function twoButtons()
     }
 
     this.update = function () {
-		console.log(gTime)
         clock = player.getComponent("movement").tier;
         cap = player.getComponent("movement").tierCap;
-        if(gTime>0 && rTime>0){
+        if(gTime>0 && rTime>0 && !isOpen){
             this.openDoor();
+			isOpen = true;
         }
         if(gTime>0){
             gTime -= (1*cap/clock);
@@ -57,6 +58,12 @@ function twoButtons()
 		var door = Level_1.find("Button System").getComponent("door");
 		door.getComponent("sprite").image.src = 'resources/images/OpenDoor.png';
 		door.getComponent("sprite").width = 125;
-		door.getComponent("body").isTrigger = true;
+		door.getComponent("body").turnIntoTrigger();
+		door.getComponent("body").onTriggerEnter = function()
+		{
+			sceneManager.play("Level 2");
+		}
 	}
 }
+
+

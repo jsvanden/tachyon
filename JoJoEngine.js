@@ -632,12 +632,12 @@ function RigidBody(options)
 {
   this.options = options || {};
   
-  var fixDef = new b2FixtureDef;
-  fixDef.density = this.options.density || 1.0;
-  fixDef.friction = this.options.friction || 0.5;
-  fixDef.restitution = this.options.restitution || 0.2;
+  this.fixDef = new b2FixtureDef;
+  this.fixDef.density = this.options.density || 1.0;
+  this.fixDef.friction = this.options.friction || 0.5;
+  this.fixDef.restitution = this.options.restitution || 0.2;
   this.isTrigger = this.options.isTrigger || false;
-  fixDef.isSensor = (this.isTrigger) ? true : false;
+  this.fixDef.isSensor = (this.isTrigger) ? true : false;
   this.listenForCollision = this.options.listenForCollision || false;
   
   var bodyDef = new b2BodyDef;
@@ -650,20 +650,20 @@ function RigidBody(options)
   bodyDef.fixedRotation = this.options.fixedRotation || true;
   
   this.shape = this.options.shape || "square";
-  fixDef.shape = new b2PolygonShape;
+  this.fixDef.shape = new b2PolygonShape;
   
   if(this.shape == "square")
   {
     this.width = this.options.width || 50;
     this.height = this.options.height || 50;
-    fixDef.shape.SetAsBox((this.width/SCALE)/2, (this.height/SCALE)/2);
+    this.fixDef.shape.SetAsBox((this.width/SCALE)/2, (this.height/SCALE)/2);
   }
   if(this.shape == "circle")
   {
     var circleShape = new b2CircleShape;
     circleShape.m_p.Set(0, 0); //position, relative to body position
     circleShape.m_radius = this.options.radius/SCALE || 50/SCALE; //radius
-    fixDef.shape = circleShape;
+    this.fixDef.shape = circleShape;
   }
   
   this.body;
@@ -673,8 +673,15 @@ function RigidBody(options)
     bodyDef.position.x = (this.parent.x+this.xOffset)/SCALE;
     bodyDef.position.y = (this.parent.y+this.yOffset)/SCALE;
     bodyDef.angle = (this.parent.rotation+this.rotationOffset)*(Math.PI / 180);
-    this.body = world.CreateBody(bodyDef).CreateFixture(fixDef);
+    this.body = world.CreateBody(bodyDef).CreateFixture(this.fixDef);
     this.body.m_parent = this;
+  }
+  
+  this.turnIntoTrigger = function()
+  {
+	  console.log()
+	  this.body.m_body.m_fixtureList.m_isSensor = true;
+	  this.isTrigger = true;
   }
 
   this.applyImpulse = function(degrees, power)
