@@ -73,9 +73,14 @@ function movement() {
       }
       if (!InputManager.isPressed("shift")) {
           this.ramp--;
-          if (this.ramp < 0) {
+          if (this.ramp < 0 && this.tier > 1) {
               this.ramp = 170;
               this.tier--;
+          }
+          else {
+              if (this.ramp < 0) {
+                  this.ramp = 0;
+              }
           }
       }
       if (this.tier < 1) {
