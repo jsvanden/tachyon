@@ -12,7 +12,12 @@ var spr_redDown = new Sprite('resources/redDown.png', { width: 58, height: 35, y
 
 var spr_mainMenu = new Sprite('resources/MainMenu.png', {width: 640, height:480});
 
-//var spr_bDoor = new Sprite('resources/bDoor.png', {width: 60, height: 60});
+//var spr_john = new Sprite('resources/john.jpg', {width: 200, height: 200});
+
+var spr_dialDoors = new Sprite('resources/DialDoors.png', {width: 106, height: 47});
+var spr_lockedDoor_l = new Sprite('resources/LockedDoor.png', {width: 110, height: 41, xOffset: -181});
+var spr_lockedDoor_r = new Sprite('resources/LockedDoor.png', {width: 110, height: 41, xOffset: 181});
+
 
 // Rigid Body
 
@@ -47,6 +52,10 @@ go_room01.addComponent(rb_wallTop, "top wall");
 go_room01.addComponent(rb_wallRight, "right wall");
 go_room01.addComponent(rb_wallBottom, "bottom wall");
 
+var go_chainDoors = new GameObject();
+go_chainDoors.addComponent(spr_lockedDoor_l, "sprite_l");
+go_chainDoors.addComponent(spr_lockedDoor_r, "sprite_r");
+
 var go_green = new GameObject({x:100,y:250});
 go_green.addComponent(spr_greenUp, "sprite");
 go_green.addComponent(rb_green, "body");
@@ -55,8 +64,8 @@ var go_red = new GameObject({ x: 500, y: 250 });
 go_red.addComponent(spr_redUp, "sprite");
 go_red.addComponent(rb_red, "body");
 
-var go_bDoor = new GameObject({ x: 300, y: 100 });
-//go_bDoor.addComponent(spr_bDoor, "sprite");
+var go_bDoor = new GameObject({ x: 320, y: 44 });
+go_bDoor.addComponent(spr_dialDoors, "sprite");
 //go_bDoor.addComponent(rb_bDoor, "body");
 
 var go_buttonSystem = new GameObject();
@@ -67,13 +76,15 @@ go_buttonSystem.addComponent(script_twoButtons, "script");
 
 var go_SampleObject = new GameObject();
 go_SampleObject.addComponent(script_sample, "Sample Script");
+go_SampleObject.addComponent(spr_john, "sprite");
 
 var go_mainMenu = new GameObject();
 go_mainMenu.addComponent(script_mainMenu, "input");
 go_mainMenu.addComponent(spr_mainMenu, "sprite");
 
-
-
+//var go_speedGauge = new GameObject();
+//go_speedGauge.addComponent(spr_speedGauge, "tier");
+//go_speedGauge.addComponent(spr_dial, "dial");
 
 
 
