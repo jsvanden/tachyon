@@ -3,37 +3,51 @@ function twoButtons()
 {
     var gTime = 0;
     var rTime = 0;
-    var clock = 3;
-	var script = this;
+    var clock;
+    var cap;
+    var script = this;
+    var green;
+    var red;
+    var player;
 	
     this.start = function ()
     {
-        door = this.parent.getComponent("door").getComponent("body");
+        player = Level_1.find("Main Character");
+        clock = player.getComponent("movement").tier;
+        cap = player.getComponent("movement").tierCap;
         green = this.parent.getComponent("green").getComponent("body");
         red = this.parent.getComponent("red").getComponent("body");
         
         green.onTriggerEnter = function(){
-        //change sprite to down
-        gTime = 60;
-        console.log("on green")
+            green.parent.getComponent("sprite").image.src = 'resources/greenDown.png';
+            gTime = 60*cap;
+            console.log("on green")
         }
         
         red.onTriggerEnter= function(){
-            //change sprite to down
-            rTime = 60;
+            red.parent.getComponent("sprite").image.src = 'resources/redDown.png';
+            rTime = 60*cap;
             console.log("on red")
         }
     }
 
-    this.update = function(){
+    this.update = function () {
+        clock = player.getComponent("movement").tier;
+        cap = player.getComponent("movement").tierCap;
         if(gTime>0 && rTime>0){
-            //remove door
+            openDoor();
         }
         if(gTime>0){
-            gTime -= (1*clock/3);
+            gTime -= (1*cap/clock);
+        }
+        else {
+            green.parent.getComponent("sprite").image.src = 'resources/greenUp.png';
         }
         if(rTime>0){
-            rTime -= (1*clock/3);
+            rTime -= (1*cap/clock);
+        }
+        else {
+            red.parent.getComponent("sprite").image.src = 'resources/redUp.png';
         }
     }
 	
@@ -42,5 +56,6 @@ function twoButtons()
 		var door = Level_1.find("Button System").getComponent("door");
 		door.getComponent("sprite").image.src = 'resources/images/OpenDoor.png';
 		door.getComponent("sprite").width = 125;
+		door.getComponent("body").isTrigger = true;
 	}
 }
