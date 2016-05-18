@@ -4,7 +4,7 @@ function twoButtons()
     var gTime = 0;
     var rTime = 0;
     var clock;
-    this.cap;
+    var cap;
     var script = this;
     var green;
     var red;
