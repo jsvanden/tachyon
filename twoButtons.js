@@ -4,7 +4,8 @@ function twoButtons()
     var gTime = 0;
     var rTime = 0;
     var clock = 3;
-
+	var script = this;
+	
     this.start = function ()
     {
         door = this.parent.getComponent("door").getComponent("body");
@@ -35,4 +36,11 @@ function twoButtons()
             rTime -= (1*clock/3);
         }
     }
+	
+	this.openDoor = function()
+	{
+		var door = Level_1.find("Button System").getComponent("door");
+		door.getComponent("sprite").image.src = 'resources/OpenDoor.png';
+		door.getComponent("sprite").width = 125;
+	}
 }

@@ -64,7 +64,7 @@ var go_red = new GameObject({ x: 500, y: 250 });
 go_red.addComponent(spr_redUp, "sprite");
 go_red.addComponent(rb_red, "body");
 
-var go_bDoor = new GameObject({ x: 320, y: 44 });
+var go_bDoor = new GameObject({ x: 320, y: 43 });
 go_bDoor.addComponent(spr_dialDoors, "sprite");
 //go_bDoor.addComponent(rb_bDoor, "body");
 
@@ -74,9 +74,9 @@ go_buttonSystem.addComponent(go_red, "red");
 go_buttonSystem.addComponent(go_bDoor, "door");
 go_buttonSystem.addComponent(script_twoButtons, "script");
 
-var go_SampleObject = new GameObject();
-go_SampleObject.addComponent(script_sample, "Sample Script");
-go_SampleObject.addComponent(spr_john, "sprite");
+//var go_SampleObject = new GameObject();
+//go_SampleObject.addComponent(script_sample, "Sample Script");
+//go_SampleObject.addComponent(spr_john, "sprite");
 
 var go_mainMenu = new GameObject();
 go_mainMenu.addComponent(script_mainMenu, "input");
