@@ -55,16 +55,17 @@ function twoButtons()
     
     this.draw = function()
     {
-        context.beginPath();
-        context.arc(100, 100, 10,0, Math.PI * 2 * gTime / (60 * cap));
-        context.fillStyle = '#00FF00';
-        context.fill();
-        context.strokeStyle = '#000000';
-        context.beginPath();
-        context.arc(100, 100, 10, 0, Math.PI * 2);
-        context.closePath();
-        context.stroke();
-        //context.fillRect(20,20,150,100);
+        if (!isOpen) {
+            context.beginPath();
+            context.arc(296, 46, 10, 0, Math.PI * 2 * gTime / (60 * cap));
+            context.strokeStyle = '#00FF00';
+            context.stroke();
+            //context.fillRect(20,20,150,100);
+            context.beginPath();
+            context.arc(344, 46, 10, Math.PI, (Math.PI * 2 * rTime / (60 * cap)) + Math.PI);
+            context.strokeStyle = '#FF0000';
+            context.stroke();
+        }
     }
 	
 	this.openDoor = function()
