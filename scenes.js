@@ -5,6 +5,14 @@ MainMenu.onLoad = function()
   MainMenu.add(go_mainMenu, {x:320, y:240});
 }
 
+// Transition Levela
+
+var TransitionLevel = new Scene("Transition Level");
+TransitionLevel.onLoad = function()
+{
+  TransitionLevel.add(go_mainMenu, {x:320, y:240});
+}
+
 // Level 1
 var Level_1 = new Scene("Level 1");
 Level_1.onLoad = function()
@@ -18,6 +26,7 @@ Level_1.onLoad = function()
   //Level_1.add(go_speedGauge, {name: "guage", x: 320,y: 240,z:5})
 }
 
+// Level 2
 var Level_2 = new Scene("Level 2");
 Level_2.onLoad = function()
 {

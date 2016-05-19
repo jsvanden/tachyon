@@ -11,7 +11,7 @@ function twoButtons()
     var player;
     var isOpen = false;
     var opening = 0;
-    var drainSpeed = 1;
+    var drainSpeed = 1.15;
     var tierEffect = 3;
 	
     this.start = function ()
@@ -96,7 +96,7 @@ function twoButtons()
 		door.getComponent("body").turnIntoTrigger();
 		door.getComponent("body").onTriggerEnter = function()
 		{
-			sceneManager.play("Level 2");
+			sceneManager.play("Transition Level");
 		}
 	}
 }

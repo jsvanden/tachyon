@@ -21,7 +21,7 @@ function movement() {
   {
       if(prevTier != this.tier)
       {
-        AudioManager.setPlaybackRate("Level 1 Song", 1.15-(this.tier*0.15));
+        AudioManager.setPlaybackRate("Level 1 Song", 1.5-(this.tier*0.2));
         
         if(prevTier < this.tier)
         {
@@ -83,6 +83,20 @@ function movement() {
               }
           }
       }
+      else if (!InputManager.isPressed("left") && !InputManager.isPressed("right") && !InputManager.isPressed("up") && !InputManager.isPressed("down"))
+      {
+        this.ramp--;
+        if (this.ramp < 0 && this.tier > 1) {
+              this.ramp = 170;
+              this.tier--;
+          }
+          else {
+              if (this.ramp < 0) {
+                  this.ramp = 0;
+              }
+          }
+      }
+      
       if (this.tier < 1) {
 		  this.tier = 1;
 	  }
