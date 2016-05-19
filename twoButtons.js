@@ -9,7 +9,8 @@ function twoButtons()
     var green;
     var red;
     var player;
-	var isOpen = false;
+    var isOpen = false;
+    var opening = 0;
 	
     this.start = function ()
     {
@@ -35,9 +36,15 @@ function twoButtons()
     this.update = function () {
         clock = player.getComponent("movement").tier;
         cap = player.getComponent("movement").tierCap;
-        if(gTime>0 && rTime>0 && !isOpen){
-            this.openDoor();
-			isOpen = true;
+        if(gTime>0 && rTime>0 && !isOpen && opening == 0){
+            opening = 30;
+        }
+        if (opening > 0) {
+            opening--;
+            if (opening == 0) {
+                this.openDoor();
+                isOpen = true;
+            }
         }
         if(gTime>0){
             gTime -= (1*cap/clock);
