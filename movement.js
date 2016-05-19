@@ -21,7 +21,7 @@ function movement() {
   {
       if(prevTier != this.tier)
       {
-        AudioManager.setPlaybackRate("Level 1 Song", 1.175-(this.tier*0.175));
+        AudioManager.setPlaybackRate("Level 1 Song", 1.15-(this.tier*0.15));
         
         if(prevTier < this.tier)
         {

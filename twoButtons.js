@@ -12,6 +12,7 @@ function twoButtons()
     var isOpen = false;
     var opening = 0;
     var drainSpeed = 1;
+    var tierEffect = 3;
 	
     this.start = function ()
     {
@@ -37,6 +38,8 @@ function twoButtons()
     this.update = function () {
         clock = player.getComponent("movement").tier;
         cap = player.getComponent("movement").tierCap;
+        
+        
         if(gTime>0 && rTime>0 && !isOpen && opening == 0){
             opening = 30;
         }
@@ -48,13 +51,13 @@ function twoButtons()
             }
         }
         if (gTime > 0 && opening == 0) {
-            gTime -= (drainSpeed * cap / clock);
+            gTime -= ((drainSpeed * cap) / (clock/tierEffect));
         }
         else {
             green.parent.getComponent("sprite").image.src = 'resources/images/greenUp.png';
         }
         if (rTime > 0 && opening == 0) {
-            rTime -= (drainSpeed * cap / clock);
+            rTime -= ((drainSpeed * cap) / (clock/tierEffect));
         }
         else {
             red.parent.getComponent("sprite").image.src = 'resources/images/redUp.png';
