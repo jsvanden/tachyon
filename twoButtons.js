@@ -46,14 +46,14 @@ function twoButtons()
                 isOpen = true;
             }
         }
-        if(gTime>0){
-            gTime -= (1*cap/clock);
+        if (gTime > 0 && opening == 0) {
+            gTime -= (1 * cap / clock);
         }
         else {
             green.parent.getComponent("sprite").image.src = 'resources/images/greenUp.png';
         }
-        if(rTime>0){
-            rTime -= (1*cap/clock);
+        if (rTime > 0 && opening == 0) {
+            rTime -= (1 * cap / clock);
         }
         else {
             red.parent.getComponent("sprite").image.src = 'resources/images/redUp.png';
