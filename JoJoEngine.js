@@ -252,6 +252,17 @@ function AudioManager()
     }
   }
   
+  this.setVolume = function(name, volume)
+  {
+    for(var i=0; i<this.audioEntities.length; i++)
+    {
+      if(this.audioEntities[i].name == name)
+      {
+      this.audioEntities[i].audio.volume = volume;
+      }
+    }
+  }
+  
   this.setPlaybackRate = function(name, rate)
   {
 	var tempRate = rate;

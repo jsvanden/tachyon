@@ -19,6 +19,8 @@ var spr_dialDoors = new Sprite('resources/images/DialDoors.png', {width: 106, he
 var spr_lockedDoor_l = new Sprite('resources/images/LockedDoor.png', {width: 110, height: 41, xOffset: -181});
 var spr_lockedDoor_r = new Sprite('resources/images/LockedDoor.png', {width: 110, height: 41, xOffset: 181});
 
+var spr_greenDots = new Sprite('resources/images/GBtnDots.png', {width: 186, height: 185, xOffset: -181, yOffset: -285});
+var spr_redDots = new Sprite('resources/images/RBtnDots.png', {width: 186, height: 185, xOffset: 181, yOffset: -285});
 
 // Rigid Body
 
@@ -79,12 +81,15 @@ go_room01.addComponent(rb_wallTop6, "top wall 6");
 var go_chainDoors = new GameObject();
 go_chainDoors.addComponent(spr_lockedDoor_l, "sprite_l");
 go_chainDoors.addComponent(spr_lockedDoor_r, "sprite_r");
+go_chainDoors.addComponent(spr_greenDots, "shouldn't be here");
+go_chainDoors.addComponent(spr_redDots, "shouldn't be here");
+
 
 var go_green = new GameObject({x:100,y:250});
 go_green.addComponent(spr_greenUp, "sprite");
 go_green.addComponent(rb_green, "body");
 
-var go_red = new GameObject({ x: 500, y: 250 });
+var go_red = new GameObject({ x: 540, y: 250 });
 go_red.addComponent(spr_redUp, "sprite");
 go_red.addComponent(rb_red, "body");
 

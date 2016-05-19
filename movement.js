@@ -85,7 +85,7 @@ function movement() {
       }
       else if (!InputManager.isPressed("left") && !InputManager.isPressed("right") && !InputManager.isPressed("up") && !InputManager.isPressed("down"))
       {
-        this.ramp--;
+        this.ramp -= 0.5;
         if (this.ramp < 0 && this.tier > 1) {
               this.ramp = 170;
               this.tier--;

@@ -42,6 +42,8 @@ function twoButtons()
         
         if(gTime>0 && rTime>0 && !isOpen && opening == 0){
             opening = 30;
+            AudioManager.play('resources/music/heaven.mp3', "Win Sound")
+            AudioManager.setVolume("Level 1 Song", 0.1)
         }
         if (opening > 0) {
             opening--;
@@ -96,7 +98,7 @@ function twoButtons()
 		door.getComponent("body").turnIntoTrigger();
 		door.getComponent("body").onTriggerEnter = function()
 		{
-			sceneManager.play("Transition Level");
+			sceneManager.play("Level 2");
 		}
 	}
 }
