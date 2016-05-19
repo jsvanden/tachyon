@@ -11,6 +11,7 @@ function twoButtons()
     var player;
     var isOpen = false;
     var opening = 0;
+    var drainSpeed = 1;
 	
     this.start = function ()
     {
@@ -47,13 +48,13 @@ function twoButtons()
             }
         }
         if (gTime > 0 && opening == 0) {
-            gTime -= (1 * cap / clock);
+            gTime -= (drainSpeed * cap / clock);
         }
         else {
             green.parent.getComponent("sprite").image.src = 'resources/images/greenUp.png';
         }
         if (rTime > 0 && opening == 0) {
-            rTime -= (1 * cap / clock);
+            rTime -= (drainSpeed * cap / clock);
         }
         else {
             red.parent.getComponent("sprite").image.src = 'resources/images/redUp.png';
@@ -64,13 +65,15 @@ function twoButtons()
     {
         if (!isOpen) {
             context.beginPath();
-            context.arc(296, 46, 10, 0, Math.PI * 2 * gTime / (60 * cap));
+            context.arc(296, 46, 5, 0, Math.PI * 2 * gTime / (60 * cap));
             context.strokeStyle = '#00FF00';
+            context.lineWidth = 11;
             context.stroke();
             //context.fillRect(20,20,150,100);
             context.beginPath();
-            context.arc(344, 46, 10, Math.PI, (Math.PI * 2 * rTime / (60 * cap)) + Math.PI);
+            context.arc(344, 46, 5, Math.PI, (Math.PI * 2 * rTime / (60 * cap)) + Math.PI, false);
             context.strokeStyle = '#FF0000';
+            context.lineWidth = 11;
             context.stroke();
         }
     }

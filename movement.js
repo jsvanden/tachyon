@@ -72,7 +72,7 @@ function movement() {
           }
       }
       if (!InputManager.isPressed("shift")) {
-          this.ramp--;
+          this.ramp -= 8;
           if (this.ramp < 0 && this.tier > 1) {
               this.ramp = 170;
               this.tier--;

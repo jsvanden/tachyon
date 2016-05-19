@@ -22,14 +22,27 @@ var spr_lockedDoor_r = new Sprite('resources/images/LockedDoor.png', {width: 110
 
 // Rigid Body
 
-var rb_character = new RigidBody({isDynamic: true, listenForCollision: true, height:55, linearDamping:0.75});
-var rb_wallLeft = new RigidBody({width:10, height:480, xOffset: -320});
-var rb_wallTop = new RigidBody({width: 640, height: 10, yOffset: -240});
-var rb_wallRight = new RigidBody({width:10, height:480, xOffset: 320});
-var rb_wallBottom = new RigidBody({ width: 640, height: 10, yOffset: 240 });
+var rb_character = new RigidBody({isDynamic: true, listenForCollision: true, height:46, yOffset: 5, linearDamping:0.75});
 var rb_green = new RigidBody({ width: 58, height: 40, isTrigger: true });
 var rb_red = new RigidBody({ width: 58, height: 40, isTrigger: true });
-var rb_bDoor = new RigidBody({ width: 60, height: 60 });
+var rb_bDoor = new RigidBody({ width: 90, height: 40 });
+
+var rb_wallLeft = new RigidBody({width:10, height:480, xOffset: -325});
+var rb_wallRight = new RigidBody({width:10, height:480, xOffset: 325});
+
+var rb_wallBottom1 = new RigidBody({ width: 215, height: 10, xOffset: -215, yOffset: 195 });
+var rb_wallBottom2 = new RigidBody({ width: 50, height: 10, xOffset: -97, yOffset: 214, rotationOffset: 59 });
+var rb_wallBottom3 = new RigidBody({ width: 185, height: 10, yOffset: 238 });
+var rb_wallBottom4 = new RigidBody({ width: 50, height: 10, xOffset: 97, yOffset: 214, rotationOffset: -59 });
+var rb_wallBottom5 = new RigidBody({ width: 215, height: 10, xOffset: 215, yOffset: 195 });
+
+var rb_wallTop1 = new RigidBody({width: 135, height: 10, xOffset: -255, yOffset: -230});
+var rb_wallTop2 = new RigidBody({width: 75, height: 10, xOffset: -163, yOffset: -207, rotationOffset: 44 });
+var rb_wallTop3 = new RigidBody({width: 85, height: 10, xOffset: -97, yOffset: -182});
+var rb_wallTop4 = new RigidBody({width: 75, height: 10, xOffset: 163, yOffset: -207, rotationOffset: -44 });
+var rb_wallTop5 = new RigidBody({width: 85, height: 10, xOffset: 97, yOffset: -182});
+var rb_wallTop6 = new RigidBody({width: 135, height: 10, xOffset: 255, yOffset: -230});
+
 
 // Scripts
 
@@ -50,9 +63,18 @@ go_character.addComponent(script_characterRendering, "Character Rendering");
 var go_room01 = new GameObject();
 go_room01.addComponent(spr_room01, "sprite");
 go_room01.addComponent(rb_wallLeft, "left wall");
-go_room01.addComponent(rb_wallTop, "top wall");
 go_room01.addComponent(rb_wallRight, "right wall");
-go_room01.addComponent(rb_wallBottom, "bottom wall");
+go_room01.addComponent(rb_wallBottom1, "bottom wall 1");
+go_room01.addComponent(rb_wallBottom2, "bottom wall 2");
+go_room01.addComponent(rb_wallBottom3, "bottom wall 3");
+go_room01.addComponent(rb_wallBottom4, "bottom wall 4");
+go_room01.addComponent(rb_wallBottom5, "bottom wall 5");
+go_room01.addComponent(rb_wallTop1, "top wall 1");
+go_room01.addComponent(rb_wallTop2, "top wall 2");
+go_room01.addComponent(rb_wallTop3, "top wall 3");
+go_room01.addComponent(rb_wallTop4, "top wall 4");
+go_room01.addComponent(rb_wallTop5, "top wall 5");
+go_room01.addComponent(rb_wallTop6, "top wall 6");
 
 var go_chainDoors = new GameObject();
 go_chainDoors.addComponent(spr_lockedDoor_l, "sprite_l");
