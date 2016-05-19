@@ -2,8 +2,8 @@
 
 var spr_room01 = new Sprite('resources/images/level01.png', {width:640, height:480});
 
-var spr_tempChar = new Sprite('resources/images/Wchar.png', {width:51, height:68, yOffset:-5});
-//var spr_tempChar2 = new Sprite('resources/images/MoveDown.png', {width:62, height:88, yOffset:5});
+var spr_tempChar = new Sprite('resources/images/Wchar.png', {width:62, height:85, yOffset:3});
+//var spr_tempChar2 = new Sprite('resources/Wchar.png', {width:62, height:85, yOffset:3});
 
 var spr_greenUp = new Sprite('resources/images/greenUp.png', {width: 58, height: 40});
 var spr_greenDown = new Sprite('resources/images/greenDown.png', { width: 58, height: 35, yOffset: 2.5 });
@@ -62,6 +62,7 @@ go_character.addComponent(spr_tempChar, "sprite");
 go_character.addComponent(rb_character, "body");
 go_character.addComponent(script_movement, "movement");
 go_character.addComponent(script_characterRendering, "Character Rendering");
+//go_character.addComponent(spr_tempChar2, "sprite2");
 
 var go_room01 = new GameObject();
 go_room01.addComponent(spr_room01, "sprite");
@@ -84,7 +85,6 @@ go_chainDoors.addComponent(spr_lockedDoor_l, "sprite_l");
 go_chainDoors.addComponent(spr_lockedDoor_r, "sprite_r");
 go_chainDoors.addComponent(spr_greenDots, "shouldn't be here");
 go_chainDoors.addComponent(spr_redDots, "shouldn't be here");
-
 
 var go_green = new GameObject({x:100,y:250});
 go_green.addComponent(spr_greenUp, "sprite");
