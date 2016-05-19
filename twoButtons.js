@@ -98,7 +98,8 @@ function twoButtons()
 		door.getComponent("body").turnIntoTrigger();
 		door.getComponent("body").onTriggerEnter = function()
 		{
-			sceneManager.play("Level 2");
+      g_currentLevel = 2;
+			sceneManager.play("Transition Level");
 		}
 	}
 }

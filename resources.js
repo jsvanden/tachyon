@@ -13,7 +13,7 @@ var spr_redDown = new Sprite('resources/images/redDown.png', { width: 58, height
 
 var spr_mainMenu = new Sprite('resources/images/MainMenu.png', {width: 640, height:480});
 
-//var spr_john = new Sprite('resources/john.jpg', {width: 200, height: 200});
+var spr_transition = new Sprite('resources/images/Dilation.png', {width: 640, height: 480});
 
 var spr_dialDoors = new Sprite('resources/images/DialDoors.png', {width: 106, height: 47});
 var spr_lockedDoor_l = new Sprite('resources/images/LockedDoor.png', {width: 110, height: 41, xOffset: -181});
@@ -53,6 +53,7 @@ var script_movement = new movement();
 var script_mainMenu = new MainMenu();
 var script_twoButtons = new twoButtons();
 var script_characterRendering = new CharacterRendering();
+var script_transition = new transition();
 
 // GameObjects
 
@@ -111,10 +112,9 @@ var go_mainMenu = new GameObject();
 go_mainMenu.addComponent(script_mainMenu, "input");
 go_mainMenu.addComponent(spr_mainMenu, "sprite");
 
-//var go_speedGauge = new GameObject();
-//go_speedGauge.addComponent(spr_speedGauge, "tier");
-//go_speedGauge.addComponent(spr_dial, "dial");
-
+var go_transition = new GameObject();
+go_transition.addComponent(script_transition, "script");
+go_transition.addComponent(spr_transition, "sprite");
 
 
 

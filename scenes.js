@@ -10,7 +10,7 @@ MainMenu.onLoad = function()
 var TransitionLevel = new Scene("Transition Level");
 TransitionLevel.onLoad = function()
 {
-  TransitionLevel.add(go_mainMenu, {x:320, y:240});
+  TransitionLevel.add(go_transition, {x:320, y:240});
 }
 
 // Level 1

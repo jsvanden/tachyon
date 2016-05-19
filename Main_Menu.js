@@ -4,7 +4,8 @@ function MainMenu()
   {
     if (InputManager.isPressed("enter"))
     {
-      sceneManager.play("Level 1");
+      g_currentLevel = 1;
+      sceneManager.play("Transition Level");
     }
   }
 }
