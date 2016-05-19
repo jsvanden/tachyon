@@ -62,6 +62,13 @@ function twoButtons()
         else {
             red.parent.getComponent("sprite").image.src = 'resources/images/redUp.png';
         }
+        
+        if (gTime < 0) {
+            gTime = 0;
+        }
+        if (rTime < 0) {
+            rTime = 0;
+        }
     }
     
     this.draw = function()
