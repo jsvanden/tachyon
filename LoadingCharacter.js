@@ -1,3 +1,15 @@
+function blend(r1,g1,b1,r2,g2,b2,balance)
+{
+    var bal = Math.min(Math.max(balance,0),1);
+    var nbal = 1-bal;
+    return(
+    {
+      r : Math.floor(r1*nbal + r2*bal),
+      g : Math.floor(g1*nbal + g2*bal),
+      b : Math.floor(b1*nbal + b2*bal)
+    });
+}   
+
 function LoadingCharacter()
 {
   this.character;
@@ -6,7 +18,7 @@ function LoadingCharacter()
   this.direction = 0;
   this.percent = 0;
   this.continueTimer = 0;
-  this.timerLimit = 120;
+  this.timerLimit = 180;
   
   this.start = function()
   {
@@ -18,11 +30,38 @@ function LoadingCharacter()
 
   this.draw = function()
   {
+    var startColor = {r: 255, g: 94, b: 94};
+    var endColor = {r: 255, g: 94, b: 94};
+    
+    if(this.characterMovement.tier == 1)
+    {
+      startColor = {r: 234, g: 234, b: 234};
+      endColor = {r: 130, g: 135, b: 223};
+    }
+    else if(this.characterMovement.tier == 2)
+    {
+      startColor = {r: 130, g: 135, b: 223};
+      endColor = {r: 71, g: 218, b: 126};
+    }
+    else if(this.characterMovement.tier == 3)
+    {
+      startColor = {r: 71, g: 218, b: 126};
+      endColor = {r: 252, g: 238, b: 86};
+    }
+    else if(this.characterMovement.tier == 4)
+    {
+      startColor = {r: 252, g: 238, b: 86};
+      endColor = {r: 255, g: 94, b: 94};
+    }
+    
+    
+    console.log(this.characterMovement.tier)
+    this.loadColor = blend(startColor.r , startColor.g, startColor.b, endColor.r , endColor.g, endColor.b,(this.characterMovement.ramp / 180)) 
+    
     context.font = "30px sans-serif";
     context.textAlign = "center";
     context.textBaseline = 'middle';
     context.fillText("Hold shift to start.",320,130);
-    
     
     context.save();
     context.translate(320,380);
@@ -40,7 +79,9 @@ function LoadingCharacter()
     
 		context.beginPath();
 		context.arc(0, 0, 50, 0, Math.PI * 2 * (this.percent/100), false);
-		context.strokeStyle = '#555555';
+		context.strokeStyle = 'rgb(' + this.loadColor.r + ',' + this.loadColor.g + ',' + this.loadColor.b + ')';
+    
+    //context.strokeStyle = 'rgb(0,0,0)';
     context.lineCap = 'round'; // butt, round or square
 		context.lineWidth = 7
 		context.stroke();

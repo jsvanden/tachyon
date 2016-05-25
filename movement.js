@@ -2,13 +2,13 @@
 function movement() {
     var body;
     //var speed = 30;
-    var speedCap = 7;
+    var speedCap = 8;
     this.tier = 1;
     var prevTier = 1;
     this.tierCap = 5;
     //var walking = 1;
     this.ramp = 0;
-    this.fillSpeed = 2;
+    this.fillSpeed = 1.5;
     this.enabled = true;
     
 // Happens At Start
