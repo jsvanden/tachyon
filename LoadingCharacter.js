@@ -1,4 +1,4 @@
-function MainMenu()
+function LoadingCharacter()
 {  
   this.update = function()
   {

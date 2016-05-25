@@ -2,12 +2,13 @@
 function movement() {
     var body;
     //var speed = 30;
-    var speedCap = 5;
+    var speedCap = 7;
     this.tier = 1;
     var prevTier = 1;
     this.tierCap = 5;
     //var walking = 1;
     this.ramp = 0;
+    this.fillSpeed = 2;
     
 // Happens At Start
   this.start = function()
@@ -34,7 +35,7 @@ function movement() {
       if (InputManager.isPressed("right")) {
           body.applyForce(0, 1000);
           if (InputManager.isPressed("shift")) {
-              this.ramp++;
+              this.ramp += this.fillSpeed;
               if (this.ramp > 180) {
                   this.ramp = 0;
                   this.tier++;
@@ -44,7 +45,7 @@ function movement() {
       if (InputManager.isPressed("up")) {
           body.applyForce(90, 1000);
           if (InputManager.isPressed("shift")) {
-              this.ramp++;
+              this.ramp += this.fillSpeed;
               if (this.ramp > 180) {
                   this.ramp = 0;
                   this.tier++;
@@ -54,7 +55,7 @@ function movement() {
       if (InputManager.isPressed("left")) {
           body.applyForce(180, 1000);
           if (InputManager.isPressed("shift")) {
-              this.ramp++;
+              this.ramp += this.fillSpeed;
               if (this.ramp > 180) {
                   this.ramp = 0;
                   this.tier++;
@@ -64,7 +65,7 @@ function movement() {
       if (InputManager.isPressed("down")) {
           body.applyForce(270, 1000);
           if (InputManager.isPressed("shift")) {
-              this.ramp++;
+              this.ramp += this.fillSpeed;
               if (this.ramp > 180) {
                   this.ramp = 0;
                   this.tier++;

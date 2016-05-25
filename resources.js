@@ -24,7 +24,7 @@ var spr_redDots = new Sprite('resources/images/RBtnDots.png', {width: 186, heigh
 
 // Rigid Body
 
-var rb_character = new RigidBody({isDynamic: true, listenForCollision: true, height:46, yOffset: 5, linearDamping:0.75});
+var rb_character = new RigidBody({isDynamic: true, listenForCollision: true, height:46, yOffset: 5, linearDamping:4});
 var rb_green = new RigidBody({ width: 58, height: 40, isTrigger: true });
 var rb_red = new RigidBody({ width: 58, height: 40, isTrigger: true });
 var rb_bDoor = new RigidBody({ width: 90, height: 40 });
@@ -50,7 +50,7 @@ var rb_wallTop6 = new RigidBody({width: 135, height: 10, xOffset: 255, yOffset: 
 
 var script_sample = new sampleScript();
 var script_movement = new movement();
-var script_mainMenu = new MainMenu();
+//var script_mainMenu = new MainMenu();
 var script_twoButtons = new twoButtons();
 var script_characterRendering = new CharacterRendering();
 var script_transition = new transition();
@@ -109,8 +109,9 @@ go_buttonSystem.addComponent(script_twoButtons, "script");
 //go_SampleObject.addComponent(spr_john, "sprite");
 
 var go_mainMenu = new GameObject();
+/*var go_mainMenu = new GameObject();
 go_mainMenu.addComponent(script_mainMenu, "input");
-go_mainMenu.addComponent(spr_mainMenu, "sprite");
+go_mainMenu.addComponent(spr_mainMenu, "sprite");*/
 
 var go_transition = new GameObject();
 go_transition.addComponent(script_transition, "script");
