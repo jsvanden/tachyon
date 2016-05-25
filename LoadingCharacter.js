@@ -18,7 +18,7 @@ function LoadingCharacter()
   this.direction = 0;
   this.percent = 0;
   this.continueTimer = 0;
-  this.timerLimit = 180;
+  this.timerLimit = 150;
   
   this.start = function()
   {
