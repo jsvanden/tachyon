@@ -53,9 +53,7 @@ function LoadingCharacter()
       startColor = {r: 252, g: 238, b: 86};
       endColor = {r: 255, g: 94, b: 94};
     }
-    
-    
-    console.log(this.characterMovement.tier)
+
     this.loadColor = blend(startColor.r , startColor.g, startColor.b, endColor.r , endColor.g, endColor.b,(this.characterMovement.ramp / 180)) 
     
     context.font = "30px sans-serif";
