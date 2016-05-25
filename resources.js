@@ -1,6 +1,7 @@
 // Sprites
 
 var spr_room01 = new Sprite('resources/images/level01.png', {width:640, height:480});
+var spr_room02 = new Sprite('resources/images/level02.JPG', {width:640, height:480});
 
 var spr_tempChar = new Sprite('resources/images/Wchar.png', {width:62, height:85, yOffset:3});
 //var spr_tempChar2 = new Sprite('resources/Wchar.png', {width:62, height:85, yOffset:3});
@@ -46,6 +47,20 @@ var rb_wallTop5 = new RigidBody({width: 85, height: 10, xOffset: 97, yOffset: -1
 var rb_wallTop6 = new RigidBody({width: 135, height: 10, xOffset: 255, yOffset: -230});
 
 
+var rb_level2_wallLeftTop = new RigidBody({width: 30, height: 250, xOffset: -280, yOffset: -170});
+var rb_level2_wallRightTop = new RigidBody({width: 30, height: 250, xOffset: 280, yOffset: -170});
+var rb_level2_wallLeftBot = new RigidBody({width: 30, height: 250, xOffset: -280, yOffset: 170});
+var rb_level2_wallRightBot = new RigidBody({width: 30, height: 250, xOffset: 280, yOffset: 170});
+var rb_level2_wallTop = new RigidBody({width: 640, height: 30, xOffset: 0, yOffset: -240});
+var rb_level2_wallBot = new RigidBody({width: 640, height: 30, xOffset: 0, yOffset: 240});
+
+var rb_level2_pistonArmLeftBot = new RigidBody ({width: 40, height: 250, xOffset: -145, yOffset: 170});
+var rb_level2_pistonArmLeftTop = new RigidBody ({width: 40, height: 250, xOffset: -145, yOffset: -170});
+var rb_level2_pistonArmMidBot = new RigidBody ({width: 40, height: 200, xOffset: 5, yOffset: 190});
+var rb_level2_pistonArmMidTop = new RigidBody ({width: 40, height: 200, xOffset: 5, yOffset: -190});
+var rb_level2_pistonArmRightBot = new RigidBody ({width: 40, height: 150, xOffset: 155, yOffset: 240});
+var rb_level2_pistonArmRightTop = new RigidBody ({width: 40, height: 150, xOffset: 155, yOffset: -240});
+
 // Scripts
 
 var script_sample = new sampleScript();
@@ -79,6 +94,22 @@ go_room01.addComponent(rb_wallTop3, "top wall 3");
 go_room01.addComponent(rb_wallTop4, "top wall 4");
 go_room01.addComponent(rb_wallTop5, "top wall 5");
 go_room01.addComponent(rb_wallTop6, "top wall 6");
+
+var go_room02 = new GameObject();
+go_room02.addComponent(spr_room02, "sprite");
+go_room02.addComponent(rb_level2_wallLeftTop, "left wall");
+go_room02.addComponent(rb_level2_wallRightTop,"right wall");
+go_room02.addComponent(rb_level2_wallLeftBot, "left wall");
+go_room02.addComponent(rb_level2_wallRightBot,"right wall");
+go_room02.addComponent(rb_level2_pistonArmLeftTop,"left piston top");
+go_room02.addComponent(rb_level2_pistonArmLeftBot,"left piston bottom");
+go_room02.addComponent(rb_level2_pistonArmMidTop,"middle piston top");
+go_room02.addComponent(rb_level2_pistonArmMidBot,"middle piston bottom");
+go_room02.addComponent(rb_level2_pistonArmRightTop,"middle piston top");
+go_room02.addComponent(rb_level2_pistonArmRightBot,"middle piston bottom");
+go_room02.addComponent(rb_level2_wallTop,"top wall");
+go_room02.addComponent(rb_level2_wallBot,"bottom wall");
+
 
 var go_chainDoors = new GameObject();
 go_chainDoors.addComponent(spr_lockedDoor_l, "sprite_l");

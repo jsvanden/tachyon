@@ -35,7 +35,7 @@ function movement() {
         prevTier = this.tier;
       }
     
-      if (InputManager.isPressed("right")) {
+      if (InputManager.isPressed("right")&& !InputManager.isPressed("left")) {
           if (this.enabled) body.applyForce(0, 1000);
           if (InputManager.isPressed("shift")) {
               this.ramp += this.fillSpeed;
@@ -45,7 +45,7 @@ function movement() {
               }
           }
       }
-      if (InputManager.isPressed("up")) {
+      if (InputManager.isPressed("up")&&!InputManager.isPressed("down")) {
           if (this.enabled) body.applyForce(90, 1000);
           if (InputManager.isPressed("shift")) {
               this.ramp += this.fillSpeed;
@@ -55,7 +55,7 @@ function movement() {
               }
           }
       }
-      if (InputManager.isPressed("left")) {
+      if (InputManager.isPressed("left")&&!InputManager.isPressed("right")) {
           if (this.enabled) body.applyForce(180, 1000);
           if (InputManager.isPressed("shift")) {
               this.ramp += this.fillSpeed;
@@ -65,7 +65,7 @@ function movement() {
               }
           }
       }
-      if (InputManager.isPressed("down")) {
+      if (InputManager.isPressed("down")&&!InputManager.isPressed("up")) {
           if (this.enabled) body.applyForce(270, 1000);
           if (InputManager.isPressed("shift")) {
               this.ramp += this.fillSpeed;

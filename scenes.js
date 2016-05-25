@@ -15,6 +15,8 @@ TransitionLevel.onLoad = function()
 }
 
 // Level 1
+
+
 var Level_1 = new Scene("Level 1");
 Level_1.onLoad = function()
 {
@@ -32,4 +34,5 @@ var Level_2 = new Scene("Level 2");
 Level_2.onLoad = function()
 {
   Level_2.add(go_character, {x:320, y:240, name: "Main Character"});
+  Level_2.add(go_room02, {x:320, y:240, z:-3});
 }
