@@ -9,6 +9,7 @@ function movement() {
     //var walking = 1;
     this.ramp = 0;
     this.fillSpeed = 2;
+    this.enabled = true;
     
 // Happens At Start
   this.start = function()
@@ -22,6 +23,8 @@ function movement() {
   {
       if(prevTier != this.tier)
       {
+        if(this.tier >this.tierCap) this.tier = this.tierCap;
+        
         AudioManager.setPlaybackRate("Level 1 Song", 1.5-(this.tier*0.2));
         
         if(prevTier < this.tier)
@@ -33,7 +36,7 @@ function movement() {
       }
     
       if (InputManager.isPressed("right")) {
-          body.applyForce(0, 1000);
+          if (this.enabled) body.applyForce(0, 1000);
           if (InputManager.isPressed("shift")) {
               this.ramp += this.fillSpeed;
               if (this.ramp > 180) {
@@ -43,7 +46,7 @@ function movement() {
           }
       }
       if (InputManager.isPressed("up")) {
-          body.applyForce(90, 1000);
+          if (this.enabled) body.applyForce(90, 1000);
           if (InputManager.isPressed("shift")) {
               this.ramp += this.fillSpeed;
               if (this.ramp > 180) {
@@ -53,7 +56,7 @@ function movement() {
           }
       }
       if (InputManager.isPressed("left")) {
-          body.applyForce(180, 1000);
+          if (this.enabled) body.applyForce(180, 1000);
           if (InputManager.isPressed("shift")) {
               this.ramp += this.fillSpeed;
               if (this.ramp > 180) {
@@ -63,7 +66,7 @@ function movement() {
           }
       }
       if (InputManager.isPressed("down")) {
-          body.applyForce(270, 1000);
+          if (this.enabled) body.applyForce(270, 1000);
           if (InputManager.isPressed("shift")) {
               this.ramp += this.fillSpeed;
               if (this.ramp > 180) {
@@ -72,7 +75,7 @@ function movement() {
               }
           }
       }
-      if (!InputManager.isPressed("shift")) {
+      if (!InputManager.isPressed("shift") && this.enabled) {
           this.ramp -= 8;
           if (this.ramp < 0 && this.tier > 1) {
               this.ramp = 170;
@@ -84,7 +87,7 @@ function movement() {
               }
           }
       }
-      else if (!InputManager.isPressed("left") && !InputManager.isPressed("right") && !InputManager.isPressed("up") && !InputManager.isPressed("down"))
+      else if (!InputManager.isPressed("left") && !InputManager.isPressed("right") && !InputManager.isPressed("up") && !InputManager.isPressed("down") && this.enabled)
       {
         this.ramp -= 0.5;
         if (this.ramp < 0 && this.tier > 1) {

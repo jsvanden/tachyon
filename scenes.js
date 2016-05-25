@@ -2,8 +2,8 @@
 var MainMenu = new Scene("Main Menu");
 MainMenu.onLoad = function()
 {
-  MainMenu.add(go_mainMenu, {x:320, y:240});
   MainMenu.add(go_character, {x:320, y:240, name: "Main Character"});
+  MainMenu.add(go_mainMenu, {x:320, y:240});
 }
 
 // Transition Levela

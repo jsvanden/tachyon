@@ -50,7 +50,7 @@ var rb_wallTop6 = new RigidBody({width: 135, height: 10, xOffset: 255, yOffset: 
 
 var script_sample = new sampleScript();
 var script_movement = new movement();
-//var script_mainMenu = new MainMenu();
+var script_loadingCharacter = new LoadingCharacter();
 var script_twoButtons = new twoButtons();
 var script_characterRendering = new CharacterRendering();
 var script_transition = new transition();
@@ -109,6 +109,8 @@ go_buttonSystem.addComponent(script_twoButtons, "script");
 //go_SampleObject.addComponent(spr_john, "sprite");
 
 var go_mainMenu = new GameObject();
+go_mainMenu.addComponent(script_loadingCharacter, "script");
+
 /*var go_mainMenu = new GameObject();
 go_mainMenu.addComponent(script_mainMenu, "input");
 go_mainMenu.addComponent(spr_mainMenu, "sprite");*/
