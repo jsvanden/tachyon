@@ -16,7 +16,7 @@ function twoButtons()
 	
     this.start = function ()
     {
-        player = Level_1.find("Main Character");
+        player = Level_1.find("Main Character") || Level_3.find("Main Character");
         clock = player.getComponent("movement").tier;
         cap = player.getComponent("movement").tierCap;
         green = this.parent.getComponent("green").getComponent("body");
@@ -92,8 +92,8 @@ function twoButtons()
 	
 	this.openDoor = function()
 	{
-		var door = Level_1.find("Button System").getComponent("door");
-		door.getComponent("sprite").image.src = 'resources/images/OpenDoor.png';
+		var door = Level_1.find("Button System").getComponent("door")||Level_3.find("Button System").getComponent("door");
+		door.getComponent("sprite").image.src = 'resources/images/OpenDoorDown.png';
 		door.getComponent("sprite").width = 125;
 		door.getComponent("body").turnIntoTrigger();
 		door.getComponent("body").onTriggerEnter = function()

@@ -1,7 +1,11 @@
 // Sprites
 
+
 var spr_room01 = new Sprite('resources/images/level01.png', {width:640, height:480});
 var spr_room02 = new Sprite('resources/images/level02.JPG', {width:640, height:480});
+var spr_room03 = new Sprite('resources/images/level03.png', {width:640, height:480});
+var spr_room04 = new Sprite('resources/images/level04.png', {width:960, height:480}); //room 4 is longer than the rest on purpose, it exists to have the player go fast over 3 buttons
+
 
 var spr_tempChar = new Sprite('resources/images/Wchar.png', {width:62, height:85, yOffset:3});
 //var spr_tempChar2 = new Sprite('resources/Wchar.png', {width:62, height:85, yOffset:3});
@@ -16,9 +20,9 @@ var spr_mainMenu = new Sprite('resources/images/MainMenu.png', {width: 640, heig
 
 var spr_transition = new Sprite('resources/images/Dilation.png', {width: 640, height: 480});
 
-var spr_dialDoors = new Sprite('resources/images/DialDoors.png', {width: 106, height: 47});
-var spr_lockedDoor_l = new Sprite('resources/images/LockedDoor.png', {width: 110, height: 41, xOffset: -181});
-var spr_lockedDoor_r = new Sprite('resources/images/LockedDoor.png', {width: 110, height: 41, xOffset: 181});
+var spr_dialDoors = new Sprite('resources/images/DialDoorsDown.png', {width: 106, height: 47});
+var spr_lockedDoor_l = new Sprite('resources/images/LockedDoorUp.png', {width: 110, height: 41, xOffset: -181});
+var spr_lockedDoor_r = new Sprite('resources/images/LockedDoorUp.png', {width: 110, height: 41, xOffset: 181});
 
 var spr_greenDots = new Sprite('resources/images/GBtnDots.png', {width: 186, height: 185, xOffset: -181, yOffset: -285});
 var spr_redDots = new Sprite('resources/images/RBtnDots.png', {width: 186, height: 185, xOffset: 181, yOffset: -285});
@@ -29,6 +33,9 @@ var rb_character = new RigidBody({isDynamic: true, listenForCollision: true, hei
 var rb_green = new RigidBody({ width: 58, height: 40, isTrigger: true });
 var rb_red = new RigidBody({ width: 58, height: 40, isTrigger: true });
 var rb_bDoor = new RigidBody({ width: 90, height: 40 });
+
+
+
 
 var rb_wallLeft = new RigidBody({width:10, height:480, xOffset: -325});
 var rb_wallRight = new RigidBody({width:10, height:480, xOffset: 325});
@@ -47,19 +54,41 @@ var rb_wallTop5 = new RigidBody({width: 85, height: 10, xOffset: 97, yOffset: -1
 var rb_wallTop6 = new RigidBody({width: 135, height: 10, xOffset: 255, yOffset: -230});
 
 
-var rb_level2_wallLeftTop = new RigidBody({width: 30, height: 250, xOffset: -280, yOffset: -170});
+
+
+
 var rb_level2_wallRightTop = new RigidBody({width: 30, height: 250, xOffset: 280, yOffset: -170});
 var rb_level2_wallLeftBot = new RigidBody({width: 30, height: 250, xOffset: -280, yOffset: 170});
+var rb_level2_wallLeftTop = new RigidBody({width:30, height: 250, xOffset: -280, yOffset:-170});
 var rb_level2_wallRightBot = new RigidBody({width: 30, height: 250, xOffset: 280, yOffset: 170});
 var rb_level2_wallTop = new RigidBody({width: 640, height: 30, xOffset: 0, yOffset: -240});
 var rb_level2_wallBot = new RigidBody({width: 640, height: 30, xOffset: 0, yOffset: 240});
 
-var rb_level2_pistonArmLeftBot = new RigidBody ({width: 40, height: 250, xOffset: -145, yOffset: 170});
-var rb_level2_pistonArmLeftTop = new RigidBody ({width: 40, height: 250, xOffset: -145, yOffset: -170});
-var rb_level2_pistonArmMidBot = new RigidBody ({width: 40, height: 200, xOffset: 5, yOffset: 190});
+var rb_level2_pistonArmLeftTop = new RigidBody ({width: 40, height: 250, xOffset: -145, yOffset: -160});
+var rb_level2_pistonArmLeftBot = new RigidBody ({width: 40, height: 250, xOffset: -145, yOffset: 160});
 var rb_level2_pistonArmMidTop = new RigidBody ({width: 40, height: 200, xOffset: 5, yOffset: -190});
-var rb_level2_pistonArmRightBot = new RigidBody ({width: 40, height: 150, xOffset: 155, yOffset: 240});
-var rb_level2_pistonArmRightTop = new RigidBody ({width: 40, height: 150, xOffset: 155, yOffset: -240});
+var rb_level2_pistonArmMidBot = new RigidBody ({width: 40, height: 200, xOffset: 5, yOffset: 190});
+var rb_level2_pistonArmRightTop = new RigidBody ({width: 40, height: 150, xOffset: 155, yOffset: -230});
+var rb_level2_pistonArmRightBot = new RigidBody ({width: 40, height: 150, xOffset: 155, yOffset: 230});
+
+
+
+
+
+var rb_level3_wallLeft = new RigidBody ({width: 40, height: 480, xOffset: -330, yOffset: 0});
+var rb_level3_wallTop = new RigidBody ({width: 640, height: 10, xOffset: 0, yOffset: -230});
+var rb_level3_wallRight = new RigidBody ({width: 40, height: 480, xOffset: 330, yOffset: 0});
+var rb_level3_wallDownRight = new RigidBody ({width: 640, height: 10, xOffset: 200, yOffset: 195});
+var rb_level3_wallDownLeft = new RigidBody ({width: 80, height: 10, xOffset: -280, yOffset: 195});
+var rb_level3_wallInsideTop = new RigidBody ({width:640, height: 15, xOffset: 160, yOffset: -100});
+var rb_level3_wallInsideBot = new RigidBody ({width:640, height: 15, xOffset: -160, yOffset: 95});
+
+
+
+var rb_level4_wallTop = new RigidBody ({width:640, height: 10, xOffset: -140, yOffset: -170});
+var rb_level4_wallBot = new RigidBody ({width:640, height: 10, xOffset: -140, yOffset: 170});
+var rb_level4_wallLeftTop = new RigidBody ({width:10, height: 120, xOffset: -470, yOffset: 110});
+var rb_level4_wallLeftBot = new RigidBody ({width:10, height: 120, xOffset: -470, yOffset: -110});
 
 // Scripts
 
@@ -79,6 +108,9 @@ go_character.addComponent(script_movement, "movement");
 go_character.addComponent(script_characterRendering, "Character Rendering");
 //go_character.addComponent(spr_tempChar2, "sprite2");
 
+
+
+
 var go_room01 = new GameObject();
 go_room01.addComponent(spr_room01, "sprite");
 go_room01.addComponent(rb_wallLeft, "left wall");
@@ -95,6 +127,8 @@ go_room01.addComponent(rb_wallTop4, "top wall 4");
 go_room01.addComponent(rb_wallTop5, "top wall 5");
 go_room01.addComponent(rb_wallTop6, "top wall 6");
 
+
+
 var go_room02 = new GameObject();
 go_room02.addComponent(spr_room02, "sprite");
 go_room02.addComponent(rb_level2_wallLeftTop, "left wall");
@@ -109,6 +143,28 @@ go_room02.addComponent(rb_level2_pistonArmRightTop,"middle piston top");
 go_room02.addComponent(rb_level2_pistonArmRightBot,"middle piston bottom");
 go_room02.addComponent(rb_level2_wallTop,"top wall");
 go_room02.addComponent(rb_level2_wallBot,"bottom wall");
+
+
+
+
+var go_room03 = new GameObject();
+go_room03.addComponent(spr_room03, "sprite");
+go_room03.addComponent(rb_level3_wallLeft, "left wall");
+go_room03.addComponent(rb_level3_wallTop, "top wall");
+go_room03.addComponent(rb_level3_wallRight, "top wall");
+go_room03.addComponent(rb_level3_wallDownLeft, "down left wall");
+go_room03.addComponent(rb_level3_wallDownRight, "down right wall");
+go_room03.addComponent(rb_level3_wallInsideTop, "inside wall top");
+go_room03.addComponent(rb_level3_wallInsideBot, "inside wall bottom");
+
+
+
+var go_room04 = new GameObject();
+go_room04.addComponent(spr_room04, "sprite");
+go_room04.addComponent(rb_level4_wallLeftTop, "top right wall");
+go_room04.addComponent(rb_level4_wallLeftBot, "down right wall");
+go_room04.addComponent(rb_level4_wallTop, "top wall");
+go_room04.addComponent(rb_level4_wallBot, "bot wall");
 
 
 var go_chainDoors = new GameObject();
@@ -134,6 +190,31 @@ go_buttonSystem.addComponent(go_green, "green");
 go_buttonSystem.addComponent(go_red, "red");
 go_buttonSystem.addComponent(go_bDoor, "door");
 go_buttonSystem.addComponent(script_twoButtons, "script");
+
+
+
+
+var go_green3 = new GameObject({x:80,y:80});
+go_green3.addComponent(spr_greenUp, "sprite");
+go_green3.addComponent(rb_green, "body");
+
+var go_red3 = new GameObject({ x: 550, y: 400 });
+go_red3.addComponent(spr_redUp, "sprite");
+go_red3.addComponent(rb_red, "body");
+
+var go_bDoor3 = new GameObject({ x: 140, y: 450 });
+go_bDoor3.addComponent(spr_dialDoors, "sprite");
+go_bDoor3.addComponent(rb_bDoor, "body");
+
+var go_buttonSystem3 = new GameObject();
+go_buttonSystem3.addComponent(go_green3, "green");
+go_buttonSystem3.addComponent(go_red3, "red");
+go_buttonSystem3.addComponent(go_bDoor3, "door");
+go_buttonSystem3.addComponent(script_twoButtons, "script");
+
+
+
+
 
 //var go_SampleObject = new GameObject();
 //go_SampleObject.addComponent(script_sample, "Sample Script");
