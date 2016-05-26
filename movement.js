@@ -8,7 +8,7 @@ function movement() {
     this.tierCap = 5;
     //var walking = 1;
     this.ramp = 0;
-    this.fillSpeed = 1.5;
+    this.fillSpeed = 1.8;
     this.enabled = true;
     
 // Happens At Start

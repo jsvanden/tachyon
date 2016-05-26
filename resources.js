@@ -7,7 +7,8 @@ var spr_room03 = new Sprite('resources/images/level03.png', {width:640, height:4
 var spr_room04 = new Sprite('resources/images/level04.png', {width:960, height:480}); //room 4 is longer than the rest on purpose, it exists to have the player go fast over 3 buttons
 
 
-var spr_tempChar = new Sprite('resources/images/Wchar.png', {width:62, height:85, yOffset:3});
+var spr_tempChar = new Sprite('resources/images/W.png', {width:51, height:67, yOffset:3});
+//var spr_tempChar = new Sprite('resources/images/W.png', {width:102, height:134, yOffset:3});
 //var spr_tempChar2 = new Sprite('resources/Wchar.png', {width:62, height:85, yOffset:3});
 
 var spr_greenUp = new Sprite('resources/images/greenUp.png', {width: 58, height: 40});
@@ -29,7 +30,7 @@ var spr_redDots = new Sprite('resources/images/RBtnDots.png', {width: 186, heigh
 
 // Rigid Body
 
-var rb_character = new RigidBody({isDynamic: true, listenForCollision: true, height:46, yOffset: 5, linearDamping:4});
+var rb_character = new RigidBody({isDynamic: true, listenForCollision: true, width: 38, height:36, yOffset: 5, linearDamping:4});
 var rb_green = new RigidBody({ width: 58, height: 40, isTrigger: true });
 var rb_red = new RigidBody({ width: 58, height: 40, isTrigger: true });
 var rb_bDoor = new RigidBody({ width: 90, height: 40 });
