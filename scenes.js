@@ -14,19 +14,13 @@ TransitionLevel.onLoad = function()
   TransitionLevel.add(go_transition, {x:320, y:240});
 }
 
-// Level 1
-
-
+//Level 1
 var Level_1 = new Scene("Level 1");
 Level_1.onLoad = function()
 {
   Level_1.add(go_character, {x:320, y:240, name: "Main Character"});
   Level_1.add(go_room01, {x:320, y:240, z:-3});
-  Level_1.add(go_chainDoors, {x:320, y:447.6, z:-2});
-  Level_1.add(go_buttonSystem, {z:-2, name: "Button System"});
-  
-  //Level_1.add(go_SampleObject, {name: "test", x:320, y:240, z:5})
-  //Level_1.add(go_speedGauge, {name: "guage", x: 320,y: 240,z:5})
+  Level_1.add(go_buttonSystem1, {z:-2, name: "Button System"});
 }
 
 // Level 2
@@ -52,3 +46,18 @@ var Level_4 = new Scene("Level 4");
   Level_4.add(go_character, {x:40, y:240, name: "Main Character"});
   Level_4.add(go_room04, {x:480, y:240, z:-1});
 } 
+
+
+// Level 11
+
+var Level_11 = new Scene("Level 11");
+Level_11.onLoad = function()
+{
+  Level_11.add(go_character, {x:320, y:240, name: "Main Character"});
+  Level_11.add(go_room01, {x:320, y:240, z:-3});
+  Level_11.add(go_chainDoors, {x:320, y:447.6, z:-2});
+  Level_11.add(go_buttonSystem11, {z:-2, name: "Button System"});
+  
+  //Level_1.add(go_SampleObject, {name: "test", x:320, y:240, z:5})
+  //Level_1.add(go_speedGauge, {name: "guage", x: 320,y: 240,z:5})
+}

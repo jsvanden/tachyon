@@ -1,5 +1,5 @@
 // JavaScript source code
-function twoButtons() {
+function oneButton() {
     var buttonTime = 0;
     var clock;
     var cap;
@@ -15,14 +15,10 @@ function twoButtons() {
         player = Level_1.find("Main Character");
         clock = player.getComponent("movement").tier;
         cap = player.getComponent("movement").tierCap;
-        button = this.parent.getComponent("button").getComponent("body");
-
-        button.onTriggerEnter = function () {
-            button.parent.getComponent("sprite").image.src = 'resources/images/buttonDown.png';
-            buttonTime = 60 * cap;
-            this.openDoor();
-            console.log("on button")
-        }
+        //button = this.parent.getComponent("button").getComponent("body"); //seems to not work with the "button" component
+        button = this.parent.getComponent("green").getComponent("body");
+        
+		//check update for door opening code
     }
 
     this.update = function () {
@@ -48,7 +44,31 @@ function twoButtons() {
         else {
             button.parent.getComponent("sprite").image.src = 'resources/images/buttonUp.png';
         }
-
+		
+		button.onTriggerEnter = function () {
+            button.parent.getComponent("sprite").image.src = 'resources/images/buttonDown.png';
+            buttonTime = 60 * cap;
+            //this.openDoor(); vvv
+			console.log("on button");
+			
+			//Code below is the contents of the function openDoor()
+			var door = Level_1.find("Button System").getComponent("door");
+            door.getComponent("sprite").image.src = 'resources/images/OpenDoor.png';
+            door.getComponent("sprite").width = 125;
+            door.getComponent("body").turnIntoTrigger();
+            door.getComponent("body").onTriggerEnter = function () {
+            g_currentLevel = 2;
+            sceneManager.play("Transition Level");
+            }
+			//end code copy     ^^^
+			
+			
+		}	
+			
+			
+            
+        
+		
         if (buttonTime < 0) {
             buttonTime = 0;
             this.closeDoor();
@@ -82,6 +102,6 @@ function twoButtons() {
         door.getComponent("sprite").image.src = 'resources/image/ClosedDoor.png';
         door.getComponent("sprite").width = 106;
         door.getComponent("body").onTriggerEnter = function () {}
-}
+    }
 
-
+}//end oneButton
