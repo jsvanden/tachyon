@@ -23,7 +23,7 @@ function oneButton() {
         button.onTriggerEnter = function () {
             button.parent.getComponent("sprite").image.src = 'resources/images/greenDown.png';
             buttonTime = 60 * cap;
-            this.openDoor();
+            Level_1.find("Button System").getComponent("script").openDoor();
             console.log("on button");
             pressed = true;
         }
@@ -75,21 +75,25 @@ function oneButton() {
     }*/
 
     this.openDoor = function () {
-        door.getComponent("sprite").image.src = 'resources/images/OpenDoorUp.png';
+        door.getComponent("sprite").image.src = 'resources/images/OpenDoorLeft.png';
         door.getComponent("sprite").width = 125;
         //door.getComponent("body").turnIntoTrigger();
         isOpen = true;
+        console.log(door.getComponent("body"));
+        door.getComponent("body").listenForCollision = true;
         door.getComponent("body").onCollision = function () {
+          console.log("coll");
             if (isOpen) {
                 g_currentLevel = 2;
                 sceneManager.play("Transition Level");
             }
         }
+        console.log(door.getComponent("body"));
     }
 
     this.closeDoor = function () {
         var door = Level_1.find("Button System").getComponent("door");
-        door.getComponent("sprite").image.src = 'resources/image/LockedDoorUp.png';
+        door.getComponent("sprite").image.src = 'resources/images/DialDoorsLeft.png';
         door.getComponent("sprite").width = 106;
         isOpen = false;
     }

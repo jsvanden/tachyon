@@ -22,8 +22,10 @@ var spr_mainMenu = new Sprite('resources/images/MainMenu.png', {width: 640, heig
 var spr_transition = new Sprite('resources/images/Dilation.png', {width: 640, height: 480});
 
 var spr_dialDoors = new Sprite('resources/images/DialDoorsDown.png', {width: 106, height: 47});
-var spr_lockedDoor_l = new Sprite('resources/images/LockedDoorUp.png', {width: 110, height: 41, xOffset: -181});
-var spr_lockedDoor_r = new Sprite('resources/images/LockedDoorUp.png', {width: 110, height: 41, xOffset: 181});
+//var spr_lockedDoor_l = new Sprite('resources/images/LockedDoorUp.png', {width: 110, height: 41, xOffset: -181});
+//var spr_lockedDoor_r = new Sprite('resources/images/LockedDoorUp.png', {width: 110, height: 41, xOffset: 181});
+
+var spr_lockedDoor_r = new Sprite('resources/images/DialDoorsLeft.png', {width: 50, height: 50});
 
 var spr_greenDots = new Sprite('resources/images/GBtnDots.png', {width: 186, height: 185, xOffset: -181, yOffset: -285});
 var spr_redDots = new Sprite('resources/images/RBtnDots.png', {width: 186, height: 185, xOffset: 181, yOffset: -285});
@@ -200,8 +202,8 @@ go_room11.addComponent(rb_level11_wallTop6, "top wall 6");
 
 
 var go_chainDoors = new GameObject();
-go_chainDoors.addComponent(spr_lockedDoor_l, "sprite_l");
-go_chainDoors.addComponent(spr_lockedDoor_r, "sprite_r");
+//go_chainDoors.addComponent(spr_lockedDoor_l, "sprite_l");
+//go_chainDoors.addComponent(spr_lockedDoor_r, "sprite_r");
 go_chainDoors.addComponent(spr_greenDots, "shouldn't be here");
 go_chainDoors.addComponent(spr_redDots, "shouldn't be here");
 
@@ -212,7 +214,7 @@ go_green1.addComponent(rb_green, "body");
 
 
 var go_bDoor1 = new GameObject({ x: 600, y: 240 });
-go_bDoor1.addComponent(spr_dialDoors, "sprite");
+go_bDoor1.addComponent(spr_lockedDoor_r, "sprite");
 go_bDoor1.addComponent(rb_bDoor, "body");
 
 var go_buttonSystem1 = new GameObject();
