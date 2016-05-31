@@ -12,35 +12,36 @@ function piston() {
 
     this.start = function () {
         player = Level_2.find("Main Character");
-        clock = player.getComponent("Movement").tier;
-        cap = player.getComponent("Movement").tierCap;
+        clock = player.getComponent("movement").tier; // Changed to lowercase
+        cap = player.getComponent("movement").tierCap; // Changed to lowercase
         base = this.parent;
         origin = base.y;
         goal = origin + 60;
-        spike = base.parent.getComponent("Spikes");
+        spike = base.getComponent("spikes"); // Changed to lowercase
 
-        spike.onCollision(other) = function () {
-            if (other.parent == player) {
-                //implement death
+        spike.onCollision = function (other) {
+            if (other.name == "Main Character") { // Changed to other.name == "Main Character"
+                sceneManager.play("Level 2"); // Implemented Death Hopefully
             }
         }
     }
-
+    
+    // Changed base.y to base.setTransform({y: })
     this.update = function () {
         clock = player.getComponent("movement").tier;
         cap = player.getComponent("movement").tierCap;
 
         if (down) {
-            base.y.setTransform(base.y + ((speed*cap)/clock));
+            base.setTransform({y: base.y + ((speed*cap)/clock)})
             if (base.y >= goal) {
-                base.y.setTransform(goal);
+                base.setTransform({y: goal})
                 down = false;
             }
         }
         else {
-            base.y.setTransform(base.y - ((speed*cap)/clock));
+            base.setTransform({y: base.y - ((speed*cap)/clock)})
             if (base.y <= origin) {
-                base.y.setTransform(origin);
+                base.setTransform({y: origin})
                 down = true;
             }
         }
