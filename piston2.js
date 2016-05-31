@@ -1,5 +1,5 @@
 // JavaScript source code
-function piston() {
+function piston2() {
     var base;
     var origin;
     var goal;
@@ -8,7 +8,7 @@ function piston() {
     var cap;
     var player;
     var spike;
-    var down = true;
+    var down = false;
 
     this.start = function () {
         player = Level_2.find("Main Character");
@@ -16,7 +16,7 @@ function piston() {
         cap = player.getComponent("Movement").tierCap;
         base = this.parent;
         origin = base.y;
-        goal = origin + 60;
+        goal = origin - 60;
         spike = base.parent.getComponent("Spikes");
 
         spike.onCollision(other) = function () {
@@ -31,16 +31,16 @@ function piston() {
         cap = player.getComponent("movement").tierCap;
 
         if (down) {
-            base.y.setTransform(base.y + ((speed*cap)/clock));
-            if (base.y >= goal) {
-                base.y.setTransform(goal);
+            base.y.setTransform(base.y + ((speed * cap) / clock));
+            if (base.y >= origin) {
+                base.y.setTransform(origin);
                 down = false;
             }
         }
         else {
-            base.y.setTransform(base.y - ((speed*cap)/clock));
-            if (base.y <= origin) {
-                base.y.setTransform(origin);
+            base.y.setTransform(base.y - ((speed * cap) / clock));
+            if (base.y <= goal) {
+                base.y.setTransform(goal);
                 down = true;
             }
         }
