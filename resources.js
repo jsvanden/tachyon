@@ -41,7 +41,7 @@ var spr_chainDoorRightSmall = new Sprite('resources/images/LockedDoorRight.png',
 var spr_chainDoorRight = new Sprite('resources/images/LockedDoorRight.png', {width: 41, height: 110});
 
 var spr_piston =  new Sprite('resources/images/pistonPlaceholder.png', {width: 80, height: 237});
-var spr_piston_up =  new Sprite('resources/images/pistonPlaceholder.png', {width: 80, height: 237, rotationOffset: 180});
+var spr_piston_up =  new Sprite('resources/images/pistonPlaceholderUp.png', {width: 80, height: 237, rotationOffset: 180});
 
 // Rigid Body
 
@@ -252,17 +252,18 @@ go_piston.addComponent(script_piston, "script");
 go_piston.addComponent(rb_spike, "spikes");
 go_piston.addComponent(rb_pistonBase, "body");
 
+var go_piston_up = new GameObject();
+go_piston_up.addComponent(spr_piston_up, "sprite");
+go_piston_up.addComponent(script_piston_up, "script");
+go_piston_up.addComponent(rb_spike_up, "spikes");
+go_piston_up.addComponent(rb_pistonBase_up, "body");
 
 var  go_lockedDoor2 = new GameObject();
 go_lockedDoor2.addComponent(spr_chainDoorRight, "sprite");
 go_lockedDoor2.addComponent(rb_level2_lockedDoor, "body");
 
 
-var go_piston_up = new GameObject();
-go_piston_up.addComponent(spr_piston_up, "sprite");
-go_piston_up.addComponent(script_piston_up, "script");
-go_piston_up.addComponent(rb_spike_up, "spikes");
-go_piston_up.addComponent(rb_pistonBase_up, "body");
+
 
 
 

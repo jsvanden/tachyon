@@ -3,7 +3,7 @@ function piston() {
     this.base;
     this.origin;
     this.goal;
-    this.speed = 1;
+    this.speed = 1.5;   //WAS 1.0
     this.clock;
     this.cap;
     this.player;
@@ -16,7 +16,7 @@ function piston() {
         this.cap = this.player.getComponent("movement").tierCap; // Changed to lowercase
         this.base = this.parent;
         this.origin = this.base.y;
-        this.goal = this.origin + 160;
+        this.goal = this.origin + 142;   //WAS +160
         this.spike = this.base.getComponent("spikes"); // Changed to lowercase
 
         this.spike.onCollision = function (other) {
@@ -52,7 +52,7 @@ function pistonUp() {
     this.base;
     this.origin;
     this.goal;
-    this.speed = 1;
+    this.speed = 1.5;  //WAS 1.0
     this.clock;
     this.cap;
     this.player;
@@ -65,7 +65,7 @@ function pistonUp() {
         this.cap = this.player.getComponent("movement").tierCap; // Changed to lowercase
         this.base = this.parent;
         this.origin = this.base.y;
-        this.goal = this.origin - 160;
+        this.goal = this.origin - 142;   //WAS 160
         this.spike = this.base.getComponent("spikes"); // Changed to lowercase
 
         this.spike.onCollision = function (other) {
