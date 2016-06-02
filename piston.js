@@ -1,48 +1,48 @@
 // JavaScript source code
 function piston() {
-    var base;
-    var origin;
-    var goal;
-    var speed = 1;
-    var clock;
-    var cap;
-    var player;
-    var spike;
-    var down = true;
+    this.base;
+    this.origin;
+    this.goal;
+    this.speed = 1;
+    this.clock;
+    this.cap;
+    this.player;
+    this.spike;
+    this.down = true;
 
     this.start = function () {
-        player = Level_2.find("Main Character");
-        clock = player.getComponent("movement").tier; // Changed to lowercase
-        cap = player.getComponent("movement").tierCap; // Changed to lowercase
-        base = this.parent;
-        origin = base.y;
-        goal = origin + 60;
-        spike = base.getComponent("spikes"); // Changed to lowercase
+        this.player = Level_2.find("Main Character");
+        this.clock = this.player.getComponent("movement").tier; // Changed to lowercase
+        this.cap = this.player.getComponent("movement").tierCap; // Changed to lowercase
+        this.base = this.parent;
+        this.origin = this.base.y;
+        this.goal = this.origin + 60;
+        this.spike = this.base.getComponent("spikes"); // Changed to lowercase
 
-        spike.onCollision = function (other) {
+        this.spike.onCollision = function (other) {
             if (other.name == "Main Character") { // Changed to other.name == "Main Character"
                 sceneManager.play("Level 2"); // Implemented Death Hopefully
             }
         }
     }
     
-    // Changed base.y to base.setTransform({y: })
+    // Changed this.base.y to this.base.setTransform({y: })
     this.update = function () {
-        clock = player.getComponent("movement").tier;
-        cap = player.getComponent("movement").tierCap;
+        this.clock = this.player.getComponent("movement").tier;
+        this.cap = this.player.getComponent("movement").tierCap;
 
-        if (down) {
-            base.setTransform({y: base.y + ((speed*cap)/clock)})
-            if (base.y >= goal) {
-                base.setTransform({y: goal})
-                down = false;
+        if (this.down) {
+            this.base.setTransform({y: this.base.y + ((this.speed*this.cap)/this.clock)})
+            if (this.base.y >= this.goal) {
+                this.base.setTransform({y: this.goal})
+                this.down = false;
             }
         }
         else {
-            base.setTransform({y: base.y - ((speed*cap)/clock)})
-            if (base.y <= origin) {
-                base.setTransform({y: origin})
-                down = true;
+            this.base.setTransform({y: this.base.y - ((this.speed*this.cap)/this.clock)})
+            if (this.base.y <= this.origin) {
+                this.base.setTransform({y: this.origin})
+                this.down = true;
             }
         }
     }

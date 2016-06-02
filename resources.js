@@ -244,23 +244,11 @@ go_buttonSystem1.addComponent(script_oneButton, "script");
 
 
 
-var go_piston2_1 = new GameObject();
-go_piston2_1.addComponent(spr_piston, "sprite");
-go_piston2_1.addComponent(script_piston, "script");
-go_piston2_1.addComponent(rb_spike, "spikes");
-go_piston2_1.addComponent(rb_pistonBase, "body");
-
-var go_piston2_2 = new GameObject();
-go_piston2_2.addComponent(spr_piston, "sprite");
-go_piston2_2.addComponent(script_piston, "script");
-go_piston2_2.addComponent(rb_spike, "spikes");
-go_piston2_2.addComponent(rb_pistonBase, "body");
-
-var go_piston2_3 = new GameObject();
-go_piston2_3.addComponent(spr_piston, "sprite");
-go_piston2_3.addComponent(script_piston, "script");
-go_piston2_3.addComponent(rb_spike, "spikes");
-go_piston2_3.addComponent(rb_pistonBase, "body");
+var go_piston = new GameObject();
+go_piston.addComponent(spr_piston, "sprite");
+go_piston.addComponent(script_piston, "script");
+go_piston.addComponent(rb_spike, "spikes");
+go_piston.addComponent(rb_pistonBase, "body");
 
 
 
