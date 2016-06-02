@@ -76,7 +76,7 @@ function oneButton() {
 
     this.openDoor = function () {
         door.getComponent("sprite").image.src = 'resources/images/OpenDoorLeft.png';
-        door.getComponent("sprite").width = 125;
+        door.getComponent("sprite").height = 110;
         //door.getComponent("body").turnIntoTrigger();
         isOpen = true;
         console.log(door.getComponent("body"));
@@ -93,8 +93,8 @@ function oneButton() {
 
     this.closeDoor = function () {
         var door = Level_1.find("Button System").getComponent("door");
-        door.getComponent("sprite").image.src = 'resources/images/DialDoorsLeft.png';
-        door.getComponent("sprite").width = 106;
+        door.getComponent("sprite").image.src = 'resources/images/MonoDoor.png';
+        door.getComponent("sprite").height = 60;
         isOpen = false;
     }
 }

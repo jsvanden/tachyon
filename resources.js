@@ -25,7 +25,7 @@ var spr_dialDoors = new Sprite('resources/images/DialDoorsDown.png', {width: 106
 //var spr_lockedDoor_l = new Sprite('resources/images/LockedDoorUp.png', {width: 110, height: 41, xOffset: -181});
 //var spr_lockedDoor_r = new Sprite('resources/images/LockedDoorUp.png', {width: 110, height: 41, xOffset: 181});
 
-var spr_lockedDoor_r = new Sprite('resources/images/DialDoorsLeft.png', {width: 50, height: 50});
+var spr_lockedDoor_r = new Sprite('resources/images/MonoDoor.png', {width: 25, height: 60});
 
 var spr_greenDots = new Sprite('resources/images/GBtnDots.png', {width: 186, height: 185, xOffset: -181, yOffset: -285});
 var spr_redDots = new Sprite('resources/images/RBtnDots.png', {width: 186, height: 185, xOffset: 181, yOffset: -285});
@@ -38,7 +38,7 @@ var spr_piston_up =  new Sprite('resources/images/pistonPlaceholder.png', {width
 var rb_character = new RigidBody({isDynamic: true, listenForCollision: true, width: 38, height:36, yOffset: 5, linearDamping:4});
 var rb_green = new RigidBody({ width: 58, height: 40, isTrigger: true });
 var rb_red = new RigidBody({ width: 58, height: 40, isTrigger: true });
-var rb_bDoor = new RigidBody({ width: 90, height: 40 });
+var rb_bDoor = new RigidBody({ width: 25, height: 70 , xOffset: -2});
 
 
 var rb_spike = new RigidBody({listenForCollision: true, width: 70, height:15, yOffset: 110});
@@ -48,12 +48,11 @@ var rb_spike_up = new RigidBody({listenForCollision: true, width: 70, height:15,
 var rb_pistonBase_up = new RigidBody({width: 50, height:220, yOffset: 10});
 
 
-var rb_level1_wallLeftTop = new RigidBody({width: 10, height: 100, xOffset: -280, yOffset: -115});
-var rb_level1_wallLeftBot = new RigidBody({width: 10, height: 100, xOffset: -280, yOffset: 95});
-var rb_level1_wallTop = new RigidBody({width: 550, height: 10, xOffset: 0, yOffset: -160});
-var rb_level1_wallRightTop = new RigidBody({width: 10, height: 100, xOffset: 280, yOffset: -115});
-var rb_level1_wallRightBot = new RigidBody({width: 10, height: 100, xOffset: 280, yOffset: 95});
-var rb_level1_wallBot = new RigidBody({width: 550, height: 10, xOffset: 0, yOffset: 145});
+var rb_level1_wallLeft = new RigidBody({width: 10, height:400, xOffset: -270, yOffset: 0});
+var rb_level1_wallTop = new RigidBody({width: 550, height: 10, xOffset: 0, yOffset: -190});
+var rb_level1_wallRightTop = new RigidBody({width: 10, height: 150, xOffset: 270, yOffset: -115});
+var rb_level1_wallRightBot = new RigidBody({width: 10, height: 150, xOffset: 270, yOffset: 115});
+var rb_level1_wallBot = new RigidBody({width: 550, height: 10, xOffset: 0, yOffset: 190});
 
 
 
@@ -143,8 +142,7 @@ go_character.addComponent(script_characterRendering, "Character Rendering");
 
 var go_room01 = new GameObject();
 go_room01.addComponent(spr_room01, "sprite");
-go_room01.addComponent(rb_level1_wallLeftTop, "left wall top");
-go_room01.addComponent(rb_level1_wallLeftBot, "left wall bottom");
+go_room01.addComponent(rb_level1_wallLeft, "left wall");
 go_room01.addComponent(rb_level1_wallTop, "top wall");
 go_room01.addComponent(rb_level1_wallRightTop, "right wall top");
 go_room01.addComponent(rb_level1_wallRightBot, "right wall bottom");
