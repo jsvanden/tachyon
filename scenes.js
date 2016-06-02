@@ -20,6 +20,7 @@ Level_1.onLoad = function()
 {
   Level_1.add(go_character, {x:320, y:240, name: "Main Character"});
   Level_1.add(go_room01, {x:320, y:240, z:-3});
+  Level_1.add(go_lockedDoor1, {x:40, y:240, z:-3});
   Level_1.add(go_buttonSystem1, {z:-2, name: "Button System"});
 }
 
@@ -29,12 +30,15 @@ Level_2.onLoad = function()
 {
   Level_2.add(go_character, {x:120, y:240, name: "Main Character"});
   Level_2.add(go_room02, {x:320, y:240, z:-3});
-  Level_2.add(go_piston, {x:180, y:1, z:-2});
-  Level_2.add(go_piston, {x:280, y:1, z:-2});
-  Level_2.add(go_piston, {x:380, y:1, z:-2});
-  Level_2.add(go_piston_up, {x:180, y:479, z:-2});
-  Level_2.add(go_piston_up, {x:280, y:479, z:-2});
-  Level_2.add(go_piston_up, {x:380, y:479, z:-2});
+  Level_2.add(go_lockedDoor2, {x:30, y:230, z:-2});
+  
+  Level_2.add(go_piston, {x:200, y:1, z:-2});
+  Level_2.add(go_piston, {x:300, y:1, z:-2});
+  Level_2.add(go_piston, {x:400, y:1, z:-2});
+  Level_2.add(go_piston_up, {x:200, y:500, z:-2});
+  Level_2.add(go_piston_up, {x:300, y:500, z:-2});
+  Level_2.add(go_piston_up, {x:400, y:500, z:-2});
+
 }
 
 // Level 3

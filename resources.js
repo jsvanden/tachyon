@@ -36,6 +36,10 @@ var spr_lockedDoor_r = new Sprite('resources/images/MonoDoor.png', {width: 25, h
 var spr_greenDots = new Sprite('resources/images/GBtnDots.png', {width: 186, height: 185, xOffset: -181, yOffset: -285});
 var spr_redDots = new Sprite('resources/images/RBtnDots.png', {width: 186, height: 185, xOffset: 181, yOffset: -285});
 
+var spr_chainDoorRightSmall = new Sprite('resources/images/LockedDoorRight.png', {width: 21, height: 55});
+
+var spr_chainDoorRight = new Sprite('resources/images/LockedDoorRight.png', {width: 41, height: 110});
+
 var spr_piston =  new Sprite('resources/images/pistonPlaceholder.png', {width: 80, height: 237});
 var spr_piston_up =  new Sprite('resources/images/pistonPlaceholder.png', {width: 80, height: 237, rotationOffset: 180});
 
@@ -65,19 +69,17 @@ var rb_level1_wallBot = new RigidBody({width: 550, height: 10, xOffset: 0, yOffs
 //var rb_level2_wallLeftBot = new RigidBody({width: 30, height: 250, xOffset: -280, yOffset: 170});
 var rb_level2_wallLeft = new RigidBody({width:30, height: 480, xOffset: -290});
 var rb_level2_wallTop = new RigidBody({width: 640, height: 30, xOffset: 0, yOffset: -240});
-var rb_level2_wallRight = new RigidBody({width: 30, height: 480, xOffset: 290, yOffset: 0});
-var rb_level2_wallBot = new RigidBody({width: 640, height: 30, xOffset: 0, yOffset: 240});
+var rb_level2_wallRightTop = new RigidBody({width: 30, height: 180, xOffset: 290, yOffset: -150});
+var rb_level2_wallRightBot = new RigidBody({width: 30, height: 180, xOffset: 290, yOffset: 140});
 
-var rb_level2_wallTop1 = new RigidBody({width: 180, height: 30, xOffset: -265, yOffset: -240});
-var rb_level2_wallTop2 = new RigidBody({width: 40, height: 30, xOffset: -90, yOffset: -240});
-var rb_level2_wallTop3 = new RigidBody({width: 40, height: 30, xOffset: 10, yOffset: -240});
-var rb_level2_wallTop4 = new RigidBody({width: 180, height: 30, xOffset: 185, yOffset: -240});
 
-var rb_level2_wallBot1 = new RigidBody({width: 180, height: 30, xOffset: -265, yOffset: 240});
-var rb_level2_wallBot2 = new RigidBody({width: 40, height: 30, xOffset: -90, yOffset: 240});
-var rb_level2_wallBot3 = new RigidBody({width: 40, height: 30, xOffset: 10, yOffset: 240});
-var rb_level2_wallBot4 = new RigidBody({width: 180, height: 30, xOffset: 185, yOffset: 240});
+var rb_level2_wallTop1 = new RigidBody({width: 180, height: 30, xOffset: -180, yOffset: -240});
+var rb_level2_wallTop2 = new RigidBody({width: 180, height: 30, xOffset: 200, yOffset: -240});
 
+var rb_level2_wallBot1 = new RigidBody({width: 180, height: 30, xOffset: -180, yOffset: 240});
+var rb_level2_wallBot2 = new RigidBody({width: 180, height: 30, xOffset: 200, yOffset: 240});
+
+var rb_level2_lockedDoor = new RigidBody({width: 41, height: 110, xOffset: 200, yOffset: 200}); 
 
 
 
@@ -157,15 +159,12 @@ go_room01.addComponent(rb_level1_wallBot, "bottom wall");
 var go_room02 = new GameObject();
 go_room02.addComponent(spr_room02, "sprite");
 go_room02.addComponent(rb_level2_wallLeft, "left wall top");
-go_room02.addComponent(rb_level2_wallRight,"right wall top");
+go_room02.addComponent(rb_level2_wallRightTop,"right wall top");
+go_room02.addComponent(rb_level2_wallRightBot, "right wall bot");
 go_room02.addComponent(rb_level2_wallTop1,"left wall top");
 go_room02.addComponent(rb_level2_wallTop2,"left wall top mid");
-go_room02.addComponent(rb_level2_wallTop3,"right wall top mid");
-go_room02.addComponent(rb_level2_wallTop4,"right wall top");
 go_room02.addComponent(rb_level2_wallBot1,"left wall bot");
 go_room02.addComponent(rb_level2_wallBot2,"left wall bot mid");
-go_room02.addComponent(rb_level2_wallBot3,"right wall bot mid");
-go_room02.addComponent(rb_level2_wallBot4,"right wall bot");
 
 /*go_room02.addComponent(rb_level2_pistonArmLeftTop,"left piston top");
 go_room02.addComponent(rb_level2_pistonArmLeftBot,"left piston bottom");
@@ -229,10 +228,12 @@ go_chainDoors.addComponent(spr_greenDots, "shouldn't be here");
 go_chainDoors.addComponent(spr_redDots, "shouldn't be here");
 
 
-var go_blue1 = new GameObject({x:100,y:240});
+var go_blue1 = new GameObject({x:110,y:240});
 go_blue1.addComponent(spr_blueUp, "sprite");
 go_blue1.addComponent(rb_green, "body");
 
+var go_lockedDoor1 = new GameObject();
+go_lockedDoor1.addComponent(spr_chainDoorRightSmall, "sprite");
 
 var go_bDoor1 = new GameObject({ x: 600, y: 240 });
 go_bDoor1.addComponent(spr_lockedDoor_r, "sprite");
@@ -252,11 +253,17 @@ go_piston.addComponent(rb_spike, "spikes");
 go_piston.addComponent(rb_pistonBase, "body");
 
 
+var  go_lockedDoor2 = new GameObject();
+go_lockedDoor2.addComponent(spr_chainDoorRight, "sprite");
+go_lockedDoor2.addComponent(rb_level2_lockedDoor, "body");
+
+
 var go_piston_up = new GameObject();
 go_piston_up.addComponent(spr_piston_up, "sprite");
 go_piston_up.addComponent(script_piston_up, "script");
 go_piston_up.addComponent(rb_spike_up, "spikes");
 go_piston_up.addComponent(rb_pistonBase_up, "body");
+
 
 
 
