@@ -17,11 +17,11 @@ function oneButton() {
         player = Level_1.find("Main Character");
         clock = player.getComponent("movement").tier;
         cap = player.getComponent("movement").tierCap;
-        button = this.parent.getComponent("green").getComponent("body");
+        button = this.parent.getComponent("blue").getComponent("body");
         door = Level_1.find("Button System").getComponent("door");
 
         button.onTriggerEnter = function () {
-            button.parent.getComponent("sprite").image.src = 'resources/images/greenDown.png';
+            button.parent.getComponent("sprite").image.src = 'resources/images/blueDown.png';
             buttonTime = 60 * cap;
             Level_1.find("Button System").getComponent("script").openDoor();
             console.log("on button");
@@ -54,7 +54,7 @@ function oneButton() {
             buttonTime -= ((drainSpeed * cap) / (clock / tierEffect));
         }
         else {
-            if (pressed == false) { button.parent.getComponent("sprite").image.src = 'resources/images/greenUp.png'; }
+            if (pressed == false) { button.parent.getComponent("sprite").image.src = 'resources/images/blueUp.png'; }
         }
 
         if (buttonTime < 0) {

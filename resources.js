@@ -17,6 +17,12 @@ var spr_greenDown = new Sprite('resources/images/greenDown.png', { width: 58, he
 var spr_redUp = new Sprite('resources/images/redUp.png', {width: 58, height: 40});
 var spr_redDown = new Sprite('resources/images/redDown.png', { width: 58, height: 35, yOffset: 2.5 });
 
+var spr_redUp = new Sprite('resources/images/redUp.png', {width: 58, height: 40});
+var spr_redDown = new Sprite('resources/images/redDown.png', { width: 58, height: 35, yOffset: 2.5 });
+
+var spr_blueUp = new Sprite('resources/images/blueUp.png', {width: 58, height: 40});
+var spr_blueDown = new Sprite('resources/images/blueDown.png', { width: 58, height: 35, yOffset: 2.5 });
+
 var spr_mainMenu = new Sprite('resources/images/MainMenu.png', {width: 640, height:480});
 
 var spr_transition = new Sprite('resources/images/Dilation.png', {width: 640, height: 480});
@@ -223,9 +229,9 @@ go_chainDoors.addComponent(spr_greenDots, "shouldn't be here");
 go_chainDoors.addComponent(spr_redDots, "shouldn't be here");
 
 
-var go_green1 = new GameObject({x:100,y:240});
-go_green1.addComponent(spr_greenUp, "sprite");
-go_green1.addComponent(rb_green, "body");
+var go_blue1 = new GameObject({x:100,y:240});
+go_blue1.addComponent(spr_blueUp, "sprite");
+go_blue1.addComponent(rb_green, "body");
 
 
 var go_bDoor1 = new GameObject({ x: 600, y: 240 });
@@ -233,7 +239,7 @@ go_bDoor1.addComponent(spr_lockedDoor_r, "sprite");
 go_bDoor1.addComponent(rb_bDoor, "body");
 
 var go_buttonSystem1 = new GameObject();
-go_buttonSystem1.addComponent(go_green1, "green");
+go_buttonSystem1.addComponent(go_blue1, "blue");
 go_buttonSystem1.addComponent(go_bDoor1, "door");
 go_buttonSystem1.addComponent(script_oneButton, "script");
 
