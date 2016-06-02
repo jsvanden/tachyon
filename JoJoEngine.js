@@ -628,12 +628,13 @@ function Sprite(source, options)
   this.xOffset = this.options.xOffset || 0;
   this.yOffset = this.options.yOffset || 0;
   this.flipped = this.options.flipped || false;
+  this.rotationOffset = this.options.rotationOffset || 0;
   
   this.draw = function()
   {
   	context.save();
     context.translate(this.parent.x+this.xOffset, this.parent.y+this.yOffset);
-    context.rotate(this.parent.rotation * (Math.PI/180));
+    context.rotate((this.parent.rotation + this.rotationOffset) * (Math.PI/180));
     if(this.flipped) context.scale(-1, 1);
   	context.drawImage(this.image, -this.width/2,-this.height/2, this.width, this.height);
     context.restore();

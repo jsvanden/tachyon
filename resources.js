@@ -31,6 +31,7 @@ var spr_greenDots = new Sprite('resources/images/GBtnDots.png', {width: 186, hei
 var spr_redDots = new Sprite('resources/images/RBtnDots.png', {width: 186, height: 185, xOffset: 181, yOffset: -285});
 
 var spr_piston =  new Sprite('resources/images/pistonPlaceholder.png', {width: 80, height: 237});
+var spr_piston_up =  new Sprite('resources/images/pistonPlaceholder.png', {width: 80, height: 237, rotationOffset: 180});
 
 // Rigid Body
 
@@ -42,6 +43,9 @@ var rb_bDoor = new RigidBody({ width: 90, height: 40 });
 
 var rb_spike = new RigidBody({listenForCollision: true, width: 70, height:15, yOffset: 110});
 var rb_pistonBase = new RigidBody({width: 50, height:220, yOffset: -10});
+
+var rb_spike_up = new RigidBody({listenForCollision: true, width: 70, height:15, yOffset: -110});
+var rb_pistonBase_up = new RigidBody({width: 50, height:220, yOffset: 10});
 
 
 var rb_level1_wallLeftTop = new RigidBody({width: 10, height: 100, xOffset: -280, yOffset: -115});
@@ -68,14 +72,6 @@ var rb_level2_wallBot1 = new RigidBody({width: 180, height: 30, xOffset: -265, y
 var rb_level2_wallBot2 = new RigidBody({width: 40, height: 30, xOffset: -90, yOffset: 240});
 var rb_level2_wallBot3 = new RigidBody({width: 40, height: 30, xOffset: 10, yOffset: 240});
 var rb_level2_wallBot4 = new RigidBody({width: 180, height: 30, xOffset: 185, yOffset: 240});
-
-
-var rb_level2_pistonArmLeftTop = new RigidBody ({width: 40, height: 250, xOffset: -145, yOffset: -160});
-var rb_level2_pistonArmLeftBot = new RigidBody ({width: 40, height: 250, xOffset: -145, yOffset: 160});
-var rb_level2_pistonArmMidTop = new RigidBody ({width: 40, height: 200, xOffset: 5, yOffset: -190});
-var rb_level2_pistonArmMidBot = new RigidBody ({width: 40, height: 200, xOffset: 5, yOffset: 190});
-var rb_level2_pistonArmRightTop = new RigidBody ({width: 40, height: 150, xOffset: 155, yOffset: -230});
-var rb_level2_pistonArmRightBot = new RigidBody ({width: 40, height: 150, xOffset: 155, yOffset: 230});
 
 
 
@@ -131,6 +127,7 @@ var script_characterRendering = new CharacterRendering();
 var script_transition = new transition();
 var script_oneButton = new oneButton();
 var script_piston = new piston();
+var script_piston_up = new pistonUp();
 
 // GameObjects
 
@@ -250,6 +247,12 @@ go_piston.addComponent(script_piston, "script");
 go_piston.addComponent(rb_spike, "spikes");
 go_piston.addComponent(rb_pistonBase, "body");
 
+
+var go_piston_up = new GameObject();
+go_piston_up.addComponent(spr_piston_up, "sprite");
+go_piston_up.addComponent(script_piston_up, "script");
+go_piston_up.addComponent(rb_spike_up, "spikes");
+go_piston_up.addComponent(rb_pistonBase_up, "body");
 
 
 

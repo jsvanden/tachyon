@@ -29,10 +29,12 @@ Level_2.onLoad = function()
 {
   Level_2.add(go_character, {x:120, y:240, name: "Main Character"});
   Level_2.add(go_room02, {x:320, y:240, z:-3});
-  Level_2.add(go_piston, {x:180, y:100, z:-2});
-  Level_2.add(go_piston, {x:280, y:100, z:-2});
-  Level_2.add(go_piston, {x:380, y:100, z:-2});
-  
+  Level_2.add(go_piston, {x:180, y:1, z:-2});
+  Level_2.add(go_piston, {x:280, y:1, z:-2});
+  Level_2.add(go_piston, {x:380, y:1, z:-2});
+  Level_2.add(go_piston_up, {x:180, y:479, z:-2});
+  Level_2.add(go_piston_up, {x:280, y:479, z:-2});
+  Level_2.add(go_piston_up, {x:380, y:479, z:-2});
 }
 
 // Level 3
