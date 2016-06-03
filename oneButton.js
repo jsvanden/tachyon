@@ -8,7 +8,7 @@ function oneButton() {
     var player;
     var isOpen = false;
     var opening = 0;
-    var drainSpeed = 1.15;
+    var drainSpeed = 2;
     var tierEffect = 3;
     var door;
     var pressed = false;
@@ -57,7 +57,9 @@ function oneButton() {
             if (pressed == false) { button.parent.getComponent("sprite").image.src = 'resources/images/blueUp.png'; }
         }
 
-        if (buttonTime < 0) {
+        console.log(buttonTime)
+        
+        if (buttonTime <= 0) {
             buttonTime = 0;
             this.closeDoor();
         }
