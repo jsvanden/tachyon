@@ -6,10 +6,11 @@ function movement() {
     this.tier = 1;
     var prevTier = 1;
     this.tierCap = 5;
-    //var walking = 1;
+    var walking = 3;
     this.ramp = 0;
     this.fillSpeed = 1.8;
     this.enabled = true;
+    var delay = 0;
     
 // Happens At Start
   this.start = function()
@@ -21,6 +22,7 @@ function movement() {
 // Happens Every Frame
   this.update = function()
   {
+      if (delay > 0) delay--;
       if(prevTier != this.tier)
       {
         if(this.tier >this.tierCap) this.tier = this.tierCap;
@@ -105,6 +107,7 @@ function movement() {
 		  this.tier = 1;
 	  }
       if (this.tier > this.tierCap) this.tier = this.tierCap;
+      if (this.tier == 1 && body.getVelocityMagnitude() > walking) body.setVelocityMagnitude(walking);
       if (body.getVelocityMagnitude() > speedCap * this.tier) body.setVelocityMagnitude(speedCap * this.tier);
       /*if (!InputManager.isPressed("shift") && body.getVelocityMagnitude() >= walking) body.setVelocityMagnitude(walking);
       else {
@@ -115,10 +118,14 @@ function movement() {
   // Happens when colliding with a non-trigger RigidBody
   this.onCollision = function()
   {
-      if (body.getVelocityMagnitude() != 0) {
+      /*if (body.getVelocityMagnitude() != 0) {
           body.setVelocityMagnitude(0);
           this.ramp = 0;
           this.tier = 1;
+      }*/
+      if(delay==0){
+          this.tier--;
+          delay = 60;
       }
     //console.log("hit")
   }
