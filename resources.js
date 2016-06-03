@@ -32,6 +32,7 @@ var spr_dialDoors = new Sprite('resources/images/DialDoorsDown.png', {width: 106
 //var spr_lockedDoor_r = new Sprite('resources/images/LockedDoorUp.png', {width: 110, height: 41, xOffset: 181});
 
 var spr_lockedDoor_r = new Sprite('resources/images/MonoDoor.png', {width: 25, height: 60});
+var spr_openDoor_r = new Sprite('resources/images/OpenDoorLeft.png', {width: 40, height: 110});
 
 var spr_greenDots = new Sprite('resources/images/GBtnDots.png', {width: 186, height: 185, xOffset: -181, yOffset: -285});
 var spr_redDots = new Sprite('resources/images/RBtnDots.png', {width: 186, height: 185, xOffset: 181, yOffset: -285});
@@ -45,10 +46,11 @@ var spr_piston_up =  new Sprite('resources/images/pistonPlaceholderUp.png', {wid
 
 // Rigid Body
 
-var rb_character = new RigidBody({isDynamic: true, listenForCollision: true, width: 38, height:36, yOffset: 5, linearDamping:4});
+var rb_character = new RigidBody({isDynamic: true, listenForCollision: true, width: 38, height:36, yOffset: 5, linearDamping:8});
 var rb_green = new RigidBody({ width: 58, height: 40, isTrigger: true });
 var rb_red = new RigidBody({ width: 58, height: 40, isTrigger: true });
 var rb_bDoor = new RigidBody({ width: 25, height: 70 , xOffset: -2});
+var rb_bDoor2 = new RigidBody({ width: 25, height: 70 , xOffset: -2, listenForCollision: true});
 
 
 var rb_spike = new RigidBody({listenForCollision: true, width: 70, height:15, yOffset: 110});
@@ -133,6 +135,7 @@ var script_twoButtons = new twoButtons();
 var script_characterRendering = new CharacterRendering();
 var script_transition = new transition();
 var script_oneButton = new oneButton();
+var script_openDoor = new openDoor();
 var script_piston = new piston();
 var script_piston_up = new pistonUp();
 
@@ -243,6 +246,11 @@ var go_buttonSystem1 = new GameObject();
 go_buttonSystem1.addComponent(go_blue1, "blue");
 go_buttonSystem1.addComponent(go_bDoor1, "door");
 go_buttonSystem1.addComponent(script_oneButton, "script");
+
+var go_Door2 = new GameObject();
+go_Door2.addComponent(spr_openDoor_r, "sprite");
+go_Door2.addComponent(rb_bDoor2, "body");
+go_Door2.addComponent(script_openDoor, "script");
 
 
 
