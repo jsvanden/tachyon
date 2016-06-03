@@ -10,11 +10,14 @@ function transition()
     switch(g_currentLevel)
     {
       case 1:
-        this.parent.getComponent("sprite").image.src = 'resources/images/Dilation.png';
+        this.parent.getComponent("sprite").image.src = 'resources/images/Space.png';
         break;
       case 2:
-        this.parent.getComponent("sprite").image.src = 'resources/images/Level 2 Placeholder.png';
+        this.parent.getComponent("sprite").image.src = 'resources/images/Time.png';
         break;
+      case 3:
+        this.parent.getComponent("sprite").image.src = 'resources/images/placeholder.jpg';
+        break; 
     }
   }
   

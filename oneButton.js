@@ -57,7 +57,7 @@ function oneButton() {
             if (pressed == false) { button.parent.getComponent("sprite").image.src = 'resources/images/blueUp.png'; }
         }
 
-        console.log(buttonTime)
+        //console.log(buttonTime)
         
         if (buttonTime <= 0) {
             buttonTime = 0;
