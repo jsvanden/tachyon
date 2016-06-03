@@ -12,12 +12,15 @@ var TransitionLevel = new Scene("Transition Level");
 TransitionLevel.onLoad = function()
 {
   TransitionLevel.add(go_transition, {x:320, y:240});
+  AudioManager.play('resources/music/waaauup.mp3', "Transition Sound", {loop: false});
+  AudioManager.setVolume("Level 1 Song", 0);
 }
 
 //Level 1
 var Level_1 = new Scene("Level 1");
 Level_1.onLoad = function()
 {
+  AudioManager.setVolume("Level 1 Song", 1);
   Level_1.add(go_character, {x:320, y:240, name: "Main Character"});
   Level_1.add(go_room01, {x:320, y:240, z:-3});
   Level_1.add(go_lockedDoor1, {x:40, y:240, z:-3});
@@ -28,6 +31,7 @@ Level_1.onLoad = function()
 var Level_2 = new Scene("Level 2");
 Level_2.onLoad = function()
 {
+  AudioManager.setVolume("Level 1 Song", 1);
   Level_2.add(go_character, {x:120, y:240, name: "Main Character"});
   Level_2.add(go_room02, {x:320, y:240, z:-3});
   Level_2.add(go_lockedDoor2, {x:30, y:230, z:-2});

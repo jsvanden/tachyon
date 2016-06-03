@@ -77,6 +77,7 @@ function oneButton() {
     this.openDoor = function () {
         door.getComponent("sprite").image.src = 'resources/images/OpenDoorLeft.png';
         door.getComponent("sprite").height = 110;
+		AudioManager.play('resources/music/waaap.mp3', "Open Door Sound", {loop: false});
         //door.getComponent("body").turnIntoTrigger();
         isOpen = true;
         console.log(door.getComponent("body"));

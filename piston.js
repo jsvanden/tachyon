@@ -16,11 +16,12 @@ function piston() {
         this.cap = this.player.getComponent("movement").tierCap; // Changed to lowercase
         this.base = this.parent;
         this.origin = this.base.y;
-        this.goal = this.origin + 142;   //WAS +160
+        this.goal = this.origin + 110;   //WAS +160
         this.spike = this.base.getComponent("spikes"); // Changed to lowercase
 
         this.spike.onCollision = function (other) {
             if (other.name == "Main Character") { // Changed to other.name == "Main Character"
+				AudioManager.play('resources/music/short death.mp3', "Piston Death", {loop: false});
                 sceneManager.play("Level 2"); // Implemented Death Hopefully
             }
         }
@@ -36,6 +37,7 @@ function piston() {
             if (this.base.y >= this.goal) {
                 this.base.setTransform({y: this.goal})
                 this.down = false;
+				AudioManager.play('resources/music/Bass Hit.mp3', "Piston Impact", {loop: false});
             }
         }
         else {
@@ -65,11 +67,12 @@ function pistonUp() {
         this.cap = this.player.getComponent("movement").tierCap; // Changed to lowercase
         this.base = this.parent;
         this.origin = this.base.y;
-        this.goal = this.origin - 142;   //WAS 160
+        this.goal = this.origin - 110;   //WAS 160
         this.spike = this.base.getComponent("spikes"); // Changed to lowercase
 
         this.spike.onCollision = function (other) {
             if (other.name == "Main Character") { // Changed to other.name == "Main Character"
+			AudioManager.play('resources/music/short death.mp3', "Piston Death", {loop: false});
                 sceneManager.play("Level 2"); // Implemented Death Hopefully
             }
         }
