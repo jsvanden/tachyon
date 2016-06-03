@@ -125,6 +125,7 @@ function movement() {
       }*/
       if(delay==0){
           this.tier--;
+          this.ramp -= 90;
           delay = 60;
       }
     //console.log("hit")
