@@ -44,7 +44,6 @@ Level_2.onLoad = function()
   Level_2.add(go_piston_up, {x:400, y:500, z:-2});
   
   Level_2.add(go_Door2, {x:610, y: 232});
-
 }
 
 // Level 3

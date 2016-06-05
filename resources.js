@@ -53,11 +53,11 @@ var rb_bDoor = new RigidBody({ width: 25, height: 70 , xOffset: -2});
 var rb_bDoor2 = new RigidBody({ width: 25, height: 70 , xOffset: -2, listenForCollision: true});
 
 
-var rb_spike = new RigidBody({listenForCollision: true, width: 70, height:15, yOffset: 110});
-var rb_pistonBase = new RigidBody({width: 50, height:220, yOffset: -10});
+var rb_spike = new RigidBody({listenForCollision: true, width: 70, height:15, yOffset: 130});
+var rb_pistonBase = new RigidBody({width: 50, height:250, yOffset: -10});
 
-var rb_spike_up = new RigidBody({listenForCollision: true, width: 70, height:15, yOffset: -110});
-var rb_pistonBase_up = new RigidBody({width: 50, height:220, yOffset: 10});
+var rb_spike_up = new RigidBody({listenForCollision: true, width: 70, height:15, yOffset: -130});
+var rb_pistonBase_up = new RigidBody({width: 50, height:250, yOffset: 10});
 
 
 var rb_level1_wallLeft = new RigidBody({width: 10, height:400, xOffset: -270, yOffset: 0});
@@ -268,7 +268,7 @@ go_piston_up.addComponent(rb_pistonBase_up, "body");
 
 var  go_lockedDoor2 = new GameObject();
 go_lockedDoor2.addComponent(spr_chainDoorRight, "sprite");
-go_lockedDoor2.addComponent(rb_level2_lockedDoor, "body");
+//go_lockedDoor2.addComponent(rb_level2_lockedDoor, "body");
 
 
 

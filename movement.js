@@ -23,13 +23,13 @@ function movement() {
   this.update = function()
   {
       if (delay > 0) delay--;
-      if(prevTier != this.tier)
+      if(prevTier != this.tier && prevTier)
       {
         if(this.tier >this.tierCap) this.tier = this.tierCap;
         
         AudioManager.setPlaybackRate("Level 1 Song", 1.5-(this.tier*0.2));
         
-        if(prevTier < this.tier)
+        if(prevTier < this.tier && this.tier !=0)
         {
           AudioManager.play("resources/music/thud.wav", "Speed Up")
         }
