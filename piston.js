@@ -11,7 +11,7 @@ function piston() {
     this.down = true;
 
     this.start = function () {
-        this.player = Level_2.find("Main Character");
+        this.player = Level_2.find("Main Character") || Level_3.find("Main Character") || Level_4.find("Main Character");
         this.clock = this.player.getComponent("movement").tier; // Changed to lowercase
         this.cap = this.player.getComponent("movement").tierCap; // Changed to lowercase
         this.base = this.parent;
@@ -62,7 +62,7 @@ function pistonUp() {
     this.down = false;
 
     this.start = function () {
-        this.player = Level_2.find("Main Character");
+        this.player = Level_2.find("Main Character") || Level_3.find("Main Character") || Level_4.find("Main Character");
         this.clock = this.player.getComponent("movement").tier; // Changed to lowercase
         this.cap = this.player.getComponent("movement").tierCap; // Changed to lowercase
         this.base = this.parent;
