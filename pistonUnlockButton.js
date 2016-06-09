@@ -14,20 +14,20 @@ function pistonUnlockButton(buttonNumber)
   
   this.start = function()
   {
-    this.player = Level_3.find("Main Character");
+    this.player = (g_currentLevel == 3) ? Level_3.find("Main Character") : Level_4.find("Main Character");
     this.clock = this.player.getComponent("movement").tier;
     this.cap = this.player.getComponent("movement").tierCap;
-    this.master = Level_3.find("buttons").getComponent("master");
+    this.master = (g_currentLevel == 3) ? Level_3.find("buttons").getComponent("master") : Level_4.find("buttons").getComponent("master");
     
     if(buttonNumber == 1)
     {
-      this.pistonHi = Level_3.find("piston1a");
-      this.pistonLo = Level_3.find("piston1b");
+      this.pistonHi = (g_currentLevel == 3) ? Level_3.find("piston1a") : Level_4.find("piston1a");
+      this.pistonLo = (g_currentLevel == 3) ? Level_3.find("piston1b") : Level_4.find("piston1b");
     }
     if(buttonNumber == 3)
     {
-      this.pistonHi = Level_3.find("piston3a");
-      this.pistonLo = Level_3.find("piston3b");
+      this.pistonHi = (g_currentLevel == 3) ? Level_3.find("piston3a") : Level_4.find("piston3a");
+      this.pistonLo = (g_currentLevel == 3) ? Level_3.find("piston3b") : Level_4.find("piston3b");
     }
     
     this.pistonHi.getComponent("spikes").onCollision = function (other)
@@ -35,7 +35,7 @@ function pistonUnlockButton(buttonNumber)
       if (other.name == "Main Character")
       {
 				AudioManager.play('resources/music/short death.mp3', "Piston Death", {loop: false});
-        sceneManager.play("Level 3");
+        if (g_currentLevel == 3) {sceneManager.play("Level 3")} else {sceneManager.play("Level 4")};
       }
     }
     
@@ -44,7 +44,7 @@ function pistonUnlockButton(buttonNumber)
       if (other.name == "Main Character")
       {
 				AudioManager.play('resources/music/short death.mp3', "Piston Death", {loop: false});
-        sceneManager.play("Level 3");
+        if (g_currentLevel == 3) {sceneManager.play("Level 3")} else {sceneManager.play("Level 4")};
       }
     }
   }

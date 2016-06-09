@@ -1,7 +1,7 @@
 var canvas = document.getElementById ('myGame');
 var context = canvas.getContext ('2d');
 
-var g_currentLevel = 1;
+var g_currentLevel = 4;
 
 var AudioManager = new AudioManager();
 //AudioManager.play('resources/music/synthpop.mp3', "Level 1 Song", {loop: true});
@@ -18,7 +18,7 @@ InputManager.add("enter", [13,32]);
 sceneManager.drawDebug = true;
 sceneManager.init();
 sceneManager.play("Main Menu");
-sceneManager.play("Level 3");
+sceneManager.play("Level 4");
 
 
 //sceneManager.play("Level 3"); 
