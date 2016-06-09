@@ -45,6 +45,7 @@ function pressurePlate()
     {
       if (!this.on) AudioManager.play('resources/music/pressure plate down.mp3', "On Plate");
       this.on = true
+	  
     }
     else
     {
@@ -77,7 +78,8 @@ function pressurePlate()
   
   this.onTriggerEnter = function ()
   {
-    //AudioManager.play('resources/music/waaap.mp3', "Open Door Sound", {loop: false});
+    AudioManager.play('resources/music/pressure plate down.mp3', "Pressure Plate Down", {loop: false});
+	//AudioManager.play('resources/music/waaap.mp3', "Open Door Sound", {loop: false});
     this.playerStandingOn = true;
   }
   
