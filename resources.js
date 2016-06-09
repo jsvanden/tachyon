@@ -40,12 +40,15 @@ var spr_dialDoors_leftSmall = new Sprite('resources/images/DialDoorsLeft.png', {
 var spr_lockedDoor_r = new Sprite('resources/images/MonoDoor.png', {width: 25, height: 60});
 var spr_openDoor_r = new Sprite('resources/images/OpenDoorLeft.png', {width: 40, height: 110});
 
+var spr_openDoor_d = new Sprite('resources/images/OpenDoorUp.png', {width: 90, height: 40});
+
 var spr_greenDots = new Sprite('resources/images/GBtnDots.png', {width: 186, height: 185, xOffset: -181, yOffset: -285});
 var spr_redDots = new Sprite('resources/images/RBtnDots.png', {width: 186, height: 185, xOffset: 181, yOffset: -285});
 
 var spr_chainDoorRightSmall = new Sprite('resources/images/LockedDoorRight.png', {width: 21, height: 55});
 
 var spr_chainDoorRight = new Sprite('resources/images/LockedDoorRight.png', {width: 41, height: 110});
+var spr_chainDoorRight2 = new Sprite('resources/images/LockedDoorRight.png', {width: 40, height: 70});
 
 var spr_chainDoorDown = new Sprite('resources/images/LockedDoorDown.png', {width: 110, height: 41});
 
@@ -66,6 +69,7 @@ var rb_green = new RigidBody({ width: 58, height: 40, isTrigger: true });
 var rb_red = new RigidBody({ width: 58, height: 40, isTrigger: true });
 var rb_bDoor = new RigidBody({ width: 25, height: 70 , xOffset: -2});
 var rb_bDoor2 = new RigidBody({ width: 25, height: 70 , xOffset: -2, listenForCollision: true});
+var rb_bDoor3 = new RigidBody({ width: 70, height: 40 , xOffset: -2, listenForCollision: true});
 
 var rb_pressurePlate = new RigidBody({isTrigger: true, width: 53, height: 48});
 
@@ -338,12 +342,18 @@ go_Door2.addComponent(spr_openDoor_r, "sprite");
 go_Door2.addComponent(rb_bDoor2, "body");
 go_Door2.addComponent(script_openDoor, "script");
 
+var go_Door3 = new GameObject();
+go_Door3.addComponent(spr_openDoor_d, "sprite");
+go_Door3.addComponent(rb_bDoor3, "body");
+go_Door3.addComponent(script_openDoor, "script");
+
 
 var  go_lockedDoor2 = new GameObject();
 go_lockedDoor2.addComponent(spr_chainDoorRight, "sprite");
 go_lockedDoor2.addComponent(rb_level2_lockedDoor, "body");
 
-
+var  go_lockedDoor3 = new GameObject();
+go_lockedDoor3.addComponent(spr_chainDoorRight2, "sprite");
 
 
 var go_green3 = new GameObject({x:200,y:110});

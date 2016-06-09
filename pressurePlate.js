@@ -76,6 +76,7 @@ function pressurePlate()
   
   this.onTriggerEnter = function ()
   {
+    //AudioManager.play('resources/music/waaap.mp3', "Open Door Sound", {loop: false});
     this.playerStandingOn = true;
   }
   

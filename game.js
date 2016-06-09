@@ -20,7 +20,6 @@ sceneManager.init();
 sceneManager.play("Main Menu");
 //sceneManager.play("Level 5");
 
-
 //sceneManager.play("Level 3"); 
 
 requestAnimFrame(sceneManager.run);

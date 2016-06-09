@@ -104,6 +104,7 @@ function pistonUnlockButton(buttonNumber)
   
   this.onTriggerEnter = function ()
   {
+    if(this.closed) AudioManager.play('resources/music/waaap.mp3', "Open Door Sound", {loop: false});
     this.parent.getComponent("sprite").image.src = 'resources/images/blueDown.png';
     this.time = 30 * this.cap;
     this.open();

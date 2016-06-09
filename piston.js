@@ -20,9 +20,11 @@ function piston() {
         this.spike = this.base.getComponent("spikes"); // Changed to lowercase
 
         this.spike.onCollision = function (other) {
-            if (other.name == "Main Character") { // Changed to other.name == "Main Character"
-				AudioManager.play('resources/music/short death.mp3', "Piston Death", {loop: false});
-                sceneManager.play("Level 2"); // Implemented Death Hopefully
+            if (other.name == "Main Character")
+            {
+              AudioManager.play('resources/music/short death.mp3', "Piston Death", {loop: false});
+              if(g_currentLevel == 2) sceneManager.play("Level 2");
+              if(g_currentLevel == 3) sceneManager.play("Level 3");
             }
         }
     }
@@ -71,9 +73,11 @@ function pistonUp() {
         this.spike = this.base.getComponent("spikes"); // Changed to lowercase
 
         this.spike.onCollision = function (other) {
-            if (other.name == "Main Character") { // Changed to other.name == "Main Character"
-			AudioManager.play('resources/music/short death.mp3', "Piston Death", {loop: false});
-                sceneManager.play("Level 2"); // Implemented Death Hopefully
+            if (other.name == "Main Character")
+            {
+              AudioManager.play('resources/music/short death.mp3', "Piston Death", {loop: false});
+              if(g_currentLevel == 2) sceneManager.play("Level 2");
+              if(g_currentLevel == 3) sceneManager.play("Level 3");
             }
         }
     }

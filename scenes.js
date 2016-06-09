@@ -6,7 +6,7 @@ MainMenu.onLoad = function()
   MainMenu.add(go_mainMenu, {x:320, y:240});
 }
 
-// Transition Levela
+// Transition Level
 
 var TransitionLevel = new Scene("Transition Level");
 TransitionLevel.onLoad = function()
@@ -44,8 +44,21 @@ Level_2.onLoad = function()
   Level_2.add(go_piston_up, {x:400, y:500, z:-2});
   
   Level_2.add(go_Door2, {x:610, y: 232});
-
 }
+
+// Level 3
+var Level_3 = new Scene("Level 3");
+Level_3.onLoad = function()
+{
+  Level_3.add(go_character, {x:80, y:240, name: "Main Character"});
+  Level_3.add(go_room04, {x:320, y:240, z:-3});
+  Level_3.add(go_lockedDoor3, {x:40, y:240, z:-1});
+  Level_3.add(go_piston, {x:200, y:30, z:-2});
+  Level_3.add(go_piston, {x:400, y:-11, z:-2});
+  Level_3.add(go_piston_up, {x:200, y:530, z:-2});
+  Level_3.add(go_piston_up, {x:400, y:490, z:-2});
+  Level_3.add(go_Door3, {x:470, y: 445});
+} 
 
 var Level_4 = new Scene("Level 4");
 Level_4.onLoad = function()
@@ -101,17 +114,7 @@ Level_3.onLoad = function()
 
   
 
-// Level 3
-var Level_3 = new Scene("Level 3");
-{
-  Level_3.add(go_character, {x:80, y:240, name: "Main Character"});
-  Level_3.add(go_room04, {x:320, y:240, z:-3});
-  Level_3.add(go_lockedDoor2, {x:40, y:240, z:-1});
-  Level_3.add(go_piston, {x:200, y:30, z:-2});
-  Level_3.add(go_piston, {x:400, y:-10, z:-2});
-  Level_3.add(go_piston_up, {x:200, y:530, z:-2});
-  Level_3.add(go_piston_up, {x:400, y:490, z:-2});
-} 
+
 
 /*
 // Level 5
