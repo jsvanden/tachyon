@@ -10,14 +10,23 @@ function transition()
     switch(g_currentLevel)
     {
       case 1:
-        this.parent.getComponent("sprite").image.src = 'resources/images/Space.png';
+        this.parent.getComponent("sprite").image.src = 'resources/images/Acceleration.png';
         break;
       case 2:
-        this.parent.getComponent("sprite").image.src = 'resources/images/Time.png';
+        this.parent.getComponent("sprite").image.src = 'resources/images/Dilation.png';
         break;
       case 3:
-        this.parent.getComponent("sprite").image.src = 'resources/images/placeholder.jpg';
+        this.parent.getComponent("sprite").image.src = 'resources/images/Curvature.png';
+        break;
+      case 4:
+        this.parent.getComponent("sprite").image.src = 'resources/images/Relativity.png';
         break; 
+      case 5:
+        this.parent.getComponent("sprite").image.src = 'resources/images/Velocity.png';
+        break;
+      case 6:
+        this.parent.getComponent("sprite").image.src = 'resources/images/Ending.png';
+        break;
     }
   }
   

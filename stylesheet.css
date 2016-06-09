@@ -5,9 +5,16 @@ canvas
   margin-left: auto;
   margin-right: auto;
   display: block;
+  background-color: lightblue;
 }
 
-img
+body
+{
+  background-image: url("resources/images/Website Background.png");
+  background-size:cover
+}
+
+#instructions
 {
     width: 640px;
     display: block;

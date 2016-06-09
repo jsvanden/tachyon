@@ -500,7 +500,7 @@ function SceneManager()
     context.rect(0,0,canvas.width, canvas.height);
     context.closePath();
     context.strokeStyle = '#000000';
-    context.lineWidth = 2;
+    context.lineWidth = 6;
     context.stroke();
   }
 }
