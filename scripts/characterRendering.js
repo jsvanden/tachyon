@@ -14,13 +14,9 @@ function CharacterRendering()
 		
 		this.sprite.white = 'resources/images/W.png';
 		this.sprite.blue = 'resources/images/B.png';
-    //this.sprite.blueFill = 'resources/images/B.png';
 		this.sprite.green = 'resources/images/G.png';
-		//this.sprite.greenFill = 'resources/images/G.png';
 		this.sprite.yellow = 'resources/images/Y.png';
-		//this.sprite.yellowFill = 'resources/images/Y.png';
 		this.sprite.red = 'resources/images/R.png';
-		//this.sprite.redFill = 'resources/images/R.png';
 		
 		this.sprite.image.src = this.sprite.white;
 		this.sprite.imageTop = new Image();
@@ -70,7 +66,6 @@ function CharacterRendering()
 			context.drawImage(this.imageShadow, -this.width/2,-this.height/2, this.width, this.height)
 			context.drawImage(this.image, -this.width/2,-this.height/2, this.width, this.height);
       context.drawImage(this.imageTop, 0,this.height*this.percent,this.width,this.height, -this.width/2,-this.height/2+this.height*this.percent, this.width, this.height);
-			//context.drawImage(this.imageTop, 0, this.height*this.percent, this.width, this.height, -this.width/2,-this.height/2+this.height, this.width, this.height);
 			
 			context.restore();
 		}

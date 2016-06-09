@@ -39,7 +39,7 @@ function pistonUnlockButton(buttonNumber)
       if (other.name == "Main Character")
       {
 				AudioManager.play('resources/music/short death.mp3', "Piston Death", {loop: false});
-        if (g_currentLevel == 4) {sceneManager.play("Level 3")} else {sceneManager.play("Level 4")};
+        if (g_currentLevel == 4) {sceneManager.play("Level 4")} else {sceneManager.play("Level 5")};
       }
     }
   }

@@ -223,20 +223,21 @@ function InputManager()
 function AudioManager()
 {
   this.audioEntities = new Array();
+  this.musicMuted = false;
   
   this.play = function(url, name, options)
   {
     var audioFound = false;
-	var options = options || {};
+    var options = options || {};
     
     for(var i=0; i<this.audioEntities.length; i++)
     {
       if(this.audioEntities[i].audio.ended)
       {
         audioFound = true;
-		this.audioEntities[i].name = name;
-		this.audioEntities[i].audio.src = url;
-		this.audioEntities[i].audio.loop = options.loop || false;
+        this.audioEntities[i].name = name;
+        this.audioEntities[i].audio.src = url;
+        this.audioEntities[i].audio.loop = options.loop || false;
         this.audioEntities[i].audio.play();
         return;
       }
@@ -258,7 +259,7 @@ function AudioManager()
     {
       if(this.audioEntities[i].name == name)
       {
-      this.audioEntities[i].audio.volume = volume;
+        this.audioEntities[i].audio.volume = volume;
       }
     }
   }

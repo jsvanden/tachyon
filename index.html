@@ -9,30 +9,52 @@
   
   <!-- CUSTOM SCRIPTS GO HERE -->
   
-  <script src="SampleScript.js"></script>
-  <script src="movement.js"></script>
-  <script src="LoadingCharacter.js"></script>
-  <script src="twoButtons.js"></script>
-  <script src="characterRendering.js"></script>
-  <script src="transition.js"></script>
-  <script src="oneButton.js"></script>
-  <script src="openDoor.js"></script>
-  <script src="piston.js"></script>
-  <script src="underPressure.js"></script>
-  <script src="pistonUnlockButton.js"></script>
-  <script src="pressurePlate.js"></script>
-  <!-- CUSTOM SCRIPTS GO HERE -->
+  <script src="scripts/movement.js"></script>
+  <script src="scripts/LoadingCharacter.js"></script>
+  <script src="scripts/characterRendering.js"></script>
+  <script src="scripts/transition.js"></script>
+  <script src="scripts/oneButton.js"></script>
+  <script src="scripts/openDoor.js"></script>
+  <script src="scripts/piston.js"></script>
+  <script src="scripts/underPressure.js"></script>
+  <script src="scripts/pistonUnlockButton.js"></script>
+  <script src="scripts/pressurePlate.js"></script>
+  
+  <!-- JOJO Scripts -->
   
   <script src="resources.js"></script> <!-- CUSTOM ASSETS GO HERE -->
   <script src="scenes.js"></script> <!-- CUSTOM LEVELS GO HERE -->
   
 </head>
+
 <body>
-<!--<img id='test' src='resources/images/Website Background.png'>-->
+
   <canvas id="myGame" width="640" height="480">
     This text is displayed if your browser does not support HTML5 Canvas.
   </canvas>
+  
+  <br><div style="text-align:center;"><input type="button" value="Mute Music"></div>
+  
   <img id='instructions' src="resources/images/instructions.png"></img>
   
   <script type="text/javascript" src="game.js"></script>
+
+  <script>
+  $( ":button" ).click(
+    function()
+    {
+      if(AudioManager.musicMuted)
+      {
+        AudioManager.setVolume("Level 1 Song", 1);
+        AudioManager.musicMuted = false;
+      }
+      else
+      {
+        AudioManager.setVolume("Level 1 Song", 0);
+        AudioManager.musicMuted = true;
+      }
+    }
+  );
+  </script>
+  
 </body>
