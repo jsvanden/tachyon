@@ -140,7 +140,7 @@ go_lockedDoor2.addComponent(spr_chainDoorRight, "sprite");
 go_lockedDoor2.addComponent(rb_level2_lockedDoor, "body");
 
 var  go_lockedDoor3 = new GameObject();
-go_lockedDoor3.addComponent(spr_chainDoorRight2, "sprite");
+go_lockedDoor3.addComponent(spr_chainDoorRightSmall, "sprite");
 
 var go_blue1 = new GameObject({x:110,y:240});
 go_blue1.addComponent(spr_blueUp, "sprite");

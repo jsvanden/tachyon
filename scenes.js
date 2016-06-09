@@ -52,7 +52,7 @@ Level_3.onLoad = function()
   if(!AudioManager.musicMuted) AudioManager.setVolume("Level 1 Song", 1);
   Level_3.add(go_character, {x:80, y:240, name: "Main Character"});
   Level_3.add(go_room03, {x:320, y:240, z:-3});
-  Level_3.add(go_lockedDoor3, {x:40, y:240, z:-1});
+  Level_3.add(go_lockedDoor3, {x:40, y:240, z:-3});
   Level_3.add(go_piston, {x:200, y:30, z:-2});
   Level_3.add(go_piston, {x:400, y:-11, z:-2});
   Level_3.add(go_piston_up, {x:200, y:530, z:-2});

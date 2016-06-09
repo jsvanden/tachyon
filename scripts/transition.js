@@ -11,6 +11,8 @@ function transition()
     {
       case 1:
         this.parent.getComponent("sprite").image.src = 'resources/images/Acceleration.png';
+		AudioManager.play('resources/music/synthpop.mp3', "Level 1 Song", {loop: true});
+        AudioManager.setPlaybackRate("Level 1 Song", 1.4);
         break;
       case 2:
         this.parent.getComponent("sprite").image.src = 'resources/images/Dilation.png';
