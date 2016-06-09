@@ -64,7 +64,7 @@ Level_3.onLoad = function()
   
   Level_3.add(go_Door2, {x:610, y: 232});
   
-  Level_3.add(go_pressurePlateSystem, {name: "buttons", z:-2})
+  Level_3.add(go_pressurePlateSystem1, {name: "buttons", z:-2})
 }
 
 var Level_4 = new Scene("Level 4");
@@ -84,7 +84,7 @@ Level_4.onLoad = function()
   
   Level_4.add(go_Door2, {x:610, y: 232});
   
-  Level_4.add(go_pressurePlateSystem, {name: "buttons", z:-2})
+  Level_4.add(go_pressurePlateSystem2, {name: "buttons", z:-2})
 }
 
 /*

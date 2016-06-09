@@ -52,9 +52,8 @@ var spr_chainDoorDown = new Sprite('resources/images/LockedDoorDown.png', {width
 var spr_piston =  new Sprite('resources/images/pistonPlaceholder.png', {width: 80, height: 290});
 var spr_piston_up =  new Sprite('resources/images/pistonPlaceholderUp.png', {width: 80, height: 290, rotationOffset: 180});
 
-
-
-
+var spr_pressurePlate = new Sprite('resources/images/PPlateUp.png', {width: 53, height: 48});
+var spr_pressureOn = new Sprite('resources/images/PPlateDown.png', {width: 253, height: 244});
 
 
 
@@ -68,6 +67,7 @@ var rb_red = new RigidBody({ width: 58, height: 40, isTrigger: true });
 var rb_bDoor = new RigidBody({ width: 25, height: 70 , xOffset: -2});
 var rb_bDoor2 = new RigidBody({ width: 25, height: 70 , xOffset: -2, listenForCollision: true});
 
+var rb_pressurePlate = new RigidBody({isTrigger: true, width: 53, height: 48});
 
 var rb_spike = new RigidBody({listenForCollision: true, width: 70, height:15, yOffset: 130});
 var rb_pistonBase = new RigidBody({width: 50, height:250, yOffset: -10});
@@ -179,7 +179,7 @@ var script_piston_up = new pistonUp();
 var script_underPressure = new underPressure();
 var script_pistonUnlockButton1 = new pistonUnlockButton(1);
 var script_pistonUnlockButton3 = new pistonUnlockButton(3);
-
+var script_pressurePlate = new pressurePlate();
 
 
 // GameObjects
@@ -190,8 +190,6 @@ go_character.addComponent(rb_character, "body");
 go_character.addComponent(script_movement, "movement");
 go_character.addComponent(script_characterRendering, "Character Rendering");
 //go_character.addComponent(spr_tempChar2, "sprite2");
-
-
 
 
 
@@ -438,14 +436,22 @@ go_blue3.addComponent(spr_blueUp, "sprite");
 go_blue3.addComponent(rb_green, "body");
 go_blue3.addComponent(script_pistonUnlockButton3, "button3Script");
 
-
-var go_pressurePlateSystem = new GameObject();
-go_pressurePlateSystem.addComponent(go_blue2, "button1");
-go_pressurePlateSystem.addComponent(go_blue3, "button2");
-
-//go_pressurePlateSystem.addComponent(script_pistonUnlockButton3, "button3Script");
-go_pressurePlateSystem.addComponent(script_underPressure, "master");
+var go_pressurePlate = new GameObject({x:110, y:240});
+go_pressurePlate.addComponent(spr_pressurePlate, "sprite");
+go_pressurePlate.addComponent(spr_pressureOn, "light");
+go_pressurePlate.addComponent(script_pressurePlate, "script");
+go_pressurePlate.addComponent(rb_pressurePlate, "body");
 
 
+var go_pressurePlateSystem1 = new GameObject();
+go_pressurePlateSystem1.addComponent(go_blue2, "button1");
+go_pressurePlateSystem1.addComponent(go_blue3, "button2");
+go_pressurePlateSystem1.addComponent(script_underPressure, "master");
+
+var go_pressurePlateSystem2 = new GameObject();
+go_pressurePlateSystem2.addComponent(go_blue2, "button1");
+go_pressurePlateSystem2.addComponent(go_blue3, "button2");
+go_pressurePlateSystem2.addComponent(go_pressurePlate, "pressurePlate");
+go_pressurePlateSystem2.addComponent(script_underPressure, "master");
 
 

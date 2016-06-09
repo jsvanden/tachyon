@@ -1,16 +1,10 @@
 function pistonUnlockButton(buttonNumber)
 {
-  this.pistonHi;
-  this.pistonLo;
   this.time = 0;
   this.drainSpeed = 2;
   this.tierEffect = 1;
-  this.player;
-  this.clock;
-  this.cap;
   this.pressed = false;
   this.closed = true;
-  this.master;
   
   this.start = function()
   {
