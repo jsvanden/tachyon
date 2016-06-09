@@ -1,27 +1,28 @@
 function pistonUnlockButton(buttonNumber)
 {
   this.time = 0;
-  this.drainSpeed = 2;
-  this.tierEffect = 1;
   this.pressed = false;
   this.closed = true;
   
   this.start = function()
   {
-    this.player = (g_currentLevel == 3) ? Level_3.find("Main Character") : Level_4.find("Main Character");
+    this.drainSpeed = (g_currentLevel == 4) ? 2 : 2;
+    this.tierEffect = (g_currentLevel == 4) ? 2.5 : 1;
+    
+    this.player = (g_currentLevel == 4) ? Level_4.find("Main Character") : Level_5.find("Main Character");
     this.clock = this.player.getComponent("movement").tier;
     this.cap = this.player.getComponent("movement").tierCap;
-    this.master = (g_currentLevel == 3) ? Level_3.find("buttons").getComponent("master") : Level_4.find("buttons").getComponent("master");
+    this.master = (g_currentLevel == 4) ? Level_4.find("buttons").getComponent("master") : Level_5.find("buttons").getComponent("master");
     
     if(buttonNumber == 1)
     {
-      this.pistonHi = (g_currentLevel == 3) ? Level_3.find("piston1a") : Level_4.find("piston1a");
-      this.pistonLo = (g_currentLevel == 3) ? Level_3.find("piston1b") : Level_4.find("piston1b");
+      this.pistonHi = (g_currentLevel == 4) ? Level_4.find("piston1a") : Level_5.find("piston1a");
+      this.pistonLo = (g_currentLevel == 4) ? Level_4.find("piston1b") : Level_5.find("piston1b");
     }
     if(buttonNumber == 3)
     {
-      this.pistonHi = (g_currentLevel == 3) ? Level_3.find("piston3a") : Level_4.find("piston3a");
-      this.pistonLo = (g_currentLevel == 3) ? Level_3.find("piston3b") : Level_4.find("piston3b");
+      this.pistonHi = (g_currentLevel == 4) ? Level_4.find("piston3a") : Level_5.find("piston3a");
+      this.pistonLo = (g_currentLevel == 4) ? Level_4.find("piston3b") : Level_5.find("piston3b");
     }
     
     this.pistonHi.getComponent("spikes").onCollision = function (other)
@@ -29,7 +30,7 @@ function pistonUnlockButton(buttonNumber)
       if (other.name == "Main Character")
       {
 				AudioManager.play('resources/music/short death.mp3', "Piston Death", {loop: false});
-        if (g_currentLevel == 3) {sceneManager.play("Level 3")} else {sceneManager.play("Level 4")};
+        if (g_currentLevel == 4) {sceneManager.play("Level 4")} else {sceneManager.play("Level 5")};
       }
     }
     
@@ -38,7 +39,7 @@ function pistonUnlockButton(buttonNumber)
       if (other.name == "Main Character")
       {
 				AudioManager.play('resources/music/short death.mp3', "Piston Death", {loop: false});
-        if (g_currentLevel == 3) {sceneManager.play("Level 3")} else {sceneManager.play("Level 4")};
+        if (g_currentLevel == 4) {sceneManager.play("Level 3")} else {sceneManager.play("Level 4")};
       }
     }
   }
@@ -51,13 +52,21 @@ function pistonUnlockButton(buttonNumber)
       this.pistonLo.setTransform({y: 400 + 160});
       return;
     }
-    
+
     this.clock = this.player.getComponent("movement").tier;
     this.cap = this.player.getComponent("movement").tierCap;
     
     if (this.time > 0 && this.pressed == false)
     {
-      this.time -= ((this.drainSpeed * this.cap) / (this.clock / this.tierEffect));
+      if(!this.master.buttonOneDown || !this.master.buttonThreeDown)
+      {
+        this.time -= ((this.drainSpeed * this.cap) / (this.clock / this.tierEffect));
+        if (this.clock == 1) this.time = 0;
+      }
+      else
+      {
+        this.time -= 1;
+      }
     }
     else if (this.pressed == false)
     {

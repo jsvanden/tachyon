@@ -20,12 +20,12 @@ function underPressure() {
         this.buttonThreeDown = isDown;
       }
       
-      if(this.buttonOneDown && this.buttonThreeDown && g_currentLevel == 3)
+      if(this.buttonOneDown && this.buttonThreeDown && g_currentLevel == 4)
       {
         this.solved = true;
       }
       
-      if(this.buttonOneDown && this.buttonTwoDown && this.buttonThreeDown && g_currentLevel == 4)
+      if(this.buttonOneDown && this.buttonTwoDown && this.buttonThreeDown && g_currentLevel == 5)
       {
         this.solved = true;
       }

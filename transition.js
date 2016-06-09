@@ -41,6 +41,9 @@ function transition()
         case 4:
           sceneManager.play("Level 4");
           break;
+        case 5:
+          sceneManager.play("Level 5");
+          break;
       }
     }
   }

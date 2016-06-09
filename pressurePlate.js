@@ -5,18 +5,18 @@ function pressurePlate()
   
   this.start = function()
   {
-    this.player = Level_4.find("Main Character");
-    this.master = Level_4.find("buttons").getComponent("master");
+    this.player = Level_5.find("Main Character");
+    this.master = Level_5.find("buttons").getComponent("master");
     
-    this.pistonHi = Level_4.find("piston2a");
-    this.pistonLo = Level_4.find("piston2b");
+    this.pistonHi = Level_5.find("piston2a");
+    this.pistonLo = Level_5.find("piston2b");
     
     this.pistonHi.getComponent("spikes").onCollision = function (other)
     {
       if (other.name == "Main Character")
       {
 				AudioManager.play('resources/music/short death.mp3', "Piston Death", {loop: false});
-        sceneManager.play("Level 4");
+        sceneManager.play("Level 5");
       }
     }
     
@@ -25,7 +25,7 @@ function pressurePlate()
       if (other.name == "Main Character")
       {
 				AudioManager.play('resources/music/short death.mp3', "Piston Death", {loop: false});
-        sceneManager.play("Level 4");
+        sceneManager.play("Level 5");
       }
     }
   }

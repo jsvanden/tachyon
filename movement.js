@@ -15,6 +15,10 @@ function movement() {
 // Happens At Start
   this.start = function()
   {
+    if (g_currentLevel == 0)
+    {
+      this.fillSpeed = 2;
+    }
     body = this.parent.getComponent("body");
   }
 
@@ -78,7 +82,7 @@ function movement() {
           }
       }
       if (!InputManager.isPressed("shift") && this.enabled) {
-          this.ramp -= 8;
+          this.ramp -= 10;
           if (this.ramp < 0 && this.tier > 1) {
               this.ramp = 170;
               this.tier--;

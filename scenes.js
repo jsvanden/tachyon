@@ -47,26 +47,6 @@ Level_2.onLoad = function()
 
 }
 
-var Level_3 = new Scene("Level 3");
-Level_3.onLoad = function()
-{
-  AudioManager.setVolume("Level 1 Song", 1);
-  Level_3.add(go_character, {x:120, y:240, name: "Main Character"});
-  Level_3.add(go_room02, {x:320, y:240, z:-3});
-  Level_3.add(go_lockedDoor2, {x:30, y:230, z:-2});
-  
-  Level_3.add(go_piston2, {name: "piston1a", x:280, y:101, z:-2});
-  //Level_3.add(go_piston2, {name: "piston2a", x:340, y:101, z:-2});
-  Level_3.add(go_piston2, {name: "piston3a", x:360, y:101, z:-2});
-  Level_3.add(go_piston_up2, {name: "piston1b", x:280, y:400, z:-2});
-  //Level_3.add(go_piston_up2, {name: "piston2b", x:340, y:400, z:-2});
-  Level_3.add(go_piston_up2, {name: "piston3b", x:360, y:400, z:-2});
-  
-  Level_3.add(go_Door2, {x:610, y: 232});
-  
-  Level_3.add(go_pressurePlateSystem1, {name: "buttons", z:-2})
-}
-
 var Level_4 = new Scene("Level 4");
 Level_4.onLoad = function()
 {
@@ -75,16 +55,34 @@ Level_4.onLoad = function()
   Level_4.add(go_room02, {x:320, y:240, z:-3});
   Level_4.add(go_lockedDoor2, {x:30, y:230, z:-2});
   
-  Level_4.add(go_piston2, {name: "piston1a", x:260, y:101, z:-2});
-  Level_4.add(go_piston2, {name: "piston2a", x:340, y:101, z:-2});
-  Level_4.add(go_piston2, {name: "piston3a", x:420, y:101, z:-2});
-  Level_4.add(go_piston_up2, {name: "piston1b", x:260, y:400, z:-2});
-  Level_4.add(go_piston_up2, {name: "piston2b", x:340, y:400, z:-2});
-  Level_4.add(go_piston_up2, {name: "piston3b", x:420, y:400, z:-2});
+  Level_4.add(go_piston2, {name: "piston1a", x:280, y:101, z:-2});
+  Level_4.add(go_piston2, {name: "piston3a", x:360, y:101, z:-2});
+  Level_4.add(go_piston_up2, {name: "piston1b", x:280, y:400, z:-2});
+  Level_4.add(go_piston_up2, {name: "piston3b", x:360, y:400, z:-2});
   
   Level_4.add(go_Door2, {x:610, y: 232});
   
-  Level_4.add(go_pressurePlateSystem2, {name: "buttons", z:-2})
+  Level_4.add(go_pressurePlateSystem1, {name: "buttons", z:-2})
+}
+
+var Level_5 = new Scene("Level 5");
+Level_5.onLoad = function()
+{
+  AudioManager.setVolume("Level 1 Song", 1);
+  Level_5.add(go_character, {x:120, y:240, name: "Main Character"});
+  Level_5.add(go_room02, {x:320, y:240, z:-3});
+  Level_5.add(go_lockedDoor2, {x:30, y:230, z:-2});
+  
+  Level_5.add(go_piston2, {name: "piston1a", x:260, y:101, z:-2});
+  Level_5.add(go_piston2, {name: "piston2a", x:340, y:101, z:-2});
+  Level_5.add(go_piston2, {name: "piston3a", x:420, y:101, z:-2});
+  Level_5.add(go_piston_up2, {name: "piston1b", x:260, y:400, z:-2});
+  Level_5.add(go_piston_up2, {name: "piston2b", x:340, y:400, z:-2});
+  Level_5.add(go_piston_up2, {name: "piston3b", x:420, y:400, z:-2});
+  
+  Level_5.add(go_Door2, {x:610, y: 232});
+  
+  Level_5.add(go_pressurePlateSystem2, {name: "buttons", z:-2})
 }
 
 /*
@@ -99,23 +97,23 @@ Level_3.onLoad = function()
   Level_3.add(go_buttonSystem3, {z:-3, name: "Button System"})
   Level_3.add(go_lockedDoor1, {x:40, y:240, z:-2});
 }
-  
+  */
 
   
 
-// Level 4
-var Level_4 = new Scene("Level 4");
+// Level 3
+var Level_3 = new Scene("Level 3");
 {
-  Level_4.add(go_character, {x:80, y:240, name: "Main Character"});
-  Level_4.add(go_room04, {x:320, y:240, z:-3});
-  Level_4.add(go_lockedDoor2, {x:40, y:240, z:-1});
-  Level_4.add(go_piston, {x:200, y:30, z:-2});
-  Level_4.add(go_piston, {x:400, y:-10, z:-2});
-  Level_4.add(go_piston_up, {x:200, y:530, z:-2});
-  Level_4.add(go_piston_up, {x:400, y:490, z:-2});
+  Level_3.add(go_character, {x:80, y:240, name: "Main Character"});
+  Level_3.add(go_room04, {x:320, y:240, z:-3});
+  Level_3.add(go_lockedDoor2, {x:40, y:240, z:-1});
+  Level_3.add(go_piston, {x:200, y:30, z:-2});
+  Level_3.add(go_piston, {x:400, y:-10, z:-2});
+  Level_3.add(go_piston_up, {x:200, y:530, z:-2});
+  Level_3.add(go_piston_up, {x:400, y:490, z:-2});
 } 
 
-
+/*
 // Level 5
 var Level_5 = new Scene("Level 5");
 Level_5.onLoad = function()
