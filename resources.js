@@ -24,6 +24,9 @@ var spr_redDown = new Sprite('resources/images/redDown.png', { width: 58, height
 var spr_blueUp = new Sprite('resources/images/blueUp.png', {width: 58, height: 40});
 var spr_blueDown = new Sprite('resources/images/blueDown.png', { width: 58, height: 35, yOffset: 2.5 });
 
+var spr_blueUp2 = new Sprite('resources/images/blueUp.png', {width: 58, height: 40});
+var spr_blueDown2 = new Sprite('resources/images/blueDown.png', { width: 58, height: 35, yOffset: 2.5 });
+
 var spr_mainMenu = new Sprite('resources/images/MainMenu.png', {width: 640, height:480});
 
 var spr_transition = new Sprite('resources/images/Dilation.png', {width: 640, height: 480});
@@ -66,11 +69,11 @@ var rb_bDoor = new RigidBody({ width: 25, height: 70 , xOffset: -2});
 var rb_bDoor2 = new RigidBody({ width: 25, height: 70 , xOffset: -2, listenForCollision: true});
 
 
-var rb_spike = new RigidBody({listenForCollision: true, width: 70, height:15, yOffset: 110});
-var rb_pistonBase = new RigidBody({width: 50, height:220, yOffset: -10});
+var rb_spike = new RigidBody({listenForCollision: true, width: 70, height:15, yOffset: 130});
+var rb_pistonBase = new RigidBody({width: 50, height:250, yOffset: -10});
 
-var rb_spike_up = new RigidBody({listenForCollision: true, width: 70, height:15, yOffset: -110});
-var rb_pistonBase_up = new RigidBody({width: 50, height:220, yOffset: 10});
+var rb_spike_up = new RigidBody({listenForCollision: true, width: 70, height:15, yOffset: -130});
+var rb_pistonBase_up = new RigidBody({width: 50, height:250, yOffset: 10});
 
 
 var rb_level1_wallLeft = new RigidBody({width: 10, height:400, xOffset: -270, yOffset: 0});
@@ -173,8 +176,9 @@ var script_oneButton = new oneButton();
 var script_openDoor = new openDoor();
 var script_piston = new piston();
 var script_piston_up = new pistonUp();
-
-
+var script_underPressure = new underPressure();
+var script_pistonUnlockButton1 = new pistonUnlockButton(1);
+var script_pistonUnlockButton3 = new pistonUnlockButton(3);
 
 
 
@@ -300,6 +304,18 @@ go_piston_up.addComponent(script_piston_up, "script");
 go_piston_up.addComponent(rb_spike_up, "spikes");
 go_piston_up.addComponent(rb_pistonBase_up, "body");
 
+var go_piston2 = new GameObject();
+go_piston2.addComponent(spr_piston, "sprite");
+//go_piston2.addComponent(script_piston, "script");
+go_piston2.addComponent(rb_spike, "spikes");
+go_piston2.addComponent(rb_pistonBase, "body");
+
+var go_piston_up2 = new GameObject();
+go_piston_up2.addComponent(spr_piston_up, "sprite");
+//go_piston_up2.addComponent(script_piston_up, "script");
+go_piston_up2.addComponent(rb_spike_up, "spikes");
+go_piston_up2.addComponent(rb_pistonBase_up, "body");
+
 
 var go_blue1 = new GameObject({x:110,y:240});
 go_blue1.addComponent(spr_blueUp, "sprite");
@@ -412,7 +428,23 @@ var go_transition = new GameObject();
 go_transition.addComponent(script_transition, "script");
 go_transition.addComponent(spr_transition, "sprite");
 
+var go_blue2 = new GameObject({x:110,y:100});
+go_blue2.addComponent(spr_blueUp2, "sprite");
+go_blue2.addComponent(rb_green, "body");
+go_blue2.addComponent(script_pistonUnlockButton1, "button1Script");
 
+var go_blue3 = new GameObject({x:110,y:380});
+go_blue3.addComponent(spr_blueUp, "sprite");
+go_blue3.addComponent(rb_green, "body");
+go_blue3.addComponent(script_pistonUnlockButton3, "button3Script");
+
+
+var go_pressurePlateSystem = new GameObject();
+go_pressurePlateSystem.addComponent(go_blue2, "button1");
+go_pressurePlateSystem.addComponent(go_blue3, "button2");
+
+//go_pressurePlateSystem.addComponent(script_pistonUnlockButton3, "button3Script");
+go_pressurePlateSystem.addComponent(script_underPressure, "master");
 
 
 

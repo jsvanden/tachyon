@@ -3,8 +3,8 @@ function openDoor()
 {
   this.onCollision = function ()
   {
-    console.log("test");
     g_currentLevel++;
+        console.log(g_currentLevel);
     sceneManager.play("Transition Level");
   }
 }

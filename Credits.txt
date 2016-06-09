@@ -4,7 +4,7 @@ Ending Theme http://www.orangefreesounds.com/voices-heaven/
 
 
 
-Programmed by Jarret Van Den Bergh, Kyle Oppenheim and Thelonius Erickson
+Programmed by Jarrett van den Bergh, Kyle Oppenheim and Thelonius Erickson
 Designed by the team as whole
 Unique Art Assets by Juan Morales
 Sound Effects and Unused Music by Thelonius Erickson
@@ -12,4 +12,4 @@ Sound Effects and Unused Music by Thelonius Erickson
 
 Made in a 4 weeks for CMPM 120: Game Development Experience by Prof. Arnav Jhala Spr 2016 Final Project. We had to do a Javascript game based upon a recent news story which for us was gravity waves and how they related to the general theory of relativity.
 
-This game was created through a collaborative effort of the entire team who gained direction and knowledge from our TA Ben and our Professors Robin Hunike and Arnav Jhala. It is with their help that we were able to make a great a success 
+This game was created through a collaborative effort of the entire team who gained direction and knowledge from our TA Ben and our Professors Robin Hunike and Arnav Jhala. It is with their help that we were able to make a great a success.

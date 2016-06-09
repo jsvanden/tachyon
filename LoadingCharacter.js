@@ -64,7 +64,7 @@ function LoadingCharacter()
     context.save();
     context.translate(320,380);
     
-    context.fillText(Math.floor(this.percent) + "%",0,0);
+    context.fillText(Math.floor(this.percent/20)*20 + "%",0,0);
     
     context.rotate(-90*Math.PI/180);
     
