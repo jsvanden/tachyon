@@ -4,7 +4,7 @@ var context = canvas.getContext ('2d');
 var g_currentLevel = 0;
 
 var AudioManager = new AudioManager();
-//AudioManager.play('resources/music/synthpop.mp3', "Level 1 Song", {loop: true});
+AudioManager.play('resources/music/synthpop.mp3', "Level 1 Song", {loop: true});
 AudioManager.setPlaybackRate("Level 1 Song", 1.4);
 
 var InputManager = new InputManager();

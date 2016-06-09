@@ -26,6 +26,9 @@ function transition()
         break;
       case 6:
         this.parent.getComponent("sprite").image.src = 'resources/images/Ending.png';
+        AudioManager.setVolume("Level 1 Song", 0);
+        AudioManager.play('resources/music/ending song.mp3', "End Song", {loop: true});
+        if(!AudioManager.musicMuted) AudioManager.setVolume("End Song", 1);
         break;
     }
   }

@@ -45,12 +45,14 @@
     {
       if(AudioManager.musicMuted)
       {
-        AudioManager.setVolume("Level 1 Song", 1);
+        if(g_currentLevel != 6) AudioManager.setVolume("Level 1 Song", 1);
+        if(g_currentLevel == 6) AudioManager.setVolume("End Song", 1);
         AudioManager.musicMuted = false;
       }
       else
       {
-        AudioManager.setVolume("Level 1 Song", 0);
+        if(g_currentLevel != 6) AudioManager.setVolume("Level 1 Song", 0);
+        if(g_currentLevel == 6) AudioManager.setVolume("End Song", 0);
         AudioManager.musicMuted = true;
       }
     }

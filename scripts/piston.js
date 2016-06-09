@@ -3,7 +3,7 @@ function piston() {
     this.base;
     this.origin;
     this.goal;
-    this.speed = 1.5;   //WAS 1.0
+    this.speed = 1.5;
     this.clock;
     this.cap;
     this.player;
@@ -12,12 +12,12 @@ function piston() {
 
     this.start = function () {
         this.player = Level_2.find("Main Character") || Level_3.find("Main Character") || Level_4.find("Main Character");
-        this.clock = this.player.getComponent("movement").tier; // Changed to lowercase
-        this.cap = this.player.getComponent("movement").tierCap; // Changed to lowercase
+        this.clock = this.player.getComponent("movement").tier;
+        this.cap = this.player.getComponent("movement").tierCap;
         this.base = this.parent;
         this.origin = this.base.y;
-        this.goal = this.origin + 110;   //WAS +160
-        this.spike = this.base.getComponent("spikes"); // Changed to lowercase
+        this.goal = this.origin + 110;
+        this.spike = this.base.getComponent("spikes");
 
         this.spike.onCollision = function (other) {
             if (other.name == "Main Character")
@@ -29,7 +29,6 @@ function piston() {
         }
     }
     
-    // Changed this.base.y to this.base.setTransform({y: })
     this.update = function () {
         this.clock = this.player.getComponent("movement").tier;
         this.cap = this.player.getComponent("movement").tierCap;
@@ -56,7 +55,7 @@ function pistonUp() {
     this.base;
     this.origin;
     this.goal;
-    this.speed = 1.5;  //WAS 1.0
+    this.speed = 1.5;
     this.clock;
     this.cap;
     this.player;
@@ -65,12 +64,12 @@ function pistonUp() {
 
     this.start = function () {
         this.player = Level_2.find("Main Character") || Level_3.find("Main Character") || Level_4.find("Main Character");
-        this.clock = this.player.getComponent("movement").tier; // Changed to lowercase
-        this.cap = this.player.getComponent("movement").tierCap; // Changed to lowercase
+        this.clock = this.player.getComponent("movement").tier;
+        this.cap = this.player.getComponent("movement").tierCap;
         this.base = this.parent;
         this.origin = this.base.y;
-        this.goal = this.origin - 110;   //WAS 160
-        this.spike = this.base.getComponent("spikes"); // Changed to lowercase
+        this.goal = this.origin - 110;
+        this.spike = this.base.getComponent("spikes");
 
         this.spike.onCollision = function (other) {
             if (other.name == "Main Character")
@@ -81,8 +80,7 @@ function pistonUp() {
             }
         }
     }
-    
-    // Changed this.base.y to this.base.setTransform({y: })
+
     this.update = function () {
         this.clock = this.player.getComponent("movement").tier;
         this.cap = this.player.getComponent("movement").tierCap;

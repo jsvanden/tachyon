@@ -71,16 +71,15 @@ function LoadingCharacter()
     context.beginPath();
 		context.arc(0, 0, 50, Math.PI * 2, 0, true);
 		context.strokeStyle = '#efefef';
-    context.lineCap = 'round'; // butt, round or square
+    context.lineCap = 'round';
 		context.lineWidth = 7
 		context.stroke();
     
 		context.beginPath();
 		context.arc(0, 0, 50, 0, Math.PI * 2 * (this.percent/100), false);
 		context.strokeStyle = 'rgb(' + this.loadColor.r + ',' + this.loadColor.g + ',' + this.loadColor.b + ')';
-    
-    //context.strokeStyle = 'rgb(0,0,0)';
-    context.lineCap = 'round'; // butt, round or square
+
+    context.lineCap = 'round';
 		context.lineWidth = 7
 		context.stroke();
     

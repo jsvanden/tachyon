@@ -22,14 +22,14 @@ function underPressure() {
       
       if(this.buttonOneDown && this.buttonThreeDown && g_currentLevel == 4)
       {
+        if (!this.solved) AudioManager.play('resources/music/unlock.wav', "Piston Unlocked");
         this.solved = true;
-        AudioManager.play('resources/music/unlock.wav', "Piston Unlocked");
       }
       
       if(this.buttonOneDown && this.buttonTwoDown && this.buttonThreeDown && g_currentLevel == 5)
       {
+        if (!this.solved) AudioManager.play('resources/music/unlock.wav', "Piston Unlocked");
         this.solved = true;
-        AudioManager.play('resources/music/unlock.wav', "Piston Unlocked");
       }
     }
 }

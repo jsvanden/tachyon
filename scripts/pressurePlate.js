@@ -43,6 +43,7 @@ function pressurePlate()
 
     if (this.playerStandingOn && this.tier == 1)
     {
+      if (!this.on) AudioManager.play('resources/music/pressure plate down.mp3', "On Plate");
       this.on = true
     }
     else

@@ -1,10 +1,3 @@
-// To-Do List
-//  Pause
-//  Audio
-//  Input
-//  Reload Scene
-
-
 window.requestAnimFrame = (
   function()
   {
@@ -695,7 +688,6 @@ function RigidBody(options)
   
   this.turnIntoTrigger = function()
   {
-	  console.log()
 	  this.body.m_body.m_fixtureList.m_isSensor = true;
 	  this.isTrigger = true;
   }

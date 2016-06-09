@@ -1,7 +1,6 @@
 // JavaScript source code
 function movement() {
     var body;
-    //var speed = 30;
     var speedCap = 8;
     this.tier = 1;
     var prevTier = 1;
@@ -113,37 +112,14 @@ function movement() {
       if (this.tier > this.tierCap) this.tier = this.tierCap;
       if (this.tier == 1 && body.getVelocityMagnitude() > walking) body.setVelocityMagnitude(walking);
       if (body.getVelocityMagnitude() > speedCap * this.tier) body.setVelocityMagnitude(speedCap * this.tier);
-      /*if (!InputManager.isPressed("shift") && body.getVelocityMagnitude() >= walking) body.setVelocityMagnitude(walking);
-      else {
-          if (body.getVelocityMagnitude() >= speedCap) body.setVelocityMagnitude(speedCap);
-      }*/
   }
-  
-  // Happens when colliding with a non-trigger RigidBody
+
   this.onCollision = function()
   {
-      /*if (body.getVelocityMagnitude() != 0) {
-          body.setVelocityMagnitude(0);
-          this.ramp = 0;
-          this.tier = 1;
-      }*/
       if(delay==0){
           this.tier--;
           this.ramp -= 90;
           delay = 60;
       }
-    //console.log("hit")
   }
 }
-
-//InputManager.isPressed("right");
-//InputManager.isPressed("up");
-//InputManager.isPressed("left");
-//InputManager.isPressed("down");
-//InputManager.isPressed("shift");
-
-//var body = this.parent.getComponent("body");
-//body.applyForce(angle, power);
-//body.applyImpulse(angle, power);
-//body.getVelocityMagnitude();
-//body.setVelocityMagnitude(newMagnitude);
